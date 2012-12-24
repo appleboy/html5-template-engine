@@ -1,0 +1,4 @@
+###
+CoffeeScript script.js
+###
+$ ->

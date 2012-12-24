@@ -1,0 +1,6 @@
+
+  /*
+  CoffeeScript script.js
+  */
+
+  $(function() {});
