@@ -15,6 +15,12 @@ CoffeeScript is a little language that compiles into JavaScript. http://coffeesc
 
     $ coffee -w -c -o assets/js assets/coffeescript
 
+Use Twitter Bootstrap
+-------------
+
+Twitter Bootstrap home: http://twitter.github.com/bootstrap/
+Twitter Bootstrap CDN: http://www.bootstrapcdn.com/
+
 Author
 ======================
 
