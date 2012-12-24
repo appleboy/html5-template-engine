@@ -1,0 +1,21 @@
+Html5 Template
+======================
+
+Use Compass CSS Framework
+-------------
+
+Compass is an open-source CSS Authoring Framework. http://compass-style.org/
+
+    $ compass watch assets
+
+Use CoffeeScript
+-------------
+
+CoffeeScript is a little language that compiles into JavaScript. http://coffeescript.org/
+
+    $ coffee -w -c -o assets/js assets/coffeescript
+
+Author
+======================
+
+Bo-Yi Wu (appleboy) <appleboy.tw@gmail.com>
