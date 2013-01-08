@@ -1,6 +1,11 @@
 Html5 Template
 ======================
 
+Install compass and CoffeeScript tool
+-------------
+
+    $ ./bin/build.sh
+
 Use Compass CSS Framework
 -------------
 
