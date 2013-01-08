@@ -22,5 +22,6 @@ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 . ~/.nvm/nvm.sh
 echo '=> install node.js 0.8.16'
 nvm install v0.8.16
+nvm use v0.8.16
 echo '=> install coffee-script tool'
 npm install -g coffee-script
