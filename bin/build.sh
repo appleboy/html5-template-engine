@@ -18,10 +18,11 @@ gem install guard-livereload
 ##
 
 echo '=> install nvm tool'
-curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
 . ~/.nvm/nvm.sh
-echo '=> install node.js 0.8.16'
-nvm install v0.8.16
-nvm use v0.8.16
+echo '=> install node.js stable version'
+nvm install stable
+echo '=> use node.js stable version'
+nvm use stable
 echo '=> install coffee-script tool'
 npm install -g coffee-script
