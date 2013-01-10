@@ -26,3 +26,5 @@ echo '=> use node.js stable version'
 nvm use stable
 echo '=> install coffee-script tool'
 npm install -g coffee-script
+echo '=> install transfer javascript to coffee script tool'
+npm install -g js2coffee
