@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-# install compass and livereload tool
+# install gem develop tool
 ##
 
 echo '=> install rubygems tool'
@@ -14,7 +14,7 @@ echo '=> install livereload tool'
 gem install guard-livereload
 
 ##
-# install coffee-script tool
+# install npm develop tool
 ##
 
 echo '=> install nvm tool'
@@ -32,3 +32,5 @@ echo '=> install template engine'
 npm install -g handlebars
 echo '=> install RequireJS in Node'
 npm install -g requirejs
+echo '=> install bower tool ref: http://twitter.github.com/bower/'
+npm install -g bower
