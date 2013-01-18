@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
 export PATH
 
 ##
