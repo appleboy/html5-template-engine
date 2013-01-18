@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin
+export PATH
+
 ##
 # install gem develop tool
 ##
@@ -22,13 +25,17 @@ gem install guard-livereload
 # install npm develop tool
 ##
 
-echo '=> install nvm tool'
-curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
-. ~/.nvm/nvm.sh
-echo '=> install node.js stable version'
-nvm install stable
-echo '=> use node.js stable version'
-nvm use stable
+which npm
+if [ $? -ne 0 ]; then
+    echo '=> install nvm tool'
+    curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
+    . ~/.nvm/nvm.sh # This loads NVM
+    echo '=> install node.js stable version'
+    nvm install stable
+    echo '=> use node.js stable version'
+    nvm use stable
+fi
+
 echo '=> install coffee-script tool'
 npm install -g coffee-script
 echo '=> install transfer javascript to coffee script tool'
