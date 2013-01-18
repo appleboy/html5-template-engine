@@ -4,8 +4,13 @@
 # install gem develop tool
 ##
 
-echo '=> install rubygems tool'
-aptitude -y install ruby rake rubygems
+which gem
+if [ $? -ne 0 ]; then
+    echo '=> Please install gem tool via aptitude command.'
+    echo '=> $ sudo aptitude -y install ruby rake rubygems'
+    exit
+fi
+
 echo '=> update rubygems tool'
 gem update --system
 echo '=> install compass and sass tool'
