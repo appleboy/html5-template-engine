@@ -1,0 +1,8 @@
+{
+    "name": "html5-template-engine",
+    "version": "1.0.0",
+    "dependencies": {
+        "jquery": null,
+        "modernizr": null
+    }
+}
