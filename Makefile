@@ -1,13 +1,13 @@
 .PHONY: output
 
 all:
-	r.js -o app.build.js
+	r.js -o bin/self.build.js
 
 output:
 	rm -rf output
 	r.js -o bin/app.build.js
 	cp -r output/assets/js/vendor/requirejs/require.js output/assets/js/
-	rm -rf output/.bowerrc output/app.build.js output/build.txt output/.gitignore
+	rm -rf output/.bowerrc output/build.txt output/.gitignore
 	rm -rf output/component.json output/Makefile output/README.mkd
 	rm -rf output/.git output/bin
 	rm -rf output/assets/coffeescript output/assets/sass
