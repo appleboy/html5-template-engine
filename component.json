@@ -2,6 +2,7 @@
     "name": "html5-template-engine",
     "version": "1.0.0",
     "dependencies": {
+        "requirejs": null,
         "jquery": null,
         "modernizr": null
     }
