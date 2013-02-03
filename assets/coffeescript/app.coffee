@@ -1,4 +1,4 @@
-    # Filename: app.js
+# Filename: app.js
 define [
     "jquery",
     "vendor/modernizr/modernizr"], ($) ->
