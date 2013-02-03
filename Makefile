@@ -14,3 +14,7 @@ output: all
 	rm -rf output/assets/js/app.js output/assets/js/main.js output/assets/js/vendor
 	sed -i 's/js\/main/js\/main-built/g' output/index.html
 	sed -i 's/vendor\/requirejs\///g' output/index.html
+
+clean:
+	rm -rf output
+	rm -rf assets/js/main-built.js
