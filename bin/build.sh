@@ -15,11 +15,11 @@ if [ $? -ne 0 ]; then
 fi
 
 echo '=> update rubygems tool'
-gem update --system
+sudo gem update --system
 echo '=> install compass and sass tool'
-gem install sass compass
+sudo gem install sass compass
 echo '=> install livereload tool'
-gem install guard-livereload
+sudo gem install guard-livereload
 
 ##
 # install npm develop tool
@@ -38,10 +38,6 @@ fi
 
 echo '=> install coffee-script tool'
 npm install -g coffee-script
-echo '=> install transfer javascript to coffee script tool'
-npm install -g js2coffee
-echo '=> install template engine'
-npm install -g handlebars
 echo '=> install RequireJS in Node'
 npm install -g requirejs
 echo '=> install bower tool ref: http://twitter.github.com/bower/'
