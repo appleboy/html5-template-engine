@@ -47,21 +47,21 @@ CoffeeScript is a little language that compiles into JavaScript. http://coffeesc
 Minify Javascript using RequireJS
 -------------
 
-Using Makefile
+Using Makefile.
 
     $ make
 
-or command line
+or command line.
 
     $ r.js -o bin/self.build.js
 
-modified index.html , find the following text.
+modified index.html and find the following text.
 
 ```
 <script data-main="assets/js/main" src="assets/js/vendor/requirejs/require.js"></script>
 ```
 
-replace with:
+Replace with:
 
 ```
 <script data-main="assets/js/main-built" src="assets/js/vendor/requirejs/require.js"></script>
@@ -70,11 +70,11 @@ replace with:
 Deploy Your Project
 ======================
 
-Using Makefile
+Using Makefile.
 
     $ make output
 
-Copy ``output`` folder to your root document paht:
+Copy ``output`` folder to your root document path.
 
     $ cp -r output /var/www/html5
 
@@ -87,6 +87,4 @@ http://your_host_name/html5/
 Author
 ======================
 
-Bo-Yi Wu
-twitter: @appleboy
-<appleboy.tw AT gmail.com>
+Bo-Yi Wu, Twitter: [@appleboy](http://twitter.com/appleboy "Twitter"), Blog: http://blog.wu-boy.com
