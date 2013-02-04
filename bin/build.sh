@@ -14,12 +14,13 @@ if [ $? -ne 0 ]; then
     exit
 fi
 
-echo '=> update rubygems tool'
-sudo gem update --system
-echo '=> install compass and sass tool'
-sudo gem install sass compass
-echo '=> install livereload tool'
-sudo gem install guard-livereload
+which compass
+if [ $? -ne 0 ]; then
+    echo '=> update rubygems tool'
+    sudo gem update --system
+    echo '=> install compass and sass tool'
+    sudo gem install sass compass
+fi
 
 ##
 # install npm develop tool
