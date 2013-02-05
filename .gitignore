@@ -2,3 +2,4 @@ assets/.sass-cache
 assets/vendor/*
 assets/js/main-built.js
 output/
+node_modules/
