@@ -9,6 +9,13 @@ app = express();
 
 app.use(express["static"](__dirname + '/..'));
 
+app.use(express.favicon("./favicon.ico"));
+
+app.use(function(req, res, next) {
+  console.log('%s %s', req.method, req.url);
+  return next();
+});
+
 app.get("*", function(req, res) {
   return fs.createReadStream("./index.html").pipe(res);
 });

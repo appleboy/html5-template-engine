@@ -17,9 +17,10 @@ Download source code.
 
     $ git clone https://github.com/appleboy/html5-template-engine.git
 
-Install vendor library.
+Install vendor library and npm express library.
 
     $ bower installl
+    $ npm install
 
 Run local server (use root permission)
 
