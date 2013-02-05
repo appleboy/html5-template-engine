@@ -21,10 +21,14 @@ Install vendor library.
 
     $ bower installl
 
+Run local server (use root permission)
+
+    $ node build/server.js
+
 open the following URL on browser.
 
 ```
-http://your_host_name/html5-template-engine/
+http://your_host_name:3000/
 ```
 
 Develop Your Html5 Template
