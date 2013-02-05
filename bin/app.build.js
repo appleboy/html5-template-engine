@@ -6,6 +6,6 @@
     mainConfigFile: "../assets/js/main.js",
     preserveLicenseComments: false,
     paths: {
-        jquery: "vendor/jquery/jquery"
+        jquery: "../vendor/jquery/jquery"
     }
 })
