@@ -43,3 +43,5 @@ echo '=> install RequireJS in Node'
 npm install -g requirejs
 echo '=> install bower tool ref: http://twitter.github.com/bower/'
 npm install -g bower
+echo '=> install express server ref: http://expressjs.com'
+npm install -g express
