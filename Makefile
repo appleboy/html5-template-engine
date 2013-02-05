@@ -18,6 +18,12 @@ output: all
 	rm -rf output/assets/js/app.js output/assets/js/main.js output/assets/vendor
 	sed -i 's/js\/main/js\/$(filetime)/g' output/index.html
 	sed -i 's/vendor\/requirejs\//js\//g' output/index.html
+	@echo
+	@echo "======================================================="
+	@echo "=> Install compeletely."
+	@echo "=> Please copy output folder to your web root path."
+	@echo "======================================================="
+	@echo
 
 clean:
 	rm -rf output
