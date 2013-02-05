@@ -4,6 +4,7 @@
     "dependencies": {
         "requirejs": null,
         "jquery": null,
-        "modernizr": null
+        "modernizr": null,
+        "normalize-scss": null
     }
 }

@@ -2,7 +2,7 @@
 
 require.config({
   paths: {
-    jquery: "vendor/jquery/jquery"
+    jquery: "../vendor/jquery/jquery"
   }
 });
 
