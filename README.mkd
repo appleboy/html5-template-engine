@@ -8,7 +8,7 @@ Install develop tool
 
 or
 
-    $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | sh
+    $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | bash
 
 Setup Environment
 -------------
