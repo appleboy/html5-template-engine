@@ -11,9 +11,10 @@ output: all
 	rm -rf output
 	r.js -o build/app.build.js
 	rm -rf output/assets/js/*
+	cp -r .htaccess output/
 	cp -r output/assets/vendor/requirejs/require.js output/assets/js/
 	cp -r assets/js/main-built.js output/assets/js/$(filetime).js
-	rm -rf output/.bowerrc output/build.txt output/.gitignore output/.git
+	rm -rf output/package.json output/build.txt
 	rm -rf output/component.json output/Makefile output/README.mkd output/build
 	rm -rf output/assets/coffeescript output/assets/sass output/assets/config.rb
 	rm -rf output/assets/vendor
