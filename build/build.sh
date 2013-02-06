@@ -45,3 +45,7 @@ echo '=> install bower tool ref: http://twitter.github.com/bower/'
 npm install -g bower
 echo '=> install express server ref: http://expressjs.com'
 npm install -g express
+echo '=> install UglifyJS 2'
+npm install -g uglify-js
+echo '=> install UglifyJS 1'
+npm install -g uglify-js@1
