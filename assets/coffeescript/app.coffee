@@ -1,6 +1,7 @@
 # Filename: app.js
 define [
     "jquery",
+    "libs/console",
     "../vendor/modernizr/modernizr"], ($) ->
     initialize = ->
         console.info 'Welcome to Html5 Template Engine'
