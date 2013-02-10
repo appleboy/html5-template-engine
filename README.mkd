@@ -5,7 +5,6 @@ Features
 -------------
 
 * The latest [html5boilerplate.com](http://html5boilerplate.com/) source code.
-* Cross-browser compatible (Chrome, Opera, Safari, Firefox 3.6+, IE6+).
 * Includes [Normalize.css](http://necolas.github.com/normalize.css/).
 * The latest [jQuery](http://jquery.com/) via CDN, with a local fallback.
 * The latest [Modernizr](http://modernizr.com/) build for feature detection.
