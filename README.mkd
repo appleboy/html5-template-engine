@@ -5,7 +5,7 @@ Features
 -------------
 
 * The latest [html5boilerplate.com](http://html5boilerplate.com/) source code.
-* Includes [Normalize.css](http://necolas.github.com/normalize.css/).
+* Includes [Normalize.scss](https://github.com/appleboy/normalize.scss) v2.1.x and v1.1.x.
 * The latest [jQuery](http://jquery.com/) via CDN, with a local fallback.
 * The latest [Modernizr](http://modernizr.com/) build for feature detection.
 * Support [CoffeeScript](http://coffeescript.org/), [RequireJS](http://requirejs.org/), [Compass](http://compass-style.org/).
