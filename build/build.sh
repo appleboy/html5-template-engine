@@ -7,14 +7,14 @@ export PATH
 # install gem develop tool
 ##
 
-which gem
+which gem 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo '=> Please install gem tool via aptitude command.'
     echo '=> $ sudo aptitude -y install ruby rake rubygems'
     exit
 fi
 
-which compass
+which compass 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo '=> update rubygems tool'
     sudo gem update --system
@@ -45,7 +45,7 @@ echo '=> install bower tool ref: http://twitter.github.com/bower/'
 npm install -g bower
 echo '=> install express server ref: http://expressjs.com'
 npm install -g express
-echo '=> install UglifyJS 2'
+echo '=> install UglifyJS 2 node-based js compressor.'
 npm install -g uglify-js
-echo '=> install UglifyJS 1'
-npm install -g uglify-js@1
+echo '=> install sqwish node-based CSS compressor.'
+npm install -g sqwish
