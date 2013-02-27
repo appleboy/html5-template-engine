@@ -20,6 +20,7 @@ output: all
 	rm -rf output/assets/vendor
 	sed -i 's/js\/main/js\/$(filetime)/g' output/index.html
 	sed -i 's/vendor\/requirejs\//js\//g' output/index.html
+	-java -jar build/htmlcompressor-1.5.3.jar --compress-js -o output/index.html output/index.html
 	@echo
 	@echo "======================================================="
 	@echo "=> Install compeletely."
