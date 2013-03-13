@@ -38,14 +38,14 @@ if [ $? -ne 0 ]; then
 fi
 
 echo '=> install coffee-script tool'
-npm install -g coffee-script
+which coffee 1> /dev/null 2>&1 || npm install -g coffee-script
 echo '=> install RequireJS in Node'
-npm install -g requirejs
+which r.js 1> /dev/null 2>&1 || npm install -g requirejs
 echo '=> install bower tool ref: http://twitter.github.com/bower/'
-npm install -g bower
+which bower 1> /dev/null 2>&1 || npm install -g bower
 echo '=> install express server ref: http://expressjs.com'
-npm install -g express
+which express 1> /dev/null 2>&1 || npm install -g express
 echo '=> install UglifyJS 2 node-based js compressor.'
-npm install -g uglify-js
+which uglifyjs 1> /dev/null 2>&1 || npm install -g uglify-js
 echo '=> install sqwish node-based CSS compressor.'
-npm install -g sqwish
+which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
