@@ -33,3 +33,7 @@ clean:
 	rm -rf assets/js/main-built.js
 	rm -rf assets/js/main-built.js.map
 	rm -rf assets/js/main-built.js.src
+	rm -rf assets/vendor/
+	rm -rf .sass-cache
+	rm -rf assets/.sass-cache
+	rm -rf node_modules/
