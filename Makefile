@@ -1,11 +1,17 @@
-.PHONY: output
+.PHONY: output init
 
 #
 # Using time as file name
 filetime:=$(shell date '+%s%N')
 
-all:
+all: init
 	r.js -o build/self.build.js
+
+init:
+	@which bower > /dev/null 2>&1 ; if [ $$? -ne 0 ] ; then ./build/build.sh ; fi
+	@test -d "assets/vendor" || bower install
+	@echo "Install bower package compeletely."
+	@npm install
 
 output: all
 	rm -rf output
