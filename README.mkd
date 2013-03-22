@@ -27,7 +27,7 @@ Download source code.
 
     $ git clone https://github.com/appleboy/html5-template-engine.git
 
-Install vendor library and npm express library.
+Install vendor library and npm library.
 
     $ bower installl
     $ npm install
@@ -87,7 +87,7 @@ Deploy Your Project
 
 Using Makefile.
 
-    $ make output
+    $ make release
 
 Copy ``output`` folder to your root document path.
 
