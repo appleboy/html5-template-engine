@@ -22,7 +22,7 @@ module.exports = function(grunt) {
           stderr: true
         }
       },
-      output: {
+      release: {
         command: 'node node_modules/requirejs/bin/r.js -o build/app.build.js',
         options: {
           stdout: true,
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       },
       scss: {
         files: ['**/*.scss'],
-        tasks: ['compass'],
+        tasks: ['compass:dev'],
         events: true
       },
       css: {
@@ -66,16 +66,24 @@ module.exports = function(grunt) {
       }
     },
     compass: {
-      dist: {
+      dev: {
         options: {
-          config: 'assets/config.rb',
-          sassDir: 'assets/sass',
-          cssDir: 'assets/css'
+          basePath: 'assets',
+          config: 'assets/config.rb'
+        }
+      },
+      release: {
+        options: {
+          force: true,
+          basePath: 'output/assets',
+          config: 'output/assets/config.rb',
+          outputStyle: 'compressed',
+          environment: 'production'
         }
       }
     },
     coffee: {
-      app: {
+      dev: {
         expand: true,
         cwd: 'assets/coffeescript/',
         src: ['**/*.coffee'],
@@ -99,8 +107,8 @@ module.exports = function(grunt) {
         force: true
       },
       js: 'output/assets/js',
-      release: ['output/package.json', 'output/build.txt', 'output/component.json', 'output/Makefile', 'output/README.mkd', 'output/build', 'output/assets/coffeescript', 'output/assets/sass', 'output/assets/config.rb', 'output/assets/vendor', 'output/assets/templates', 'output/Gruntfile*'],
-      cleanup: ['output', 'assets/vendor', 'assets/templates/template.js', 'assets/js/main-built.js', 'assets/js/main-built.js.map', 'assets/js/main-built.js.src', 'node_modules', '.sass-cache', 'assets/.sass-cache']
+      release: ['output/package.json', 'output/build.txt', 'output/component.json', 'output/Makefile', 'output/README.mkd', 'output/build', 'output/assets/coffeescript', 'output/assets/sass', 'output/assets/config.rb', 'output/assets/vendor', 'output/Gruntfile*', 'output/assets/.sass-cache', 'output/.sass-cache'],
+      cleanup: ['output', 'assets/vendor', 'assets/js/main-built.js', 'assets/js/main-built.js.map', 'assets/js/main-built.js.src', 'node_modules', '.sass-cache', 'assets/.sass-cache']
     },
     copy: {
       release: {
@@ -144,10 +152,10 @@ module.exports = function(grunt) {
     grunt.log.writeln('Initial project');
     return (grunt.file.exists('assets/vendor')) || grunt.task.run('shell:bower');
   });
-  grunt.registerTask('publish', function() {
+  grunt.registerTask('release', function() {
     grunt.log.writeln('deploy project');
     (grunt.file.exists('assets/vendor')) || grunt.task.run('shell:bower');
-    grunt.task.run(['shell:template', 'shell:build', 'shell:output', 'clean:js']);
+    grunt.task.run(['shell:build', 'shell:release', 'compass:release', 'clean:js']);
     grunt.file.mkdir('output/assets/js');
     grunt.task.run('copy:release');
     grunt.task.run('replace:release');

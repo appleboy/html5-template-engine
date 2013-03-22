@@ -17,7 +17,7 @@ module.exports = (grunt) ->
                 options:
                     stdout: true
                     stderr: true
-            output:
+            release:
                 command: 'node node_modules/requirejs/bin/r.js -o build/app.build.js'
                 options:
                     stdout: true
@@ -34,7 +34,7 @@ module.exports = (grunt) ->
                 events: true
             scss:
                 files: ['**/*.scss'],
-                tasks: ['compass']
+                tasks: ['compass:dev']
                 events: true
             css:
                 files: ['**/*.css'],
@@ -49,13 +49,19 @@ module.exports = (grunt) ->
                 tasks: ['coffee']
                 events: true
         compass:
-            dist:
+            dev:
                 options:
+                    basePath: 'assets'
                     config: 'assets/config.rb'
-                    sassDir: 'assets/sass'
-                    cssDir : 'assets/css'
+            release:
+                options:
+                    force: true
+                    basePath: 'output/assets'
+                    config: 'output/assets/config.rb'
+                    outputStyle: 'compressed'
+                    environment: 'production'
         coffee:
-            app:
+            dev:
                 expand: true,
                 cwd: 'assets/coffeescript/',
                 src: ['**/*.coffee'],
@@ -83,13 +89,13 @@ module.exports = (grunt) ->
                 'output/assets/sass'
                 'output/assets/config.rb'
                 'output/assets/vendor'
-                'output/assets/templates'
                 'output/Gruntfile*'
+                'output/assets/.sass-cache'
+                'output/.sass-cache'
             ]
             cleanup: [
                 'output'
                 'assets/vendor'
-                'assets/templates/template.js'
                 'assets/js/main-built.js'
                 'assets/js/main-built.js.map'
                 'assets/js/main-built.js.src'
@@ -129,10 +135,10 @@ module.exports = (grunt) ->
         grunt.log.writeln 'Initial project'
         (grunt.file.exists 'assets/vendor') || grunt.task.run 'shell:bower'
 
-    grunt.registerTask 'publish', () ->
+    grunt.registerTask 'release', () ->
         grunt.log.writeln 'deploy project'
         (grunt.file.exists 'assets/vendor') || grunt.task.run 'shell:bower'
-        grunt.task.run ['shell:template', 'shell:build', 'shell:output', 'clean:js']
+        grunt.task.run ['shell:build', 'shell:release', 'compass:release', 'clean:js']
         grunt.file.mkdir 'output/assets/js'
         grunt.task.run 'copy:release'
         grunt.task.run 'replace:release'
