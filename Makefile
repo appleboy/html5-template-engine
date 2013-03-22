@@ -1,4 +1,4 @@
-.PHONY: output init
+.PHONY: release init build css
 
 #
 # Using time as file name
@@ -13,9 +13,17 @@ init:
 	@echo "Install bower package compeletely."
 	@npm install
 
-output: all
+build:
 	rm -rf output
 	r.js -o build/app.build.js
+
+css:
+	for file in $(shell find output/assets/css/ -type f -name '*.css'); \
+	do \
+		sqwish $$file -o $$file; \
+	done
+
+release: all build css
 	rm -rf output/assets/js/*
 	cp -r .htaccess output/
 	cp -r output/assets/vendor/requirejs/require.js output/assets/js/
