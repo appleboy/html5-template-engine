@@ -23,7 +23,7 @@ output: all
 	rm -rf output/package.json output/build.txt
 	rm -rf output/component.json output/Makefile output/README.mkd output/build
 	rm -rf output/assets/coffeescript output/assets/sass output/assets/config.rb
-	rm -rf output/assets/vendor
+	rm -rf output/assets/vendor output/Gruntfile.*
 	sed -i 's/js\/main/js\/$(filetime)/g' output/index.html
 	sed -i 's/vendor\/requirejs\//js\//g' output/index.html
 	-java -jar build/htmlcompressor-1.5.3.jar --compress-js -o output/index.html output/index.html
