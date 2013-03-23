@@ -25,7 +25,7 @@ module.exports = (grunt) ->
         connect:
             livereload:
                 options:
-                    port: 9001
+                    port: 3000
                     base: '.'
         regarde:
             html:

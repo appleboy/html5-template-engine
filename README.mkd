@@ -10,6 +10,7 @@ Features
 * The latest [Modernizr](http://modernizr.com/) build for feature detection.
 * Support [CoffeeScript](http://coffeescript.org/), [RequireJS](http://requirejs.org/), [Compass](http://compass-style.org/), html minification (via [htmlcompressor](http://code.google.com/p/htmlcompressor/)).
 * A lightweight web server listen to 3000 port (Using [Node Express Framework](http://expressjs.com/)).
+* Support JavaScript Task Runner [GruntJS](http://gruntjs.com/)
 
 Install develop tool
 -------------
@@ -30,7 +31,6 @@ Download source code.
 Install vendor library and npm library.
 
     $ bower installl
-    $ npm install
 
 Run local server (use root permission)
 
@@ -70,7 +70,7 @@ or command line.
 
     $ r.js -o build/self.build.js
 
-modified index.html and find the following text.
+Testing minified javascript file. Please modify index.html and find the following text.
 
 ```
 <script data-main="assets/js/main" src="assets/js/vendor/requirejs/require.js"></script>

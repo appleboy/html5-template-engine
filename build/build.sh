@@ -49,3 +49,6 @@ echo '=> install UglifyJS 2 node-based js compressor.'
 which uglifyjs 1> /dev/null 2>&1 || npm install -g uglify-js
 echo '=> install sqwish node-based CSS compressor.'
 which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
+
+# install require npm dependence tool for grunt.js.
+npm install
