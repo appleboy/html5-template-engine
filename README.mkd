@@ -30,19 +30,9 @@ Download source code.
 
 Install vendor library and npm library.
 
-    $ bower installl
+    $ npm install && bower installl
 
-Run local server (use root permission)
-
-    $ node build/server.js
-
-open the following URL on browser.
-
-```
-http://your_host_name:3000/
-```
-
-Develop Your Html5 Template
+Develop a project manually
 ======================
 
 Use Compass CSS Framework
@@ -82,12 +72,60 @@ Replace with:
 <script data-main="assets/js/main-built" src="assets/js/vendor/requirejs/require.js"></script>
 ```
 
+Run local server (use root permission)
+
+    $ node build/server.js
+
+open the following URL on browser.
+
+```
+http://your_host_name:3000/
+```
+
+Develop a project automatically
+======================
+
+Before using [GruntJS](http://gruntjs.com/) tool, please make sure excute the following command.
+
+    $ npm install
+
+Using [GruntJS](http://gruntjs.com/) tool to setup develop environment.
+
+    $ ./node_modules/.bin/grunt
+
+You will get the following messages.
+
+```
+Running "init" task
+Initial project
+
+Running "livereload-start" task
+... Starting Livereload server on 35729 ...
+
+Running "connect:livereload" (connect) task
+Starting connect web server on localhost:3000.
+
+Running "regarde" task
+Watching */*.html,**/.htm
+Watching **/*.scss
+Watching **/*.css
+Watching **/*.js
+Watching **/*.coffee
+```
+You can install [livereload](http://livereload.com/) plugin depend browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+
 Deploy Your Project
 ======================
 
-Using Makefile.
+Using Makefile
+-------------
 
     $ make release
+
+Using GruntJS
+-------------
+
+    $ ./node_modules/.bin/grunt release
 
 Copy ``output`` folder to your root document path.
 
@@ -98,6 +136,19 @@ open the following URL on browser.
 ```
 http://your_host_name/html5/
 ```
+
+Clean Your Project
+======================
+
+Using Makefile
+-------------
+
+    $ make clean
+
+Using GruntJS
+-------------
+
+    $ ./node_modules/.bin/grunt clean:cleanup
 
 Author
 ======================

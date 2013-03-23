@@ -52,3 +52,5 @@ which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
 
 # install require npm dependence tool for grunt.js.
 npm install
+# install require bower dependence package.
+bower installl
