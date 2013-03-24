@@ -1,4 +1,4 @@
-define(["jquery", "libs/console", "../vendor/modernizr/modernizr"], function($) {
+define(['jquery', 'libs/console', '../vendor/modernizr/modernizr'], function($) {
   var initialize;
 
   initialize = function() {
