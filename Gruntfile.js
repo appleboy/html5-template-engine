@@ -140,6 +140,17 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+    htmlmin: {
+      options: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      release: {
+        files: {
+          'output/index.html': 'index.html'
+        }
+      }
     }
   });
   grunt.event.on('watch', function(action, filepath) {
@@ -158,6 +169,7 @@ module.exports = function(grunt) {
     grunt.task.run(['shell:build', 'shell:release', 'compass:release', 'clean:js']);
     grunt.file.mkdir('output/assets/js');
     grunt.task.run('copy:release');
+    grunt.task.run('htmlmin');
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
@@ -170,5 +182,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   return grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
 };

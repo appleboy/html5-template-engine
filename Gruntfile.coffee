@@ -124,6 +124,13 @@ module.exports = (grunt) ->
                         to: 'js/'
                     }
                 ]
+        htmlmin:
+            options:
+                removeComments: true
+                collapseWhitespace: true
+            release:
+                files:
+                    'output/index.html': 'index.html'
 
     grunt.event.on 'watch', (action, filepath) ->
         grunt.log.writeln filepath + ' has ' + action
@@ -141,6 +148,7 @@ module.exports = (grunt) ->
         grunt.task.run ['shell:build', 'shell:release', 'compass:release', 'clean:js']
         grunt.file.mkdir 'output/assets/js'
         grunt.task.run 'copy:release'
+        grunt.task.run 'htmlmin'
         grunt.task.run 'replace:release'
         grunt.task.run 'clean:release'
 
@@ -154,5 +162,6 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-copy'
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-text-replace'
+    grunt.loadNpmTasks 'grunt-contrib-htmlmin'
 
     grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
