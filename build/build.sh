@@ -50,7 +50,7 @@ which uglifyjs 1> /dev/null 2>&1 || npm install -g uglify-js
 echo '=> install sqwish node-based CSS compressor.'
 which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
 
-# install require npm dependence tool for grunt.js.
+# install npm dependency packages for grunt.js.
 npm install
-# install require bower dependence package.
+# install require bower dependency package.
 bower installl
