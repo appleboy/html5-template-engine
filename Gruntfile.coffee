@@ -128,6 +128,9 @@ module.exports = (grunt) ->
             options:
                 removeComments: true
                 collapseWhitespace: true
+            dev:
+                files:
+                    'index.html': 'index.html'
             release:
                 files:
                     'output/index.html': 'index.html'
@@ -148,7 +151,7 @@ module.exports = (grunt) ->
         grunt.task.run ['shell:build', 'shell:release', 'compass:release', 'clean:js']
         grunt.file.mkdir 'output/assets/js'
         grunt.task.run 'copy:release'
-        grunt.task.run 'htmlmin'
+        grunt.task.run 'htmlmin:release'
         grunt.task.run 'replace:release'
         grunt.task.run 'clean:release'
 
