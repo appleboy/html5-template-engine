@@ -1,6 +1,9 @@
 .PHONY: release init build css
 
-#
+# setup path
+app_path:=$(shell echo "app")
+output_path:=$(shell echo "output")
+
 # Using time as file name
 filetime:=$(shell date '+%s%N')
 
@@ -9,7 +12,7 @@ all: init
 
 init:
 	@which bower > /dev/null 2>&1 ; if [ $$? -ne 0 ] ; then ./build/build.sh ; fi
-	@test -d "assets/vendor" || bower install
+	@test -d "$(app_path)/assets/vendor" || bower install
 	@echo "Install bower package compeletely."
 	@npm install
 
@@ -18,23 +21,23 @@ build:
 	r.js -o build/app.build.js
 
 css:
-	for file in $(shell find output/assets/css/ -type f -name '*.css'); \
+	for file in `find $(output_path)/assets/css/ -type f -name '*.css'`; \
 	do \
 		sqwish $$file -o $$file; \
 	done
 
 release: all build css
-	rm -rf output/assets/js/*
-	cp -r .htaccess output/
-	cp -r output/assets/vendor/requirejs/require.js output/assets/js/
-	cp -r assets/js/main-built.js output/assets/js/$(filetime).js
-	rm -rf output/package.json output/build.txt
-	rm -rf output/component.json output/Makefile output/README.mkd output/build
-	rm -rf output/assets/coffeescript output/assets/sass output/assets/config.rb
-	rm -rf output/assets/vendor output/Gruntfile.*
-	sed -i 's/js\/main/js\/$(filetime)/g' output/index.html
-	sed -i 's/vendor\/requirejs\//js\//g' output/index.html
-	-java -jar build/htmlcompressor-1.5.3.jar --compress-js -o output/index.html output/index.html
+	rm -rf $(output_path)/assets/js/*
+	cp -r $(app_path)/.htaccess $(output_path)/
+	cp -r $(output_path)/assets/vendor/requirejs/require.js $(output_path)/assets/js/
+	cp -r $(app_path)/assets/js/main-built.js $(output_path)/assets/js/$(filetime).js
+	rm -rf $(output_path)/build.txt
+	rm -rf $(output_path)/assets/coffeescript $(output_path)/assets/sass $(output_path)/assets/config.rb
+	rm -rf $(output_path)/assets/vendor
+	sed -i 's/js\/main/js\/$(filetime)/g' $(output_path)/index.html
+	sed -i 's/vendor\/requirejs\//js\//g' $(output_path)/index.html
+#-java -jar build/htmlcompressor-1.5.3.jar --compress-js -o $(output_path)/index.html $(output_path)/index.html
+	@which pyminify > /dev/null 2>&1 && pyminify $(app_path)/index.html > $(output_path)/index.html
 	@echo
 	@echo "======================================================="
 	@echo "=> Install compeletely."
@@ -43,11 +46,11 @@ release: all build css
 	@echo
 
 clean:
-	rm -rf output
-	rm -rf assets/js/main-built.js
-	rm -rf assets/js/main-built.js.map
-	rm -rf assets/js/main-built.js.src
-	rm -rf assets/vendor/
+	rm -rf $(output_path)
+	rm -rf $(app_path)/assets/js/main-built.js
+	rm -rf $(app_path)/assets/js/main-built.js.map
+	rm -rf $(app_path)/assets/js/main-built.js.src
+	rm -rf $(app_path)/assets/vendor/
 	rm -rf .sass-cache
-	rm -rf assets/.sass-cache
+	rm -rf $(app_path)/assets/.sass-cache
 	rm -rf node_modules/

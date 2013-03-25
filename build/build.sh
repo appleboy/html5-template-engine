@@ -49,6 +49,8 @@ echo '=> install UglifyJS 2 node-based js compressor.'
 which uglifyjs 1> /dev/null 2>&1 || npm install -g uglify-js
 echo '=> install sqwish node-based CSS compressor.'
 which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
+echo '=> install django-html in an HTML minifier'
+which pyminify 1> /dev/null 2>&1 || pip install django-htmlmin
 
 # install npm dependency packages for grunt.js.
 npm install
