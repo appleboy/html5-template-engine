@@ -50,7 +50,7 @@ module.exports = (grunt) ->
                 tasks: ['livereload']
                 events: true
             coffee:
-                files: '<%= pkg.app %>/**/*.coffee',
+                files: '**/*.coffee',
                 tasks: ['coffee']
                 events: true
         compass:
@@ -105,7 +105,7 @@ module.exports = (grunt) ->
         copy:
             release:
                 files: [
-                    {src: '.htaccess', dest: '<%= pkg.output %>/'}
+                    {src: '<%= pkg.app %>/.htaccess', dest: '<%= pkg.output %>/.htaccess'}
                     {src: '<%= pkg.output %>/assets/vendor/requirejs/require.js', dest: '<%= pkg.output %>/assets/js/require.js'}
                     {src: '<%= pkg.app %>/assets/js/main-built.js', dest: '<%= pkg.output %>/assets/js/' + filetime + '.js'}
                 ]
