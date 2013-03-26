@@ -5,8 +5,14 @@ export PATH
 
 RED="\033[31m"
 GREEN="\033[32m"
-YELLOW="\033[32m"
+YELLOW="\033[33m"
 RESET="\033[0m"
+
+display () {
+    COLOR=$2
+    [ -z $2 ] && COLOR=${YELLOW}
+    echo -e "${COLOR}=> $1 ${RESET}"
+}
 
 ##
 # install gem develop tool
@@ -14,16 +20,16 @@ RESET="\033[0m"
 
 which gem 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    echo -e "${YELLOW}=> Please install gem tool via aptitude command.${RESET}"
-    echo -e "${YELLOW}=> $ sudo aptitude -y install ruby rake rubygems${RESET}"
+    display "Please install gem tool via aptitude command."
+    display "$ sudo aptitude -y install ruby rake rubygems"
     exit
 fi
 
 which compass 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    echo -e "${YELLOW}=> update rubygems tool.${RESET}"
+    display "update rubygems tool."
     sudo gem update --system
-    echo -e "${YELLOW}=> install compass and sass tool.${RESET}"
+    display "install compass and sass tool."
     sudo gem install sass compass
 fi
 
@@ -33,28 +39,28 @@ fi
 
 which npm 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    echo -e "${YELLOW}=> install nvm tool.${RESET}"
+    display "install nvm tool."
     curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
     . ~/.nvm/nvm.sh # This loads NVM
-    echo -e "${YELLOW}=> install node.js stable version.${RESET}"
+    display "install node.js stable version."
     nvm install stable
-    echo -e "${YELLOW}=> use node.js stable version.${RESET}"
+    display "use node.js stable version."
     nvm use stable
 fi
 
-echo -e "${YELLOW}=> install coffee-script tool${RESET}"
+display "install coffee-script tool"
 which coffee 1> /dev/null 2>&1 || npm install -g coffee-script
-echo -e "${YELLOW}=> install RequireJS in Node${RESET}"
+display "install RequireJS in Node"
 which r.js 1> /dev/null 2>&1 || npm install -g requirejs
-echo -e "${YELLOW}=> install bower tool ref: http://twitter.github.com/bower/${RESET}"
+display "install bower tool ref: http://twitter.github.com/bower/"
 which bower 1> /dev/null 2>&1 || npm install -g bower
-echo -e "${YELLOW}=> install express server ref: http://expressjs.com${RESET}"
+display "install express server ref: http://expressjs.com"
 which express 1> /dev/null 2>&1 || npm install -g express
-echo -e "${YELLOW}=> install UglifyJS 2 node-based js compressor.${RESET}"
+display "install UglifyJS 2 node-based js compressor."
 which uglifyjs 1> /dev/null 2>&1 || npm install -g uglify-js
-echo -e "${YELLOW}=> install sqwish node-based CSS compressor.${RESET}"
+display "install sqwish node-based CSS compressor."
 which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
-echo -e "${YELLOW}=> install django-html in an HTML minifier.${RESET}"
+display "install django-html in an HTML minifier."
 which pyminify 1> /dev/null 2>&1 || sudo pip install django-htmlmin
 
 # install npm dependency packages for grunt.js.
