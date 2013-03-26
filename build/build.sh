@@ -62,6 +62,8 @@ display "install sqwish node-based CSS compressor."
 which sqwish 1> /dev/null 2>&1 || npm install -g sqwish
 display "install django-html in an HTML minifier."
 which pyminify 1> /dev/null 2>&1 || sudo pip install django-htmlmin
+display 'install grunt tool.'
+which grunt 1> /dev/null 2>&1 || npm install -g grunt-cli
 
 # install npm dependency packages for grunt.js.
 npm install
