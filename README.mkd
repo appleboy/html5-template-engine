@@ -112,9 +112,9 @@ Watching **/*.css
 Watching **/*.js
 Watching **/*.coffee
 ```
-You can install [livereload](http://livereload.com/) plugin depend browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
-Deploy Your Project
+Deploy Web App
 ======================
 
 Using Makefile
@@ -148,7 +148,7 @@ Using Makefile
 Using GruntJS
 -------------
 
-    $ ./node_modules/.bin/grunt clean:cleanup
+    $ ./node_modules/.bin/grunt clean
 
 Author
 ======================
