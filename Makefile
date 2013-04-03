@@ -1,8 +1,8 @@
 .PHONY: release init build css
 
 # setup path
-app_path:=$(shell echo "app")
-output_path:=$(shell echo "output")
+app_path ?= $(shell echo "app")
+output_path ?= $(shell echo "output")
 
 # Using time as file name
 filetime:=$(shell date '+%s%N')
@@ -17,8 +17,8 @@ init:
 	@npm install
 
 build:
-	rm -rf output
-	r.js -o build/app.build.js
+	rm -rf $(output_path)
+	r.js -o build/app.build.js dir=$(output_path)
 
 css:
 	for file in `find $(output_path)/assets/css/ -type f -name '*.css'`; \

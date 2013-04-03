@@ -122,6 +122,10 @@ Using Makefile
 
     $ make release
 
+or defined your build output path. (default: output)
+
+    $ make -m output_path=output2 release
+
 Using GruntJS
 -------------
 
