@@ -32,7 +32,7 @@ release: all build css
 	cp -r $(output_path)/assets/vendor/requirejs/require.js $(output_path)/assets/js/
 	cp -r $(app_path)/assets/js/main-built.js $(output_path)/assets/js/$(filetime).js
 	rm -rf $(output_path)/build.txt
-	rm -rf $(output_path)/assets/coffeescript $(output_path)/assets/sass $(output_path)/assets/config.rb
+	rm -rf $(output_path)/assets/coffeescript $(output_path)/assets/sass
 	rm -rf $(output_path)/assets/vendor
 	sed -i 's/js\/main/js\/$(filetime)/g' $(output_path)/index.html
 	sed -i 's/vendor\/requirejs\//js\//g' $(output_path)/index.html
