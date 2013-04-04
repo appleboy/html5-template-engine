@@ -100,7 +100,7 @@ module.exports = function(grunt) {
           outputStyle: 'compressed',
           relativeAssets: true,
           noLineComments: true,
-          environment: 'development'
+          environment: 'production'
         }
       }
     },

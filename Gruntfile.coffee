@@ -79,7 +79,7 @@ module.exports = (grunt) ->
                     outputStyle: 'compressed'
                     relativeAssets: true
                     noLineComments: true
-                    environment: 'development'
+                    environment: 'production'
         coffee:
             dev:
                 expand: true,
