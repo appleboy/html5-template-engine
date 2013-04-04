@@ -74,17 +74,33 @@ module.exports = function(grunt) {
     compass: {
       dev: {
         options: {
-          basePath: '<%= pkg.app %>/assets',
-          config: '<%= pkg.app %>/assets/config.rb'
+          /*
+          Load config from config.rb file
+          basePath: '<%= pkg.app %>/assets'
+          config: 'config.rb'
+          */
+
+          sassDir: '<%= pkg.app %>/assets/sass',
+          cssDir: '<%= pkg.app %>/assets/css',
+          imagesDir: '<%= pkg.app %>/assets/images',
+          javascriptsDir: '<%= pkg.app %>/assets/js',
+          outputStyle: 'nested',
+          relativeAssets: true,
+          noLineComments: true,
+          environment: 'development'
         }
       },
       release: {
         options: {
           force: true,
-          basePath: '<%= pkg.output %>/assets',
-          config: '<%= pkg.output %>/assets/config.rb',
+          sassDir: '<%= pkg.output %>/assets/sass',
+          cssDir: '<%= pkg.output %>/assets/css',
+          imagesDir: '<%= pkg.output %>/assets/images',
+          javascriptsDir: '<%= pkg.output %>/assets/js',
           outputStyle: 'compressed',
-          environment: 'production'
+          relativeAssets: true,
+          noLineComments: true,
+          environment: 'development'
         }
       }
     },
@@ -113,7 +129,7 @@ module.exports = function(grunt) {
         force: true
       },
       js: '<%= pkg.output %>/assets/js',
-      release: ['<%= pkg.output %>/build.txt', '<%= pkg.output %>/assets/coffeescript', '<%= pkg.output %>/assets/sass', '<%= pkg.output %>/assets/config.rb', '<%= pkg.output %>/assets/vendor', '<%= pkg.output %>/assets/.sass-cache', '<%= pkg.output %>/.sass-cache'],
+      release: ['<%= pkg.output %>/build.txt', '<%= pkg.output %>/assets/coffeescript', '<%= pkg.output %>/assets/sass', '<%= pkg.output %>/assets/vendor', '<%= pkg.output %>/assets/.sass-cache', '<%= pkg.output %>/.sass-cache'],
       cleanup: ['<%= pkg.output %>', '<%= pkg.app %>/assets/vendor', '<%= pkg.app %>/assets/js/main-built.js', '<%= pkg.app %>/assets/js/main-built.js.map', '<%= pkg.app %>/assets/js/main-built.js.src', 'node_modules', '.sass-cache', '<%= pkg.app %>/assets/.sass-cache']
     },
     copy: {
@@ -121,7 +137,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: '<%= pkg.app %>/.htaccess',
-            dest: '<%= pkg.output %>/'
+            dest: '<%= pkg.output %>/.htaccess'
           }, {
             src: '<%= pkg.output %>/assets/vendor/requirejs/require.js',
             dest: '<%= pkg.output %>/assets/js/require.js'

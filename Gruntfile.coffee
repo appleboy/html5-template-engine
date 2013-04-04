@@ -56,15 +56,30 @@ module.exports = (grunt) ->
         compass:
             dev:
                 options:
+                    ###
+                    Load config from config.rb file
                     basePath: '<%= pkg.app %>/assets'
-                    config: '<%= pkg.app %>/assets/config.rb'
+                    config: 'config.rb'
+                    ###
+                    sassDir: '<%= pkg.app %>/assets/sass'
+                    cssDir: '<%= pkg.app %>/assets/css'
+                    imagesDir: '<%= pkg.app %>/assets/images'
+                    javascriptsDir: '<%= pkg.app %>/assets/js'
+                    outputStyle: 'nested'
+                    relativeAssets: true
+                    noLineComments: true
+                    environment: 'development'
             release:
                 options:
                     force: true
-                    basePath: '<%= pkg.output %>/assets'
-                    config: '<%= pkg.output %>/assets/config.rb'
+                    sassDir: '<%= pkg.output %>/assets/sass'
+                    cssDir: '<%= pkg.output %>/assets/css'
+                    imagesDir: '<%= pkg.output %>/assets/images'
+                    javascriptsDir: '<%= pkg.output %>/assets/js'
                     outputStyle: 'compressed'
-                    environment: 'production'
+                    relativeAssets: true
+                    noLineComments: true
+                    environment: 'development'
         coffee:
             dev:
                 expand: true,
@@ -87,7 +102,6 @@ module.exports = (grunt) ->
                 '<%= pkg.output %>/build.txt'
                 '<%= pkg.output %>/assets/coffeescript'
                 '<%= pkg.output %>/assets/sass'
-                '<%= pkg.output %>/assets/config.rb'
                 '<%= pkg.output %>/assets/vendor'
                 '<%= pkg.output %>/assets/.sass-cache'
                 '<%= pkg.output %>/.sass-cache'
