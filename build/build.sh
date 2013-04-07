@@ -33,6 +33,12 @@ if [ $? -ne 0 ]; then
     sudo gem install sass compass
 fi
 
+which guard 1> /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    display "Install guard livereload tool."
+    sudo gem install rb-inotify guard-livereload yajl-ruby
+fi
+
 ##
 # install npm develop tool
 ##
