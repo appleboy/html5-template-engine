@@ -29,12 +29,14 @@ module.exports = (grunt) ->
         bower:
             install:
                 options:
-                    targetDir: 'app/assets/vendor'
+                    targetDir: 'app/assets/vendor/lib'
                     cleanup: false
                     install: true
                     verbose: true
+                    layout: 'byType'
             cleanup:
                 options:
+                    targetDir: 'app/assets/vendor/lib'
                     cleanup: true
                     verbose: true
                     install: false
