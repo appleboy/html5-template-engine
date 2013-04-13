@@ -35,6 +35,22 @@ module.exports = function(grunt) {
         }
       }
     },
+    bower: {
+      install: {
+        options: {
+          targetDir: 'app/assets/vendor',
+          install: true,
+          verbose: true
+        }
+      },
+      cleanup: {
+        options: {
+          cleanup: true,
+          verbose: true,
+          install: false
+        }
+      }
+    },
     requirejs: {
       build: {
         options: {
@@ -245,5 +261,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-text-replace');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-bower-task');
   return grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
 };

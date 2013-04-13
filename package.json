@@ -27,7 +27,8 @@
         "grunt-text-replace": "latest",
         "grunt-contrib-clean": "latest",
         "grunt-contrib-htmlmin": "latest",
-        "grunt-requirejs": "latest"
+        "grunt-requirejs": "latest",
+        "grunt-bower-task": "latest"
     },
     "optionalDependencies": {},
     "scripts": {

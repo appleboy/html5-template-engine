@@ -26,6 +26,18 @@ module.exports = (grunt) ->
                 options:
                     stdout: true
                     stderr: true
+        bower:
+            install:
+                options:
+                    targetDir: 'app/assets/vendor'
+                    cleanup: false
+                    install: true
+                    verbose: true
+            cleanup:
+                options:
+                    cleanup: true
+                    verbose: true
+                    install: false
         requirejs:
             build:
                 options:
@@ -206,5 +218,6 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-text-replace'
     grunt.loadNpmTasks 'grunt-contrib-htmlmin'
     grunt.loadNpmTasks 'grunt-requirejs'
+    grunt.loadNpmTasks 'grunt-bower-task'
 
     grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
