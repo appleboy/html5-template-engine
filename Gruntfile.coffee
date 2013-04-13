@@ -196,11 +196,11 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'init', () ->
         grunt.log.writeln 'Initial project'
-        (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'shell:bower'
+        (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'
 
     grunt.registerTask 'release', () ->
         grunt.log.writeln 'deploy project'
-        (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'shell:bower'
+        (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'
         grunt.task.run ['requirejs:build', 'requirejs:release', 'compass:release', 'clean:js']
         grunt.file.mkdir project_config.output + '/assets/js'
         grunt.task.run 'copy:release'
