@@ -1,6 +1,7 @@
 require.config({
   paths: {
-    jquery: '../vendor/jquery/jquery'
+    jquery: '../vendor/jquery/jquery',
+    modernizr: '../vendor/modernizr/modernizr'
   },
   urlArgs: (new Date()).getTime()
 });

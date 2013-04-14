@@ -1,4 +1,4 @@
-define(['jquery', 'libs/console', '../vendor/modernizr/modernizr'], function($) {
+define(['jquery', 'modernizr', 'libs/console'], function($) {
   var initialize;
 
   initialize = function() {
@@ -7,7 +7,13 @@ define(['jquery', 'libs/console', '../vendor/modernizr/modernizr'], function($) 
       console.info('Your browser support canvas');
     }
     if (Modernizr.touch) {
-      return console.info('Your device support touch event');
+      console.info('Your device support touch event');
+    }
+    if (!Modernizr.canvas) {
+      console.warn('Your browser don\'t support canvas');
+    }
+    if (!Modernizr.touch) {
+      return console.warn('Your device don\'t support touch event');
     }
   };
   return {
