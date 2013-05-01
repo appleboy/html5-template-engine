@@ -1,10 +1,15 @@
 {
-    "name": "html5-template-engine",
-    "version": "1.0.0",
-    "dependencies": {
-        "requirejs": null,
-        "jquery": null,
-        "modernizr": null,
-        "normalize-scss": null
-    }
+  "name": "html5-template-engine",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "normalize-scss": "~2.1.1",
+    "modernizr": "~2.6.2",
+    "requirejs": "~2.1.5"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
 }
