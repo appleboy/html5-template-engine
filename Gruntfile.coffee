@@ -38,6 +38,7 @@ module.exports = (grunt) ->
                     cleanup: true
                     verbose: true
                     install: false
+                    copy: false
         requirejs:
             build:
                 options:

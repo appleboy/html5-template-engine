@@ -48,7 +48,8 @@ module.exports = function(grunt) {
         options: {
           cleanup: true,
           verbose: true,
-          install: false
+          install: false,
+          copy: false
         }
       }
     },
