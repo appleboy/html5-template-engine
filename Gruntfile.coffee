@@ -32,7 +32,6 @@ module.exports = (grunt) ->
                     cleanup: false
                     install: true
                     verbose: true
-                    layout: 'byType'
                     copy: false
             cleanup:
                 options:

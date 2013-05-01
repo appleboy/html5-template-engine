@@ -41,7 +41,6 @@ module.exports = function(grunt) {
           cleanup: false,
           install: true,
           verbose: true,
-          layout: 'byType',
           copy: false
         }
       },
