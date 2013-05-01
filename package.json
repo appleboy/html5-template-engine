@@ -1,40 +1,40 @@
 {
-    "author": "Bo-Yi Wu <appleboy.tw@gmail.com> (http://blog.wu-boy.com/)",
-    "name": "html5-template-engine",
-    "description": "html5 template engine with CoffeeScript, Compass, RequireJS.",
-    "version": "1.0.0",
-    "homepage": "https://github.com/appleboy/html5-template-engine",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/appleboy/html5-template-engine.git"
-    },
-    "main": "build/server.js",
-    "dependencies": {
-        "requirejs": "latest",
-        "bower": "latest",
-        "express": "latest"
-    },
-    "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-cli": "latest",
-        "grunt-shell": "latest",
-        "grunt-contrib-connect": "latest",
-        "grunt-regarde": "latest",
-        "grunt-contrib-livereload": "latest",
-        "grunt-contrib-compass": "latest",
-        "grunt-contrib-coffee": "latest",
-        "grunt-contrib-copy": "latest",
-        "grunt-text-replace": "latest",
-        "grunt-contrib-clean": "latest",
-        "grunt-contrib-htmlmin": "latest",
-        "grunt-requirejs": "latest",
-        "grunt-bower-task": "latest"
-    },
-    "optionalDependencies": {},
-    "scripts": {
-        "grunt": "node_modules/.bin/grunt"
-    },
-    "engines": {
-        "node" : ">= 0.8.0"
-    }
+  "author": "Bo-Yi Wu <appleboy.tw@gmail.com> (http://blog.wu-boy.com/)",
+  "name": "html5-template-engine",
+  "description": "html5 template engine with CoffeeScript, Compass, RequireJS.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/appleboy/html5-template-engine",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/appleboy/html5-template-engine.git"
+  },
+  "main": "build/server.js",
+  "dependencies": {
+    "requirejs": "~2.1.5",
+    "bower": "~0.9.2",
+    "express": "~3.2.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-shell": "~0.2.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-regarde": "~0.1.1",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-compass": "~0.2.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-text-replace": "~0.3.2",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-requirejs": "~0.3.5",
+    "grunt-bower-task": "~0.2.2"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "grunt": "node_modules/.bin/grunt"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
 }
