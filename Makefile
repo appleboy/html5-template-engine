@@ -1,4 +1,4 @@
-.PHONY: release init build css
+.PHONY: release init build css test
 
 # setup path
 app_path ?= $(shell echo "app")
@@ -54,3 +54,6 @@ clean:
 	rm -rf .sass-cache
 	rm -rf $(app_path)/assets/.sass-cache
 	rm -rf node_modules/
+
+test:
+	@./node_modules/.bin/mocha
