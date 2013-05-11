@@ -37,7 +37,8 @@
     "grunt-contrib-livereload": "~0.1.2",
     "grunt-contrib-compass": "~0.2.0",
     "grunt-bower-task": "~0.2.2",
-    "grunt-requirejs": "~0.3.5"
+    "grunt-requirejs": "~0.3.5",
+    "grunt-manifest": "~0.4.0"
   },
   "optionalDependencies": {},
   "scripts": {
