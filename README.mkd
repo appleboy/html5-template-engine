@@ -11,6 +11,7 @@ Features
 * Support [CoffeeScript](http://coffeescript.org/), [RequireJS](http://requirejs.org/), [Compass](http://compass-style.org/), html minification (via [htmlcompressor](http://code.google.com/p/htmlcompressor/)).
 * A lightweight web server listen to 3000 port (Using [Node Express Framework](http://expressjs.com/)).
 * Support JavaScript Task Runner [GruntJS](http://gruntjs.com/)
+* Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/)
 
 Install develop tool
 -------------
@@ -153,6 +154,19 @@ Using GruntJS
 -------------
 
     $ ./node_modules/.bin/grunt clean
+
+Test Your Project
+======================
+
+Using Makefile
+-------------
+
+    $ make test
+
+Using GruntJS and Mocha test command
+-------------
+
+    $ ./node_modules/.bin/grunt release && mocha --reporter spec
 
 Author
 ======================
