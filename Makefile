@@ -55,5 +55,5 @@ clean:
 	rm -rf $(app_path)/assets/.sass-cache
 	rm -rf node_modules/
 
-test:
+test: release
 	@./node_modules/.bin/mocha --reporter spec
