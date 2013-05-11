@@ -176,6 +176,11 @@ module.exports = function(grunt) {
           bare: true
         }
       },
+      test: {
+        files: {
+          'test/test.js': 'test/test.coffee'
+        }
+      },
       grunt: {
         files: {
           'Gruntfile.js': 'Gruntfile.coffee'
