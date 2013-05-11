@@ -56,4 +56,4 @@ clean:
 	rm -rf node_modules/
 
 test:
-	@./node_modules/.bin/mocha
+	@./node_modules/.bin/mocha --reporter spec
