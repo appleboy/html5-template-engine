@@ -10,6 +10,15 @@ filetime:=$(shell date '+%s%N')
 all: init
 	r.js -o build/self.build.js
 
+compass:
+	compass watch assets
+
+coffee:
+	coffee -b -w -c -o assets/js assets/coffeescript
+
+livereload:
+	guard start
+
 init:
 	@which bower > /dev/null 2>&1 ; if [ $$? -ne 0 ] ; then ./build/build.sh ; fi
 	@test -d "$(app_path)/assets/vendor" || bower install
