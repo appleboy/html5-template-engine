@@ -164,7 +164,6 @@ module.exports = (grunt) ->
                 '<%= pkg.output %>/assets/coffeescript'
                 '<%= pkg.output %>/assets/sass'
                 '<%= pkg.output %>/assets/vendor'
-                '<%= pkg.output %>/assets/.sass-cache'
                 '<%= pkg.output %>/.sass-cache'
             ]
             cleanup: [
@@ -175,7 +174,6 @@ module.exports = (grunt) ->
                 '<%= pkg.app %>/assets/js/main-built.js.src'
                 'node_modules'
                 '.sass-cache'
-                '<%= pkg.app %>/assets/.sass-cache'
             ]
         copy:
             release:
@@ -245,4 +243,5 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
     grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
+    grunt.registerTask 'cleanup', ['clean:cleanup']
     grunt.registerTask 'test', ['release', 'shell:test']
