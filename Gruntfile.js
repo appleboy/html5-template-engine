@@ -33,6 +33,13 @@ module.exports = function(grunt) {
           stdout: true,
           stderr: true
         }
+      },
+      test: {
+        command: './node_modules/.bin/mocha --reporter spec',
+        options: {
+          stdout: true,
+          stderr: true
+        }
       }
     },
     bower: {
@@ -86,6 +93,9 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    livereload: {
+      port: 35729
     },
     connect: {
       livereload: {
@@ -274,8 +284,8 @@ module.exports = function(grunt) {
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
-  grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-compass');
@@ -287,5 +297,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  return grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
+  grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
+  return grunt.registerTask('test', ['release', 'shell:test']);
 };

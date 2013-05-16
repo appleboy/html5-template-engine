@@ -26,6 +26,11 @@ module.exports = (grunt) ->
                 options:
                     stdout: true
                     stderr: true
+            test:
+                command: './node_modules/.bin/mocha --reporter spec'
+                options:
+                    stdout: true
+                    stderr: true
         bower:
             install:
                 options:
@@ -65,6 +70,8 @@ module.exports = (grunt) ->
                     fileExclusionRegExp: /^(\.|node_modules)/
                     paths:
                         jquery: '../vendor/jquery/jquery'
+        livereload:
+            port: 35729
         connect:
             livereload:
                 options:
@@ -223,8 +230,8 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # Dependencies
-    grunt.loadNpmTasks 'grunt-regarde'
     grunt.loadNpmTasks 'grunt-shell'
+    grunt.loadNpmTasks 'grunt-regarde'
     grunt.loadNpmTasks 'grunt-contrib-connect'
     grunt.loadNpmTasks 'grunt-contrib-livereload'
     grunt.loadNpmTasks 'grunt-contrib-compass'
@@ -238,3 +245,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
     grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
+    grunt.registerTask 'test', ['release', 'shell:test']

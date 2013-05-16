@@ -44,7 +44,7 @@
   "optionalDependencies": {},
   "scripts": {
     "grunt": "node_modules/.bin/grunt",
-    "test": "mocha --reporter spec"
+    "test": "grunt test"
   },
   "engines": {
     "node": ">= 0.8.0"
