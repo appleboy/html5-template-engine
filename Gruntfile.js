@@ -181,6 +181,14 @@ module.exports = function(grunt) {
           'test/test.js': 'test/test.coffee'
         }
       },
+      server: {
+        files: {
+          'build/server.js': 'build/server.coffee'
+        },
+        options: {
+          bare: true
+        }
+      },
       grunt: {
         files: {
           'Gruntfile.js': 'Gruntfile.coffee'
