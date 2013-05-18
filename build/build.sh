@@ -11,6 +11,7 @@ RESET="\033[0m"
 display () {
     COLOR=$2
     [ -z $2 ] && COLOR=${YELLOW}
+    echo
     echo -e "${COLOR}=> $1 ${RESET}"
 }
 
@@ -74,7 +75,7 @@ display 'install mocha tool.'
 which mocha 1> /dev/null 2>&1 || npm install -g mocha
 
 # install npm dependency packages for grunt.js.
-npm install
+[ -d node_modules ] || npm install
 
 # install require bower dependency package.
-bower install
+[ -d app/assets/vendor ] || bower install
