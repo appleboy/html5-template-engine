@@ -11,10 +11,10 @@ all: init
 	r.js -o build/self.build.js
 
 compass:
-	compass watch .
+	$@ watch .
 
 coffee:
-	coffee -b -w -c -o $(app_path)/assets/js $(app_path)/assets/coffeescript
+	$@ -b -w -c -o $(app_path)/assets/js $(app_path)/assets/coffeescript
 
 livereload:
 	guard start
