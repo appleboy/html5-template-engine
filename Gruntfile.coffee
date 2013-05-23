@@ -72,6 +72,10 @@ module.exports = (grunt) ->
                         jquery: '../vendor/jquery/jquery'
         livereload:
             port: 35729
+        express:
+            dev:
+                options:
+                    script: 'build/server.js'
         connect:
             livereload:
                 options:
@@ -227,6 +231,13 @@ module.exports = (grunt) ->
         grunt.task.run 'replace:release'
         grunt.task.run 'clean:release'
 
+    # run local server by grunt-contrib-connect plugin
+    #grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
+    # run local express server.
+    grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
+    grunt.registerTask 'cleanup', ['clean:cleanup']
+    grunt.registerTask 'test', ['release', 'shell:test']
+
     # Dependencies
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-regarde'
@@ -241,7 +252,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-requirejs'
     grunt.loadNpmTasks 'grunt-bower-task'
     grunt.loadNpmTasks 'grunt-contrib-cssmin'
-
-    grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
-    grunt.registerTask 'cleanup', ['clean:cleanup']
-    grunt.registerTask 'test', ['release', 'shell:test']
+    grunt.loadNpmTasks 'grunt-express-server'

@@ -97,6 +97,13 @@ module.exports = function(grunt) {
     livereload: {
       port: 35729
     },
+    express: {
+      dev: {
+        options: {
+          script: 'build/server.js'
+        }
+      }
+    },
     connect: {
       livereload: {
         options: {
@@ -284,6 +291,9 @@ module.exports = function(grunt) {
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
+  grunt.registerTask('default', ['init', 'express:dev', 'livereload-start', 'regarde']);
+  grunt.registerTask('cleanup', ['clean:cleanup']);
+  grunt.registerTask('test', ['release', 'shell:test']);
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -297,7 +307,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
-  grunt.registerTask('cleanup', ['clean:cleanup']);
-  return grunt.registerTask('test', ['release', 'shell:test']);
+  return grunt.loadNpmTasks('grunt-express-server');
 };
