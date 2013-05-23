@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         }
       },
       test: {
-        command: './node_modules/.bin/mocha --reporter spec',
+        command: './node_modules/.bin/mocha --reporter spec test/test.js',
         options: {
           stdout: true,
           stderr: true
