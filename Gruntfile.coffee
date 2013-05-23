@@ -210,6 +210,8 @@ module.exports = (grunt) ->
             release:
                 files:
                     '<%= pkg.output %>/index.html': '<%= pkg.app %>/index.html'
+        mocha_phantomjs:
+            all: 'test/**/*.html'
 
     grunt.event.on 'watch', (action, filepath) ->
         grunt.log.writeln filepath + ' has ' + action
@@ -236,7 +238,7 @@ module.exports = (grunt) ->
     # run local express server.
     grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
-    grunt.registerTask 'test', ['release', 'shell:test']
+    grunt.registerTask 'test', ['release', 'shell:test', 'mocha_phantomjs']
 
     # Dependencies
     grunt.loadNpmTasks 'grunt-shell'
@@ -253,3 +255,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-bower-task'
     grunt.loadNpmTasks 'grunt-contrib-cssmin'
     grunt.loadNpmTasks 'grunt-express-server'
+    grunt.loadNpmTasks 'grunt-mocha-phantomjs'

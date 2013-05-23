@@ -269,6 +269,9 @@ module.exports = function(grunt) {
           '<%= pkg.output %>/index.html': '<%= pkg.app %>/index.html'
         }
       }
+    },
+    mocha_phantomjs: {
+      all: 'test/**/*.html'
     }
   });
   grunt.event.on('watch', function(action, filepath) {
@@ -293,7 +296,7 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('default', ['init', 'express:dev', 'livereload-start', 'regarde']);
   grunt.registerTask('cleanup', ['clean:cleanup']);
-  grunt.registerTask('test', ['release', 'shell:test']);
+  grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -307,5 +310,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  return grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-express-server');
+  return grunt.loadNpmTasks('grunt-mocha-phantomjs');
 };
