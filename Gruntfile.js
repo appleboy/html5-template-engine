@@ -213,8 +213,8 @@ module.exports = function(grunt) {
         force: true
       },
       js: '<%= pkg.output %>/assets/js',
-      release: ['<%= pkg.output %>/build.txt', '<%= pkg.output %>/assets/coffeescript', '<%= pkg.output %>/assets/sass', '<%= pkg.output %>/assets/vendor', '<%= pkg.output %>/assets/.sass-cache', '<%= pkg.output %>/.sass-cache'],
-      cleanup: ['<%= pkg.output %>', '<%= pkg.app %>/assets/vendor', '<%= pkg.app %>/assets/js/main-built.js', '<%= pkg.app %>/assets/js/main-built.js.map', '<%= pkg.app %>/assets/js/main-built.js.src', 'node_modules', '.sass-cache', '<%= pkg.app %>/assets/.sass-cache']
+      release: ['<%= pkg.output %>/build.txt', '<%= pkg.output %>/assets/coffeescript', '<%= pkg.output %>/assets/sass', '<%= pkg.output %>/assets/vendor', '<%= pkg.output %>/.sass-cache'],
+      cleanup: ['<%= pkg.output %>', '<%= pkg.app %>/assets/vendor', '<%= pkg.app %>/assets/js/main-built.js', '<%= pkg.app %>/assets/js/main-built.js.map', '<%= pkg.app %>/assets/js/main-built.js.src', 'node_modules', '.sass-cache']
     },
     copy: {
       release: {
@@ -298,5 +298,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
+  grunt.registerTask('cleanup', ['clean:cleanup']);
   return grunt.registerTask('test', ['release', 'shell:test']);
 };
