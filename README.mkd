@@ -120,7 +120,7 @@ Watching **/*.coffee
 ```
 Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
-Deploy Web App
+Deploy Your App
 ======================
 
 Using Makefile
@@ -147,19 +147,6 @@ open the following URL on browser.
 http://your_host_name/html5/
 ```
 
-Clean Your Project
-======================
-
-Using Makefile
--------------
-
-    $ make clean
-
-Using GruntJS
--------------
-
-    $ ./node_modules/.bin/grunt clean
-
 Test Your Project
 ======================
 
@@ -172,6 +159,19 @@ Using GruntJS
 -------------
 
     $ ./node_modules/.bin/grunt test
+
+Clean Your Project
+======================
+
+Using Makefile
+-------------
+
+    $ make clean
+
+Using GruntJS
+-------------
+
+    $ ./node_modules/.bin/grunt clean
 
 Author
 ======================
