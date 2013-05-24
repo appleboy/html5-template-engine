@@ -4,8 +4,6 @@ app = express()
 port = 4000
 
 app.use express.static(__dirname + '/..')
-app.use '/test', express.static(__dirname + '/../app/assets/js')
-app.use '/vendor', express.static(__dirname + '/../app/assets/vendor')
 app.use express.favicon(__dirname + '/../app/favicon.ico')
 app.use express.directory(__dirname + '/..')
 app.use express.errorHandler()
