@@ -80,7 +80,7 @@ module.exports = (grunt) ->
             livereload:
                 options:
                     hostname: '0.0.0.0'
-                    port: 3000
+                    port: 4000
                     base: '.'
         regarde:
             html:
@@ -234,9 +234,9 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # run local server by grunt-contrib-connect plugin
-    #grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
+    grunt.registerTask 'default', ['init', 'livereload-start', 'connect', 'regarde']
     # run local express server.
-    grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
+    #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
     grunt.registerTask 'test', ['release', 'shell:test', 'mocha_phantomjs']
 

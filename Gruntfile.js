@@ -108,7 +108,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           hostname: '0.0.0.0',
-          port: 3000,
+          port: 4000,
           base: '.'
         }
       }
@@ -294,7 +294,7 @@ module.exports = function(grunt) {
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
-  grunt.registerTask('default', ['init', 'express:dev', 'livereload-start', 'regarde']);
+  grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
   grunt.registerTask('cleanup', ['clean:cleanup']);
   grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');
