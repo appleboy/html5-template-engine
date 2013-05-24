@@ -64,8 +64,8 @@ clean:
 	rm -rf $(app_path)/assets/js/main-built.js.src
 	rm -rf $(app_path)/assets/vendor/
 	rm -rf .sass-cache
-	rm -rf $(app_path)/assets/.sass-cache
-	rm -rf node_modules/
+	rm -rf node_modules
 
 test: release
-	@./node_modules/.bin/mocha --reporter spec
+	@./node_modules/.bin/mocha --reporter spec test/test.js
+	@./node_modules/.bin/mocha-phantomjs test/index.html

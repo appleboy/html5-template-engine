@@ -42,7 +42,8 @@
     "grunt-contrib-cssmin": "~0.6.0",
     "grunt-express-server": "~0.3.1",
     "chai": "~1.6.0",
-    "grunt-mocha-phantomjs": "~0.2.7"
+    "grunt-mocha-phantomjs": "~0.2.7",
+    "mocha-phantomjs": "~2.0.2"
   },
   "optionalDependencies": {},
   "scripts": {
