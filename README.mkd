@@ -104,17 +104,18 @@ You will get the following messages.
 Running "init" task
 Initial project
 
+Running "express:dev" (express) task
+Starting background Express server
+Server listening on http://localhost:4000
+
 Running "livereload-start" task
 ... Starting Livereload server on 35729 ...
 
-Running "connect:livereload" (connect) task
-Starting connect web server on localhost:3000.
-
 Running "regarde" task
-Watching */*.html,**/.htm
-Watching **/*.scss
-Watching **/*.css
-Watching **/*.js
+Watching app/**/*.{html,htm}
+Watching app/**/*.scss
+Watching app/**/*.css
+Watching app/**/*.js
 Watching **/*.coffee
 ```
 Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
@@ -167,10 +168,10 @@ Using Makefile
 
     $ make test
 
-Using GruntJS and Mocha test command
+Using GruntJS
 -------------
 
-    $ ./node_modules/.bin/grunt release && mocha --reporter spec
+    $ ./node_modules/.bin/grunt test
 
 Author
 ======================
