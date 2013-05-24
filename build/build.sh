@@ -73,6 +73,8 @@ display 'install grunt tool.'
 which grunt 1> /dev/null 2>&1 || npm install -g grunt-cli
 display 'install mocha tool.'
 which mocha 1> /dev/null 2>&1 || npm install -g mocha
+display 'install mocha-phantomjs tool.'
+which mocha-phantomjs 1> /dev/null 2>&1 || npm install -g mocha-phantomjs
 
 # install npm dependency packages for grunt.js.
 [ -d node_modules ] || npm install
