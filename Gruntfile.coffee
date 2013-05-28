@@ -153,6 +153,8 @@ module.exports = (grunt) ->
                 src: ['**/*.coffee'],
                 dest: '<%= pkg.test %>/',
                 ext: '.js'
+                options:
+                    bare: true
             server:
                 files:
                     'build/server.js': 'build/server.coffee'

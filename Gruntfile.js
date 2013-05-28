@@ -199,7 +199,10 @@ module.exports = function(grunt) {
         cwd: '<%= pkg.test %>/',
         src: ['**/*.coffee'],
         dest: '<%= pkg.test %>/',
-        ext: '.js'
+        ext: '.js',
+        options: {
+          bare: true
+        }
       },
       server: {
         files: {
