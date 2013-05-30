@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   filetime = Date.now();
   project_config = {
     app: 'app',
+    test: 'test',
     output: 'output'
   };
   grunt.initConfig({
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
         }
       },
       test: {
-        command: './node_modules/.bin/mocha --reporter spec test/test.js',
+        command: './node_modules/.bin/mocha --reporter spec <%= pkg.test %>/test.js',
         options: {
           stdout: true,
           stderr: true
@@ -206,8 +207,13 @@ module.exports = function(grunt) {
         }
       },
       test: {
-        files: {
-          'test/test.js': 'test/test.coffee'
+        expand: true,
+        cwd: '<%= pkg.test %>/',
+        src: ['**/*.coffee'],
+        dest: '<%= pkg.test %>/',
+        ext: '.js',
+        options: {
+          bare: true
         }
       },
       server: {
@@ -283,7 +289,7 @@ module.exports = function(grunt) {
       }
     },
     mocha_phantomjs: {
-      all: 'test/**/*.html'
+      all: '<%= pkg.test %>/**/*.html'
     }
   });
   grunt.event.on('watch', function(action, filepath) {

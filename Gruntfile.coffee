@@ -8,6 +8,7 @@ module.exports = (grunt) ->
     # Project configuration
     project_config =
         app: 'app'
+        test: 'test'
         output: 'output'
     grunt.initConfig
         pkg: project_config
@@ -31,7 +32,7 @@ module.exports = (grunt) ->
                     stdout: true
                     stderr: true
             test:
-                command: './node_modules/.bin/mocha --reporter spec test/test.js'
+                command: './node_modules/.bin/mocha --reporter spec <%= pkg.test %>/test.js'
                 options:
                     stdout: true
                     stderr: true
@@ -154,8 +155,13 @@ module.exports = (grunt) ->
                 options:
                     bare: true
             test:
-                files:
-                    'test/test.js': 'test/test.coffee'
+                expand: true,
+                cwd: '<%= pkg.test %>/',
+                src: ['**/*.coffee'],
+                dest: '<%= pkg.test %>/',
+                ext: '.js'
+                options:
+                    bare: true
             server:
                 files:
                     'build/server.js': 'build/server.coffee'
@@ -218,7 +224,7 @@ module.exports = (grunt) ->
                 files:
                     '<%= pkg.output %>/index.html': '<%= pkg.app %>/index.html'
         mocha_phantomjs:
-            all: 'test/**/*.html'
+            all: '<%= pkg.test %>/**/*.html'
 
     grunt.event.on 'watch', (action, filepath) ->
         grunt.log.writeln filepath + ' has ' + action
