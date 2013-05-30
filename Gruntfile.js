@@ -1,3 +1,11 @@
+var lrSnippet, mountFolder;
+
+lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
+mountFolder = function(connect, dir) {
+  return connect["static"](require('path').resolve(dir));
+};
+
 module.exports = function(grunt) {
   var filetime, project_config;
 
@@ -105,11 +113,15 @@ module.exports = function(grunt) {
       }
     },
     connect: {
+      options: {
+        hostname: '0.0.0.0',
+        port: 4000
+      },
       livereload: {
         options: {
-          hostname: '0.0.0.0',
-          port: 4000,
-          base: '.'
+          middleware: function(connect) {
+            return [lrSnippet, mountFolder(connect, 'app')];
+          }
         }
       }
     },
@@ -294,7 +306,7 @@ module.exports = function(grunt) {
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
-  grunt.registerTask('default', ['init', 'livereload-start', 'connect', 'regarde']);
+  grunt.registerTask('default', ['init', 'livereload-start', 'connect:livereload', 'regarde']);
   grunt.registerTask('cleanup', ['clean:cleanup']);
   grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');
