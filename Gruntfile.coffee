@@ -10,6 +10,7 @@ module.exports = (grunt) ->
         app: 'app'
         test: 'test'
         output: 'output'
+        build: 'build'
     grunt.initConfig
         pkg: project_config
         shell:
@@ -22,12 +23,12 @@ module.exports = (grunt) ->
                         console.log('Install bower package compeletely.')
                         cb()
             build:
-                command: 'node node_modules/requirejs/bin/r.js -o build/self.build.js'
+                command: 'node node_modules/requirejs/bin/r.js -o <%= pkg.build %>/self.build.js'
                 options:
                     stdout: true
                     stderr: true
             release:
-                command: 'node node_modules/requirejs/bin/r.js -o build/app.build.js'
+                command: 'node node_modules/requirejs/bin/r.js -o <%= pkg.build %>/app.build.js'
                 options:
                     stdout: true
                     stderr: true
@@ -80,7 +81,7 @@ module.exports = (grunt) ->
         express:
             dev:
                 options:
-                    script: 'build/server.js'
+                    script: '<%= pkg.build %>/server.js'
         connect:
             options:
                 hostname: '0.0.0.0'
@@ -164,7 +165,7 @@ module.exports = (grunt) ->
                     bare: true
             server:
                 files:
-                    'build/server.js': 'build/server.coffee'
+                    '<%= pkg.build %>/server.js': '<%= pkg.build %>/server.coffee'
                 options:
                     bare: true
             grunt:

@@ -13,7 +13,8 @@ module.exports = function(grunt) {
   project_config = {
     app: 'app',
     test: 'test',
-    output: 'output'
+    output: 'output',
+    build: 'build'
   };
   grunt.initConfig({
     pkg: project_config,
@@ -30,14 +31,14 @@ module.exports = function(grunt) {
         }
       },
       build: {
-        command: 'node node_modules/requirejs/bin/r.js -o build/self.build.js',
+        command: 'node node_modules/requirejs/bin/r.js -o <%= pkg.build %>/self.build.js',
         options: {
           stdout: true,
           stderr: true
         }
       },
       release: {
-        command: 'node node_modules/requirejs/bin/r.js -o build/app.build.js',
+        command: 'node node_modules/requirejs/bin/r.js -o <%= pkg.build %>/app.build.js',
         options: {
           stdout: true,
           stderr: true
@@ -109,7 +110,7 @@ module.exports = function(grunt) {
     express: {
       dev: {
         options: {
-          script: 'build/server.js'
+          script: '<%= pkg.build %>/server.js'
         }
       }
     },
@@ -218,7 +219,7 @@ module.exports = function(grunt) {
       },
       server: {
         files: {
-          'build/server.js': 'build/server.coffee'
+          '<%= pkg.build %>/server.js': '<%= pkg.build %>/server.coffee'
         },
         options: {
           bare: true
