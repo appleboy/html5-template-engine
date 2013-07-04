@@ -114,6 +114,7 @@ module.exports = (grunt) ->
                 events: true
         coffeelint:
             options:
+                'force': true;
                 'no_trailing_whitespace':
                     'level': 'error'
                 'max_line_length':

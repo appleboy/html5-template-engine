@@ -155,6 +155,7 @@ module.exports = function(grunt) {
     },
     coffeelint: {
       options: {
+        'force': true,
         'no_trailing_whitespace': {
           'level': 'error'
         },
