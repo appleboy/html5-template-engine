@@ -1,6 +1,5 @@
 define(['jquery', 'modernizr', 'libs/console'], function($) {
   var initialize;
-
   initialize = function() {
     console.info('Welcome to Html5 Template Engine');
     if (Modernizr.canvas) {

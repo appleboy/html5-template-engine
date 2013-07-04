@@ -4,7 +4,7 @@ mountFolder = (connect, dir) ->
 
 module.exports = (grunt) ->
     # build time
-    filetime = Date.now();
+    filetime = Date.now()
     # Project configuration
     project_config =
         app: 'app'
@@ -109,9 +109,19 @@ module.exports = (grunt) ->
                 tasks: ['livereload']
                 events: true
             coffee:
-                files: '**/*.coffee',
-                tasks: ['coffee']
+                files: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
+                tasks: ['coffeelint', 'coffee']
                 events: true
+        coffeelint:
+            options:
+                'no_trailing_whitespace':
+                    'level': 'error'
+                'max_line_length':
+                    'level': 'ignore'
+                'indentation':
+                    'value': 4
+                    'level': 'error'
+            dev: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
         compass:
             dev:
                 options:
@@ -270,3 +280,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-cssmin'
     grunt.loadNpmTasks 'grunt-express-server'
     grunt.loadNpmTasks 'grunt-mocha-phantomjs'
+    grunt.loadNpmTasks 'grunt-coffeelint'

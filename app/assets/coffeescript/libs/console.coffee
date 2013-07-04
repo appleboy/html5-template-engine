@@ -6,7 +6,7 @@
         'timeStamp', 'trace', 'warn'
     ]
 
-    length = methods.length;
+    length = methods.length
     console = (window.console = window.console || {})
     noop = ->
 

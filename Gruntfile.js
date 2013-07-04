@@ -8,7 +8,6 @@ mountFolder = function(connect, dir) {
 
 module.exports = function(grunt) {
   var filetime, project_config;
-
   filetime = Date.now();
   project_config = {
     app: 'app',
@@ -149,10 +148,25 @@ module.exports = function(grunt) {
         events: true
       },
       coffee: {
-        files: '**/*.coffee',
-        tasks: ['coffee'],
+        files: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
+        tasks: ['coffeelint', 'coffee'],
         events: true
       }
+    },
+    coffeelint: {
+      options: {
+        'no_trailing_whitespace': {
+          'level': 'error'
+        },
+        'max_line_length': {
+          'level': 'ignore'
+        },
+        'indentation': {
+          'value': 4,
+          'level': 'error'
+        }
+      },
+      dev: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee']
     },
     compass: {
       dev: {
@@ -330,5 +344,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-express-server');
-  return grunt.loadNpmTasks('grunt-mocha-phantomjs');
+  grunt.loadNpmTasks('grunt-mocha-phantomjs');
+  return grunt.loadNpmTasks('grunt-coffeelint');
 };
