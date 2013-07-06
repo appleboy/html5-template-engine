@@ -148,7 +148,7 @@ module.exports = function(grunt) {
         events: true
       },
       coffee: {
-        files: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
+        files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
         tasks: ['coffeelint', 'coffee'],
         events: true
       }
@@ -167,7 +167,7 @@ module.exports = function(grunt) {
           'level': 'error'
         }
       },
-      dev: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee']
+      dev: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**']
     },
     compass: {
       dev: {

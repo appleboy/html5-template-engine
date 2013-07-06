@@ -109,12 +109,12 @@ module.exports = (grunt) ->
                 tasks: ['livereload']
                 events: true
             coffee:
-                files: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
+                files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
                 tasks: ['coffeelint', 'coffee']
                 events: true
         coffeelint:
             options:
-                'force': true;
+                'force': true
                 'no_trailing_whitespace':
                     'level': 'error'
                 'max_line_length':
@@ -122,7 +122,7 @@ module.exports = (grunt) ->
                 'indentation':
                     'value': 4
                     'level': 'error'
-            dev: ['<%= pkg.app %>/**/*.coffee', '<%= pkg.test %>/**/*.coffee', 'Gruntfile.coffee'],
+            dev: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**']
         compass:
             dev:
                 options:
