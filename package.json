@@ -19,7 +19,7 @@
   },
   "main": "build/server.js",
   "dependencies": {
-    "requirejs": "~2.1.5",
+    "requirejs": "~2.1.8",
     "bower": "~0.9.2",
     "express": "~3.2.1"
   },
@@ -44,7 +44,7 @@
     "chai": "~1.6.1",
     "grunt-mocha-phantomjs": "~0.2.8",
     "mocha-phantomjs": "~2.0.3",
-    "requirejs": "~2.1.6",
+    "requirejs": "~2.1.8",
     "express": "~3.2.6",
     "grunt": "~0.4.1",
     "bower": "~0.9.2",
