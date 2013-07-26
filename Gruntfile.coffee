@@ -138,6 +138,7 @@ module.exports = (grunt) ->
                     outputStyle: 'nested'
                     relativeAssets: true
                     noLineComments: true
+                    debugInfo: false
                     environment: 'development'
             release:
                 options:

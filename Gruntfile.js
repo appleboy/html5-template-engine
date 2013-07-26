@@ -185,6 +185,7 @@ module.exports = function(grunt) {
           outputStyle: 'nested',
           relativeAssets: true,
           noLineComments: true,
+          debugInfo: true,
           environment: 'development'
         }
       },

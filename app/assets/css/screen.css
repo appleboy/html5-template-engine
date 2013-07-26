@@ -57,16 +57,15 @@ audio:not([controls]) {
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
  * 3.Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
  */
 html {
   font-family: sans-serif;
   /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
   -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
   /* 2 */ }
 
 /**
