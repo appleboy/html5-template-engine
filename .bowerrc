@@ -1,4 +1,3 @@
 {
-    "directory" : "app/assets/vendor",
-    "json"      : "component.json"
+    "directory" : "app/assets/vendor"
 }
