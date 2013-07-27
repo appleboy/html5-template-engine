@@ -2,14 +2,17 @@
   "name": "html5-template-engine",
   "version": "1.0.0",
   "dependencies": {
-    "jquery": "~2.0.1",
+    "jquery": "~2.0.3",
     "normalize-scss": "~2.1.2",
     "modernizr": "~2.6.2",
-    "requirejs": "~2.1.5"
+    "requirejs": "~2.1.8"
   },
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
+    "components",
+    "bower_components",
+    "test",
+    "tests"
   ]
 }
