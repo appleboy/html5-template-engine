@@ -106,7 +106,7 @@ module.exports = (grunt) ->
                 events: true
             js:
                 files: '<%= pkg.app %>/**/*.js',
-                tasks: ['livereload']
+                tasks: ['livereload', 'docco:dev']
                 events: true
             coffee:
                 files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
@@ -236,6 +236,12 @@ module.exports = (grunt) ->
             release:
                 files:
                     '<%= pkg.output %>/index.html': '<%= pkg.app %>/index.html'
+        docco:
+            dev:
+                src: ['<%= pkg.app %>/assets/**/*.js', '!<%= pkg.app %>/assets/vendor/*.js']
+                options:
+                    output: '<%= pkg.app %>/docs/'
+
         mocha_phantomjs:
             all: '<%= pkg.test %>/**/*.html'
 
@@ -283,3 +289,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-express-server'
     grunt.loadNpmTasks 'grunt-mocha-phantomjs'
     grunt.loadNpmTasks 'grunt-coffeelint'
+    grunt.loadNpmTasks 'grunt-docco2'
