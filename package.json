@@ -48,7 +48,8 @@
     "express": "~3.2.6",
     "grunt": "~0.4.1",
     "bower": "~0.9.2",
-    "grunt-coffeelint": "0.0.7"
+    "grunt-coffeelint": "0.0.7",
+    "grunt-docco": "~0.2.0"
   },
   "optionalDependencies": {},
   "scripts": {
