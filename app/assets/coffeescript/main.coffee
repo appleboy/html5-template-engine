@@ -6,5 +6,6 @@ require.config
     # for development
     urlArgs: (new Date()).getTime()
 
+# initail app
 require ['app'], (App) ->
     App.initialize()

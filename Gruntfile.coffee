@@ -106,11 +106,11 @@ module.exports = (grunt) ->
                 events: true
             js:
                 files: '<%= pkg.app %>/**/*.js',
-                tasks: ['livereload', 'docco:dev']
+                tasks: ['livereload']
                 events: true
             coffee:
                 files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
-                tasks: ['coffeelint', 'coffee']
+                tasks: ['coffeelint', 'docco:dev', 'coffee']
                 events: true
         coffeelint:
             options:
@@ -238,7 +238,7 @@ module.exports = (grunt) ->
                     '<%= pkg.output %>/index.html': '<%= pkg.app %>/index.html'
         docco:
             dev:
-                src: ['<%= pkg.app %>/assets/**/*.js', '!<%= pkg.app %>/assets/vendor/*.js']
+                src: ['<%= pkg.app %>/**/*.coffee']
                 options:
                     output: '<%= pkg.app %>/docs/'
 

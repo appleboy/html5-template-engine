@@ -144,12 +144,12 @@ module.exports = function(grunt) {
       },
       js: {
         files: '<%= pkg.app %>/**/*.js',
-        tasks: ['livereload', 'docco:dev'],
+        tasks: ['livereload'],
         events: true
       },
       coffee: {
         files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
-        tasks: ['coffeelint', 'coffee'],
+        tasks: ['coffeelint', 'docco:dev', 'coffee'],
         events: true
       }
     },
@@ -307,7 +307,7 @@ module.exports = function(grunt) {
     },
     docco: {
       dev: {
-        src: ['<%= pkg.app %>/assets/**/*.js', '!<%= pkg.app %>/assets/vendor/*.js'],
+        src: ['<%= pkg.app %>/**/*.coffee'],
         options: {
           output: '<%= pkg.app %>/docs/'
         }
