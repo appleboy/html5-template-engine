@@ -11,6 +11,7 @@ Features
 * A lightweight web server listen to 3000 port (Using [Node Express Framework](http://expressjs.com/)).
 * Support JavaScript Task Runner [GruntJS](http://gruntjs.com/)
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/)
+* Support documentation generator [Docco](http://jashkenas.github.io/docco/)
 
 Install develop tool
 -------------
