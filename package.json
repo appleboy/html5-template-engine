@@ -47,7 +47,7 @@
     "requirejs": "~2.1.8",
     "express": "~3.2.6",
     "grunt": "~0.4.1",
-    "bower": "~1.1.1",
+    "bower": "~1.1.2",
     "grunt-coffeelint": "0.0.7",
     "grunt-docco2": "~0.1.1"
   },
