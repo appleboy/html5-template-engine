@@ -103,9 +103,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    livereload: {
-      port: 35729
-    },
     express: {
       dev: {
         options: {
@@ -126,31 +123,32 @@ module.exports = function(grunt) {
         }
       }
     },
-    regarde: {
+    watch: {
       html: {
         files: ['<%= pkg.app %>/**/*.{html,htm}'],
-        tasks: ['livereload'],
-        events: true
+        options: {
+          livereload: true
+        }
       },
       scss: {
         files: ['<%= pkg.app %>/**/*.scss'],
-        tasks: ['compass:dev'],
-        events: true
+        tasks: ['compass:dev']
       },
       css: {
         files: ['<%= pkg.app %>/**/*.css'],
-        tasks: ['livereload'],
-        events: true
+        options: {
+          livereload: true
+        }
       },
       js: {
         files: '<%= pkg.app %>/**/*.js',
-        tasks: ['livereload'],
-        events: true
+        options: {
+          livereload: true
+        }
       },
       coffee: {
         files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
-        tasks: ['coffeelint', 'docco:dev', 'coffee'],
-        events: true
+        tasks: ['coffeelint', 'docco:dev', 'coffee']
       }
     },
     coffeelint: {
@@ -337,13 +335,13 @@ module.exports = function(grunt) {
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
-  grunt.registerTask('default', ['init', 'livereload-start', 'connect:livereload', 'regarde']);
+  grunt.registerTask('default', ['init', 'connect:livereload', 'watch']);
   grunt.registerTask('cleanup', ['clean:cleanup']);
   grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-regarde');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');

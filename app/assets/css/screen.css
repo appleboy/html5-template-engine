@@ -213,7 +213,7 @@ figure {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -352,5 +352,9 @@ table {
   border-spacing: 0; }
 
 body {
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #bbb; }
+
+#header {
+  margin: 10px auto;
+  text-align: center; }

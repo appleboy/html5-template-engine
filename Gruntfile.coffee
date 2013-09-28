@@ -76,8 +76,6 @@ module.exports = (grunt) ->
                     fileExclusionRegExp: /^(\.|node_modules)/
                     paths:
                         jquery: '../vendor/jquery/jquery'
-        livereload:
-            port: 35729
         express:
             dev:
                 options:
@@ -91,27 +89,26 @@ module.exports = (grunt) ->
                     middleware: (connect) ->
                         [lrSnippet, mountFolder(connect, 'app')]
 
-        regarde:
+        watch:
             html:
                 files: ['<%= pkg.app %>/**/*.{html,htm}']
-                tasks: ['livereload']
-                events: true
+                options:
+                    livereload: true
             scss:
                 files: ['<%= pkg.app %>/**/*.scss'],
                 tasks: ['compass:dev']
-                events: true
             css:
                 files: ['<%= pkg.app %>/**/*.css'],
-                tasks: ['livereload']
-                events: true
+                options:
+                    livereload: true
             js:
                 files: '<%= pkg.app %>/**/*.js',
-                tasks: ['livereload']
-                events: true
+                options:
+                    livereload: true
             coffee:
                 files: ['**/*.coffee', '!**/node_modules/**', '!**/vendor/**'],
                 tasks: ['coffeelint', 'docco:dev', 'coffee']
-                events: true
+
         coffeelint:
             options:
                 'force': true
@@ -266,7 +263,7 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # run local server by grunt-contrib-connect plugin
-    grunt.registerTask 'default', ['init', 'livereload-start', 'connect:livereload', 'regarde']
+    grunt.registerTask 'default', ['init', 'connect:livereload', 'watch']
     # run local express server.
     #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
@@ -275,8 +272,8 @@ module.exports = (grunt) ->
     # Dependencies
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-regarde'
+    grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-connect'
-    grunt.loadNpmTasks 'grunt-contrib-livereload'
     grunt.loadNpmTasks 'grunt-contrib-compass'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-copy'
