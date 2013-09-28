@@ -105,19 +105,11 @@ You will get the following messages.
 Running "init" task
 Initial project
 
-Running "express:dev" (express) task
-Starting background Express server
-Server listening on http://localhost:4000
+Running "connect:livereload" (connect) task
+Started connect web server on localhost:4000.
 
-Running "livereload-start" task
-... Starting Livereload server on 35729 ...
-
-Running "regarde" task
-Watching app/**/*.{html,htm}
-Watching app/**/*.scss
-Watching app/**/*.css
-Watching app/**/*.js
-Watching **/*.coffee
+Running "watch" task
+Waiting...
 ```
 Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
