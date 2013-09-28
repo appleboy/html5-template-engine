@@ -1,7 +1,3 @@
-lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet
-mountFolder = (connect, dir) ->
-    connect.static(require('path').resolve(dir))
-
 module.exports = (grunt) ->
     # build time
     filetime = Date.now()
@@ -81,13 +77,11 @@ module.exports = (grunt) ->
                 options:
                     script: '<%= pkg.build %>/server.js'
         connect:
-            options:
-                hostname: '0.0.0.0'
-                port: 4000
-            livereload:
+            server:
                 options:
-                    middleware: (connect) ->
-                        [lrSnippet, mountFolder(connect, 'app')]
+                    base: '<%= pkg.app %>'
+                    hostname: '0.0.0.0'
+                    port: 4000
 
         watch:
             html:
@@ -263,7 +257,7 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # run local server by grunt-contrib-connect plugin
-    grunt.registerTask 'default', ['init', 'connect:livereload', 'watch']
+    grunt.registerTask 'default', ['init', 'connect', 'watch']
     # run local express server.
     #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
