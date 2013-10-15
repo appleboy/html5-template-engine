@@ -171,13 +171,12 @@ module.exports = function(grunt) {
           outputStyle: 'nested',
           relativeAssets: true,
           noLineComments: true,
-          debugInfo: false,
+          debugInfo: true,
           environment: 'development'
         }
       },
       release: {
         options: {
-          force: true,
           sassDir: '<%= pkg.output %>/assets/sass',
           cssDir: '<%= pkg.output %>/assets/css',
           imagesDir: '<%= pkg.output %>/assets/images',
@@ -316,7 +315,7 @@ module.exports = function(grunt) {
   grunt.registerTask('release', function() {
     grunt.log.writeln('deploy project');
     (grunt.file.exists(project_config.app + '/assets/vendor')) || grunt.task.run('bower:install');
-    grunt.task.run(['requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']);
+    grunt.task.run(['compass:release', 'requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']);
     grunt.file.mkdir(project_config.output + '/assets/js');
     grunt.task.run('copy:release');
     grunt.task.run('htmlmin:release');
