@@ -257,7 +257,7 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # run local server by grunt-contrib-connect plugin
-    grunt.registerTask 'default', ['init', 'connect', 'watch']
+    grunt.registerTask 'default', ['init', 'connect', 'compass:dev', 'watch']
     # run local express server.
     #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
