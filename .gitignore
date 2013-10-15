@@ -7,3 +7,4 @@ output/
 node_modules/
 app/docs/
 app/assets/css
+app/assets/js

@@ -315,14 +315,14 @@ module.exports = function(grunt) {
   grunt.registerTask('release', function() {
     grunt.log.writeln('deploy project');
     (grunt.file.exists(project_config.app + '/assets/vendor')) || grunt.task.run('bower:install');
-    grunt.task.run(['compass:release', 'requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']);
+    grunt.task.run(['coffee:dev', 'compass:dev', 'requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']);
     grunt.file.mkdir(project_config.output + '/assets/js');
     grunt.task.run('copy:release');
     grunt.task.run('htmlmin:release');
     grunt.task.run('replace:release');
     return grunt.task.run('clean:release');
   });
-  grunt.registerTask('default', ['init', 'connect', 'compass:dev', 'watch']);
+  grunt.registerTask('default', ['init', 'connect', 'coffee:dev', 'compass:dev', 'watch']);
   grunt.registerTask('cleanup', ['clean:cleanup']);
   grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');

@@ -248,7 +248,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'release', () ->
         grunt.log.writeln 'deploy project'
         (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'
-        grunt.task.run ['compass:dev', 'requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']
+        grunt.task.run ['coffee:dev', 'compass:dev', 'requirejs:build', 'requirejs:release', 'cssmin:release', 'clean:js']
         grunt.file.mkdir project_config.output + '/assets/js'
         grunt.task.run 'copy:release'
         grunt.task.run 'htmlmin:release'
@@ -256,7 +256,7 @@ module.exports = (grunt) ->
         grunt.task.run 'clean:release'
 
     # run local server by grunt-contrib-connect plugin
-    grunt.registerTask 'default', ['init', 'connect', 'compass:dev', 'watch']
+    grunt.registerTask 'default', ['init', 'connect', 'coffee:dev', 'compass:dev', 'watch']
     # run local express server.
     #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
     grunt.registerTask 'cleanup', ['clean:cleanup']
