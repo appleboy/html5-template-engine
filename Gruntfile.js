@@ -305,9 +305,6 @@ module.exports = function(grunt) {
   grunt.event.on('watch', function(action, filepath) {
     return grunt.log.writeln(filepath + ' has ' + action);
   });
-  grunt.event.on('regarde:file', function(status, name, filepath, tasks, spawn) {
-    return grunt.log.writeln('File ' + filepath + ' ' + status + '. Tasks: ' + tasks);
-  });
   grunt.registerTask('init', function() {
     grunt.log.writeln('Initial project');
     return (grunt.file.exists(project_config.app + '/assets/vendor')) || grunt.task.run('bower:install');
@@ -326,7 +323,6 @@ module.exports = function(grunt) {
   grunt.registerTask('cleanup', ['clean:cleanup']);
   grunt.registerTask('test', ['release', 'shell:test', 'mocha_phantomjs']);
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-compass');

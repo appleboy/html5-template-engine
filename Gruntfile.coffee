@@ -238,9 +238,6 @@ module.exports = (grunt) ->
     grunt.event.on 'watch', (action, filepath) ->
         grunt.log.writeln filepath + ' has ' + action
 
-    grunt.event.on 'regarde:file', (status, name, filepath, tasks, spawn) ->
-        grunt.log.writeln 'File ' + filepath + ' ' + status + '. Tasks: ' + tasks
-
     grunt.registerTask 'init', () ->
         grunt.log.writeln 'Initial project'
         (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'
@@ -258,13 +255,12 @@ module.exports = (grunt) ->
     # run local server by grunt-contrib-connect plugin
     grunt.registerTask 'default', ['init', 'connect', 'coffee:dev', 'compass:dev', 'watch']
     # run local express server.
-    #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start', 'regarde']
+    #grunt.registerTask 'default', ['init', 'express:dev', 'livereload-start']
     grunt.registerTask 'cleanup', ['clean:cleanup']
     grunt.registerTask 'test', ['release', 'shell:test', 'mocha_phantomjs']
 
     # Dependencies
     grunt.loadNpmTasks 'grunt-shell'
-    grunt.loadNpmTasks 'grunt-regarde'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-connect'
     grunt.loadNpmTasks 'grunt-contrib-compass'
