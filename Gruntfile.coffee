@@ -130,7 +130,7 @@ module.exports = (grunt) ->
                     outputStyle: 'nested'
                     relativeAssets: true
                     noLineComments: true
-                    debugInfo: true
+                    debugInfo: false
                     environment: 'development'
             release:
                 options:
@@ -142,6 +142,7 @@ module.exports = (grunt) ->
                     relativeAssets: true
                     noLineComments: true
                     environment: 'production'
+                    debugInfo: false
         cssmin:
             release:
                 report: 'gzip'
