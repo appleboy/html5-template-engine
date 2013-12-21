@@ -1,12 +1,16 @@
 @import "base";
 
+body {
+    background-color: #ccc;
+}
+
 #header {
     margin: 10px auto;
     text-align: center;
 }
 
 h2 {
-    color: #aaa;
+    color: #555;
 }
 
 /* ==========================================================================
