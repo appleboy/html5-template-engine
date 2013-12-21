@@ -85,7 +85,8 @@ module.exports = (grunt) ->
 
         watch:
             html:
-                files: ['<%= pkg.app %>/**/*.{html,htm}']
+                files: ['<%= pkg.app %>/*.{html,htm}']
+                tasks: ['validation']
                 options:
                     livereload: true
             scss:
@@ -235,6 +236,10 @@ module.exports = (grunt) ->
         mocha_phantomjs:
             all: '<%= pkg.test %>/**/*.html'
 
+        validation:
+            files:
+                src: ['<%= pkg.app %>/*.html']
+
     grunt.event.on 'watch', (action, filepath) ->
         grunt.log.writeln filepath + ' has ' + action
 
@@ -276,3 +281,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-mocha-phantomjs'
     grunt.loadNpmTasks 'grunt-coffeelint'
     grunt.loadNpmTasks 'grunt-docco2'
+    grunt.loadNpmTasks 'grunt-html-validation'

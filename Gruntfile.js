@@ -300,6 +300,11 @@ module.exports = function(grunt) {
     },
     mocha_phantomjs: {
       all: '<%= pkg.test %>/**/*.html'
+    },
+    validation: {
+      files: {
+        src: ['<%= pkg.app %>/*.html']
+      }
     }
   });
   grunt.event.on('watch', function(action, filepath) {
@@ -337,5 +342,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-mocha-phantomjs');
   grunt.loadNpmTasks('grunt-coffeelint');
-  return grunt.loadNpmTasks('grunt-docco2');
+  grunt.loadNpmTasks('grunt-docco2');
+  return grunt.loadNpmTasks('grunt-html-validation');
 };
