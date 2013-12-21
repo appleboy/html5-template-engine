@@ -1,8 +1,7 @@
-Html5 Template Engine [![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![Build Status](https://drone.io/github.com/appleboy/html5-template-engine/status.png)](https://drone.io/github.com/appleboy/html5-template-engine/latest)
-======================
+# Html5 Template Engine
+[![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![Build Status](https://drone.io/github.com/appleboy/html5-template-engine/status.png)](https://drone.io/github.com/appleboy/html5-template-engine/latest)
 
-Features
--------------
+## Features
 
 * The latest [html5boilerplate.com](http://html5boilerplate.com/) source code.
 * Includes [Normalize.scss](https://github.com/appleboy/normalize.scss) v2.1.x and v1.1.x.
@@ -13,8 +12,7 @@ Features
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/)
 * Support documentation generator [Docco](http://jashkenas.github.io/docco/)
 
-Install develop tool
--------------
+## Install develop tool
 
     $ ./build/build.sh
 
@@ -22,8 +20,7 @@ or
 
     $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | bash
 
-Setup Environment
--------------
+## Setup Environment
 
 Download source code.
 
@@ -34,25 +31,21 @@ Install vendor library and npm library.
     $ npm install
     $ bower install
 
-Develop a project manually
-======================
+## Develop a project manually
 
-Use Compass CSS Framework
--------------
+### Use Compass CSS Framework
 
 Compass is an open-source CSS Authoring Framework. http://compass-style.org/
 
     $ compass watch .
 
-Use CoffeeScript
--------------
+### Use CoffeeScript
 
 CoffeeScript is a little language that compiles into JavaScript. http://coffeescript.org/
 
     $ coffee -b -w -c -o assets/js assets/coffeescript
 
-Minify Javascript using RequireJS
--------------
+### Minify Javascript using RequireJS
 
 Using Makefile.
 
@@ -88,8 +81,7 @@ open the following URL on browser.
 http://your_host_name:4000/
 ```
 
-Develop a project automatically
-======================
+## Develop a project automatically
 
 Before using [GruntJS](http://gruntjs.com/) tool, please make sure excute the following command.
 
@@ -113,11 +105,9 @@ Waiting...
 ```
 Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
-Deploy Your App
-======================
+## Deploy Your App
 
-Using Makefile
--------------
+### Using Makefile
 
     $ make release
 
@@ -125,8 +115,7 @@ or defined your build output path. (default: output)
 
     $ make -m output_path=output2 release
 
-Using GruntJS
--------------
+### Using GruntJS
 
     $ ./node_modules/.bin/grunt release
 
@@ -140,33 +129,26 @@ open the following URL on browser.
 http://your_host_name/html5/
 ```
 
-Test Your Project
-======================
+## Test Your Project
 
-Using Makefile
--------------
+### Using Makefile
 
     $ make test
 
-Using GruntJS
--------------
+### Using GruntJS
 
     $ ./node_modules/.bin/grunt test
 
-Clean Your Project
-======================
+## Clean Your Project
 
-Using Makefile
--------------
+### Using Makefile
 
     $ make clean
 
-Using GruntJS
--------------
+### Using GruntJS
 
     $ ./node_modules/.bin/grunt clean
 
-Author
-======================
+## Author
 
 Bo-Yi Wu, Twitter: [@appleboy](http://twitter.com/appleboy "Twitter"), Blog: http://blog.wu-boy.com
