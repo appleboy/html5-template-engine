@@ -1,5 +1,5 @@
 # Html5 Template Engine
-[![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![Build Status](https://drone.io/github.com/appleboy/html5-template-engine/status.png)](https://drone.io/github.com/appleboy/html5-template-engine/latest)
+[ ![Codeship Status for appleboy/html5-template-engine](https://www.codeship.io/projects/3c113a00-0a59-0131-64c8-7eb8e86f2980/status?branch=master)](https://www.codeship.io/projects/7462) [![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![Build Status](https://drone.io/github.com/appleboy/html5-template-engine/status.png)](https://drone.io/github.com/appleboy/html5-template-engine/latest)
 
 ## Features
 
