@@ -52,7 +52,18 @@
     "phantomjs": "~1.9.2-1",
     "grunt-remove-logging": "~0.2.0",
     "grunt-html-validation": "~0.1.12",
-    "gulp": "~3.2.1"
+    "gulp": "~3.2.1",
+    "gulp-livereload": "~0.1.1",
+    "gulp-htmlmin": "~0.1.0",
+    "gulp-replace": "~0.2.0",
+    "gulp-grunt": "~0.4.0",
+    "gulp-coffee": "~1.2.2",
+    "gulp-handlebars": "~0.2.3",
+    "gulp-uglify": "~0.1.0",
+    "gulp-minify-html": "~0.1.0",
+    "gulp-coffeelint": "0.0.2",
+    "gulp-mocha": "~0.1.0",
+    "gulp-csso": "~0.1.2"
   },
   "optionalDependencies": {},
   "scripts": {
