@@ -63,7 +63,8 @@
     "gulp-minify-html": "~0.1.0",
     "gulp-coffeelint": "0.0.2",
     "gulp-mocha": "~0.1.0",
-    "gulp-csso": "~0.1.2"
+    "gulp-csso": "~0.1.2",
+    "tiny-lr": "0.0.5"
   },
   "optionalDependencies": {},
   "scripts": {
