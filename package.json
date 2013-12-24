@@ -51,7 +51,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "phantomjs": "~1.9.2-1",
     "grunt-remove-logging": "~0.2.0",
-    "grunt-html-validation": "~0.1.12"
+    "grunt-html-validation": "~0.1.12",
+    "gulp": "~3.2.1"
   },
   "optionalDependencies": {},
   "scripts": {
