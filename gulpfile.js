@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     lr = require('tiny-lr'),
     refresh = require('gulp-livereload'),
+    compass = require('gulp-compass'),
     server = lr();
 
 // import grunt task
@@ -17,8 +18,8 @@ gulp.task('coffee', function() {
 
 gulp.task('compass', function() {
     gulp.src('app/assets/sass/**/*.scss')
-        .pipe(compass({bare: true}))
-        .pipe(gulp.dest('app/assets/css/'));
+        .pipe(compass({cwd: './'}))
+        .pipe(refresh(server));
 });
 
 gulp.task('sass', function() {
@@ -42,7 +43,7 @@ gulp.task('default', function() {
             gulp.run('livereload');
         });
         gulp.watch('app/assets/sass/**/*.scss', function(event) {
-            gulp.run('sass');
+            gulp.run('compass');
         });
     });
 });
