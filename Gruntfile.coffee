@@ -248,6 +248,9 @@ module.exports = (grunt) ->
         grunt.log.writeln 'Initial project'
         (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'
 
+    grunt.registerTask 'sass', () ->
+        grunt.task.run 'compass:dev'
+
     grunt.registerTask 'release', () ->
         grunt.log.writeln 'deploy project'
         (grunt.file.exists project_config.app + '/assets/vendor') || grunt.task.run 'bower:install'

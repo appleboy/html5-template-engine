@@ -5,6 +5,9 @@ var gulp = require('gulp'),
     refresh = require('gulp-livereload'),
     server = lr();
 
+// import grunt task
+require('gulp-grunt')(gulp);
+
 gulp.task('coffee', function() {
     gulp.src('app/assets/coffeescript/**/*.coffee')
         .pipe(coffee({bare: true}))
@@ -12,8 +15,18 @@ gulp.task('coffee', function() {
         .pipe(refresh(server));
 });
 
+gulp.task('compass', function() {
+    gulp.src('app/assets/sass/**/*.scss')
+        .pipe(compass({bare: true}))
+        .pipe(gulp.dest('app/assets/css/'));
+});
+
+gulp.task('sass', function() {
+    gulp.run('grunt-sass');
+});
+
 gulp.task('livereload', function() {
-    gulp.src('app/*.html')
+    gulp.src(['app/*.html', 'app/assets/css/**/*.css'])
         .pipe(refresh(server));
 });
 
@@ -25,8 +38,11 @@ gulp.task('default', function() {
         gulp.watch('app/assets/coffeescript/**/*.coffee', function(event) {
             gulp.run('coffee');
         });
-        gulp.watch('app/*.html', function(event) {
+        gulp.watch(['app/*.html', 'app/assets/css/**/*.css'], function(event) {
             gulp.run('livereload');
+        });
+        gulp.watch('app/assets/sass/**/*.scss', function(event) {
+            gulp.run('sass');
         });
     });
 });

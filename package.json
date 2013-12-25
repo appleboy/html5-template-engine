@@ -64,7 +64,8 @@
     "gulp-coffeelint": "0.0.2",
     "gulp-mocha": "~0.1.0",
     "gulp-csso": "~0.1.2",
-    "tiny-lr": "0.0.5"
+    "tiny-lr": "0.0.5",
+    "docco": "~0.6.2"
   },
   "optionalDependencies": {},
   "scripts": {
