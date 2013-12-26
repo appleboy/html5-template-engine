@@ -65,7 +65,8 @@
     "gulp-mocha": "~0.1.0",
     "gulp-csso": "~0.1.2",
     "tiny-lr": "0.0.5",
-    "docco": "~0.6.2"
+    "docco": "~0.6.2",
+    "gulp-compass": "0.0.2"
   },
   "optionalDependencies": {},
   "scripts": {
