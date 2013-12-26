@@ -18,7 +18,11 @@ gulp.task('coffee', function() {
 
 gulp.task('compass', function() {
     gulp.src('app/assets/sass/**/*.scss')
-        .pipe(compass());
+        .pipe(compass({
+            css: 'app/assets/css',
+            sass: 'app/assets/sass',
+            image: 'app/assets/images'
+        }));
 });
 
 gulp.task('sass', function() {
