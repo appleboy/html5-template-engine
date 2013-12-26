@@ -18,8 +18,7 @@ gulp.task('coffee', function() {
 
 gulp.task('compass', function() {
     gulp.src('app/assets/sass/**/*.scss')
-        .pipe(compass())
-        .pipe(refresh(server));
+        .pipe(compass());
 });
 
 gulp.task('sass', function() {
