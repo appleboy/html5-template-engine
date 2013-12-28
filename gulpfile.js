@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
-    handlebars = require('gulp-handlebars'),
     coffee = require('gulp-coffee'),
+    coffeelint = require('gulp-coffeelint'),
     lr = require('tiny-lr'),
     refresh = require('gulp-livereload'),
     compass = require('gulp-compass'),
@@ -13,6 +13,12 @@ require('gulp-grunt')(gulp);
 
 gulp.task('coffee', function() {
     gulp.src('app/assets/coffeescript/**/*.coffee')
+        .pipe(coffeelint({"indentation": {
+            "name": "indentation",
+            "value": 4,
+            "level": "error"
+        }}))
+        .pipe(coffeelint.reporter())
         .pipe(coffee({bare: true}))
         .pipe(gulp.dest('app/assets/js/'))
         .pipe(refresh(server));
@@ -26,10 +32,6 @@ gulp.task('compass', function() {
             image: 'app/assets/images'
         }))
         .pipe(refresh(server));
-});
-
-gulp.task('sass', function() {
-    gulp.run('grunt-sass');
 });
 
 gulp.task('livereload', function() {
