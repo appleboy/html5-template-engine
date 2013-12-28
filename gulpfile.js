@@ -17,7 +17,7 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('compass', function() {
-    gulp.src('app/assets/sass/**/*.scss')
+    gulp.src('app/assets/sass/**/*.scss', {read: false})
         .pipe(compass({
             css: 'app/assets/css',
             sass: 'app/assets/sass',
