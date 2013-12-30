@@ -59,7 +59,7 @@
     "gulp-mocha": "~0.1.0",
     "tiny-lr": "0.0.5",
     "docco": "~0.6.2",
-    "gulp-compass": "~1.0.0",
+    "gulp-compass": "~1.0.1",
     "gulp-util": "~2.2.0"
   },
   "optionalDependencies": {},
