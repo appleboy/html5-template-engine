@@ -11,6 +11,7 @@
 * Support JavaScript Task Runner [GruntJS](http://gruntjs.com/)
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/)
 * Support documentation generator [Docco](http://jashkenas.github.io/docco/)
+* Support streaming build system [Gulp](http://gulpjs.com/)</a>
 
 ## Install develop tool
 
@@ -86,12 +87,15 @@ http://your_host_name:4000/
 Before using [GruntJS](http://gruntjs.com/) tool, please make sure excute the following command.
 
     $ npm install
+    $ bower install
+
+### Using GruntJS
 
 Using [GruntJS](http://gruntjs.com/) tool to setup develop environment.
 
     $ ./node_modules/.bin/grunt
 
-You will get the following messages.
+Output the following message.
 
 ```
 Running "init" task
@@ -104,6 +108,21 @@ Running "watch" task
 Waiting...
 ```
 Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+
+### Using Gulp
+
+Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
+
+    $ ./node_modules/.bin/gulp
+
+Output the following message.
+
+```
+[gulp] Using file /home/appleboy/html5-template-engine/gulpfile.js
+[gulp] Working directory changed to /home/appleboy/html5-template-engine
+[gulp] Running 'default'...
+[gulp] Finished 'default' in 2.91 ms
+```
 
 ## Deploy Your App
 
