@@ -1,18 +1,19 @@
+'use strict';
+
 var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     coffeelint = require('gulp-coffeelint'),
     compass = require('gulp-compass'),
-    bower = require('bower'),
     lr = require('tiny-lr'),
     refresh = require('gulp-livereload'),
     server = lr();
 
 gulp.task('coffee', function() {
     gulp.src('app/assets/coffeescript/**/*.coffee')
-        .pipe(coffeelint({"indentation": {
-            "name": "indentation",
-            "value": 4,
-            "level": "error"
+        .pipe(coffeelint({'indentation': {
+            'name': 'indentation',
+            'value': 4,
+            'level': 'error'
         }}))
         .pipe(coffeelint.reporter())
         .pipe(coffee({bare: true}))
@@ -39,14 +40,16 @@ gulp.task('livereload', function() {
 gulp.task('default', function() {
     // Watch files and run tasks if they change
     server.listen(35729, function (err) {
-        if (err) return console.log(err);
-        gulp.watch('app/assets/coffeescript/**/*.coffee', function(event) {
+        if (err) {
+            return console.log(err);
+        }
+        gulp.watch('app/assets/coffeescript/**/*.coffee', function() {
             gulp.run('coffee');
         });
-        gulp.watch(['app/*.html'], function(event) {
+        gulp.watch(['app/*.html'], function() {
             gulp.run('livereload');
         });
-        gulp.watch('app/assets/sass/**/*.scss', function(event) {
+        gulp.watch('app/assets/sass/**/*.scss', function() {
             gulp.run('compass');
         });
     });
