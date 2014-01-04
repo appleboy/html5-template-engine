@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     lr = require('tiny-lr'),
     refresh = require('gulp-livereload'),
-    server = lr();
+    server = lr(),
+    w3cjs = require('gulp-w3cjs');
 
 gulp.task('coffee', function() {
     gulp.src('app/assets/coffeescript/**/*.coffee')
@@ -21,6 +22,12 @@ gulp.task('coffee', function() {
         .pipe(refresh(server));
 });
 
+gulp.task('w3cjs', function () {
+    gulp.src('app/*.html')
+        .pipe(w3cjs())
+        .pipe(refresh(server));
+});
+
 gulp.task('compass', function() {
     gulp.src('app/assets/sass/**/*.scss')
         .pipe(compass({
@@ -28,11 +35,6 @@ gulp.task('compass', function() {
             sass: 'app/assets/sass',
             image: 'app/assets/images'
         }))
-        .pipe(refresh(server));
-});
-
-gulp.task('livereload', function() {
-    gulp.src(['app/*.html'])
         .pipe(refresh(server));
 });
 
@@ -47,7 +49,7 @@ gulp.task('default', function() {
             gulp.run('coffee');
         });
         gulp.watch(['app/*.html'], function() {
-            gulp.run('livereload');
+            gulp.run('w3cjs');
         });
         gulp.watch('app/assets/sass/**/*.scss', function() {
             gulp.run('compass');

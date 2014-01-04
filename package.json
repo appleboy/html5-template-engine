@@ -60,7 +60,8 @@
     "tiny-lr": "0.0.5",
     "docco": "~0.6.2",
     "gulp-compass": "~1.0.3",
-    "gulp-util": "~2.2.0"
+    "gulp-util": "~2.2.0",
+    "gulp-w3cjs": "0.0.2"
   },
   "optionalDependencies": {},
   "scripts": {
