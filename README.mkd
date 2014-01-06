@@ -12,18 +12,18 @@
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/)
 * Support documentation generator [Docco](http://jashkenas.github.io/docco/)
 * Support streaming build system [Gulp](http://gulpjs.com/)
-* Support [Terminal in Chrome Devtools][http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/]
+* Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/)
 
 ## Support Terminal in Chrome Devtools
 
-If you’re on a Mac, just download this [Chrome extension][https://chrome.google.com/webstore/detail/leakmhneaibbdapdoienlkifomjceknl]. Install it, and you good to go. No need to read any further.
+If you’re on a Mac, just download this [Chrome extension](https://chrome.google.com/webstore/detail/leakmhneaibbdapdoienlkifomjceknl). Install it, and you good to go. No need to read any further.
 
 If you’re not on a Mac, you can connect to your system’s terminal via Node.js proxy. It can be localhost or some other remote server.
 
     $ npm install -g devtools-terminal
     $ devtools-terminal --config terminal.js
 
-Please refer more [detail][http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/]
+Please refer more [detail information](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 
 ## Install develop tool
 
