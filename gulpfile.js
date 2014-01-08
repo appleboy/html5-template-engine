@@ -41,36 +41,7 @@ gulp.task('compass', function() {
 
 gulp.task('lint', function() {
     gulp.src('gulpfile.js')
-        .pipe(jshint({
-            'node': true,
-            'esnext': true,
-            'bitwise': true,
-            'camelcase': false,
-            'curly': true,
-            'eqeqeq': true,
-            'immed': true,
-            'indent': 4,
-            'latedef': true,
-            'newcap': true,
-            'noarg': true,
-            'quotmark': 'single',
-            'regexp': true,
-            'undef': true,
-            'unused': true,
-            'strict': true,
-            'trailing': true,
-            'smarttabs': true,
-            'globals': {
-                /* MOCHA */
-                'describe'   : false,
-                'it'         : false,
-                'before'     : false,
-                'beforeEach' : false,
-                'after'      : false,
-                'afterEach'  : false,
-                'require'    : false
-            }
-        }))
+        .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'));
 });
 
