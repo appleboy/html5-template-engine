@@ -10,6 +10,12 @@ filetime:=$(shell date '+%s%N')
 all: init
 	r.js -o build/self.build.js
 
+gulp:
+	gulp
+
+devtools:
+	devtools-terminal --config terminal.js
+
 compass:
 	$@ watch .
 
