@@ -45,26 +45,32 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('default'));
 });
 
-// The default task (called when you run `gulp`)
-gulp.task('default', function() {
-    gulp.run('lint');
-
-    // Watch files and run tasks if they change
-    server.listen(35729, function (err) {
-        if (err) {
+gulp.task('lr-server', function() {
+    server.listen(35729, function(err) {
+        if(err) {
             return console.log(err);
         }
-        gulp.watch('gulpfile.js', function() {
-            gulp.run('lint');
-        });
-        gulp.watch('app/assets/coffeescript/**/*.coffee', function() {
-            gulp.run('coffee');
-        });
-        gulp.watch(['app/*.html'], function() {
-            gulp.run('w3cjs');
-        });
-        gulp.watch('app/assets/sass/**/*.scss', function() {
-            gulp.run('compass');
-        });
+    });
+});
+
+// The default task (called when you run `gulp`)
+gulp.task('default', function() {
+    gulp.run('lint', 'lr-server');
+
+    // Watch files and run tasks if they change
+    gulp.watch('gulpfile.js', function() {
+        gulp.run('lint');
+    });
+
+    gulp.watch('app/assets/coffeescript/**/*.coffee', function() {
+        gulp.run('coffee');
+    });
+
+    gulp.watch(['app/*.html'], function() {
+        gulp.run('w3cjs');
+    });
+
+    gulp.watch('app/assets/sass/**/*.scss', function() {
+        gulp.run('compass');
     });
 });
