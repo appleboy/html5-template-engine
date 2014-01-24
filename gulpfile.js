@@ -79,7 +79,7 @@ gulp.task('watch', function() {
 
 // Clean
 gulp.task('clean', function() {
-    return gulp.src(['output'], {read: false})
+    return gulp.src(['output', '.sass-cache'], {read: false})
         .pipe(clean());
 });
 
