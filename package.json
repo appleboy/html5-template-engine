@@ -22,7 +22,8 @@
     "requirejs": "~2.1.10",
     "bower": "~0.9.2",
     "express": "~3.2.6",
-    "gulp-compass": "~1.0.8"
+    "gulp-compass": "~1.0.8",
+    "gulp-clean": "~0.2.4"
   },
   "devDependencies": {
     "mocha": "~1.9.0",

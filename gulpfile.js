@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     refresh = require('gulp-livereload'),
     server = lr(),
     w3cjs = require('gulp-w3cjs'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    clean = require('gulp-clean');
 
 gulp.task('coffee', function() {
     gulp.src('app/assets/coffeescript/**/*.coffee')
@@ -76,7 +77,13 @@ gulp.task('watch', function() {
     });
 });
 
+// Clean
+gulp.task('clean', function() {
+    return gulp.src(['output'], {read: false})
+        .pipe(clean());
+});
+
 // The default task (called when you run `gulp`)
-gulp.task('default', function() {
+gulp.task('default', ['clean'], function() {
     gulp.run('lint', 'lr-server', 'watch');
 });
