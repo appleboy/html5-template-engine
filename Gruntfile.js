@@ -111,9 +111,32 @@ module.exports = function(grunt) {
         }
       }
     },
+    imagemin: {
+      dynamic: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= pkg.app %>/assets/images/',
+            src: ['**/*.{png,jpg,jpeg,gif}'],
+            dest: '<%= pkg.app %>/assets/images/'
+          }
+        ],
+        options: {
+          optimizationLevel: 3
+        }
+      }
+    },
     watch: {
+      images: {
+        files: ['<%= pkg.app %>/assets/images/**/*.{png,jpg,jpeg,gif}'],
+        tasks: ['imagemin'],
+        options: {
+          livereload: true
+        }
+      },
       html: {
-        files: ['<%= pkg.app %>/**/*.{html,htm}'],
+        files: ['<%= pkg.app %>/*.{html,htm}'],
+        tasks: ['validation'],
         options: {
           livereload: true
         }
@@ -171,7 +194,7 @@ module.exports = function(grunt) {
           outputStyle: 'nested',
           relativeAssets: true,
           noLineComments: true,
-          debugInfo: true,
+          debugInfo: false,
           environment: 'development'
         }
       },
@@ -184,7 +207,8 @@ module.exports = function(grunt) {
           outputStyle: 'compressed',
           relativeAssets: true,
           noLineComments: true,
-          environment: 'production'
+          environment: 'production',
+          debugInfo: false
         }
       }
     },
@@ -314,6 +338,9 @@ module.exports = function(grunt) {
     grunt.log.writeln('Initial project');
     return (grunt.file.exists(project_config.app + '/assets/vendor')) || grunt.task.run('bower:install');
   });
+  grunt.registerTask('sass', function() {
+    return grunt.task.run('compass:dev');
+  });
   grunt.registerTask('release', function() {
     grunt.log.writeln('deploy project');
     (grunt.file.exists(project_config.app + '/assets/vendor')) || grunt.task.run('bower:install');
@@ -343,5 +370,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-phantomjs');
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-docco2');
-  return grunt.loadNpmTasks('grunt-html-validation');
+  grunt.loadNpmTasks('grunt-html-validation');
+  return grunt.loadNpmTasks('grunt-contrib-imagemin');
 };

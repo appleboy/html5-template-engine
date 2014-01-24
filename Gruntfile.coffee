@@ -83,7 +83,23 @@ module.exports = (grunt) ->
                     hostname: '0.0.0.0'
                     port: 4000
 
+        imagemin:
+            dynamic:
+                files: [{
+                    expand: true
+                    cwd: '<%= pkg.app %>/assets/images/',
+                    src: ['**/*.{png,jpg,jpeg,gif}']
+                    dest: '<%= pkg.app %>/assets/images/'
+                }]
+                options:
+                    optimizationLevel: 3
+
         watch:
+            images:
+                files: ['<%= pkg.app %>/assets/images/**/*.{png,jpg,jpeg,gif}']
+                tasks: ['imagemin']
+                options:
+                    livereload: true
             html:
                 files: ['<%= pkg.app %>/*.{html,htm}']
                 tasks: ['validation']
@@ -286,3 +302,4 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-coffeelint'
     grunt.loadNpmTasks 'grunt-docco2'
     grunt.loadNpmTasks 'grunt-html-validation'
+    grunt.loadNpmTasks 'grunt-contrib-imagemin'

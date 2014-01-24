@@ -44,7 +44,7 @@
     "mocha-phantomjs": "~3.1.4",
     "requirejs": "~2.1.10",
     "express": "~3.2.6",
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "bower": "~0.9.2",
     "grunt-coffeelint": "0.0.7",
     "grunt-docco2": "~0.1.1",
@@ -65,7 +65,8 @@
     "gulp-jshint": "~1.3.4",
     "gulp-clean": "~0.2.4",
     "gulp-imagemin": "~0.1.4",
-    "gulp-cache": "~0.1.1"
+    "gulp-cache": "~0.1.1",
+    "grunt-contrib-imagemin": "~0.5.0"
   },
   "optionalDependencies": {},
   "scripts": {
