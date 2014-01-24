@@ -53,24 +53,30 @@ gulp.task('lr-server', function() {
     });
 });
 
-// The default task (called when you run `gulp`)
-gulp.task('default', function() {
-    gulp.run('lint', 'lr-server');
-
+gulp.task('watch', function() {
     // Watch files and run tasks if they change
-    gulp.watch('gulpfile.js', function() {
+    gulp.watch('gulpfile.js', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.run('lint');
     });
 
-    gulp.watch('app/assets/coffeescript/**/*.coffee', function() {
+    gulp.watch('app/assets/coffeescript/**/*.coffee', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.run('coffee');
     });
 
-    gulp.watch(['app/*.html'], function() {
+    gulp.watch(['app/*.html'], function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.run('w3cjs');
     });
 
-    gulp.watch('app/assets/sass/**/*.scss', function() {
+    gulp.watch('app/assets/sass/**/*.scss', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.run('compass');
     });
+});
+
+// The default task (called when you run `gulp`)
+gulp.task('default', function() {
+    gulp.run('lint', 'lr-server', 'watch');
 });
