@@ -13,7 +13,7 @@
 * Support documentation generator [Docco](http://jashkenas.github.io/docco/).
 * Support streaming build system [Gulp](http://gulpjs.com/).
 * Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
-* Support Minify PNG and JPEG images.
+* Support Minify PNG and JPEG images with [image-min](https://github.com/sindresorhus/gulp-imagemin).
 
 ## Support Terminal in Chrome Devtools
 
