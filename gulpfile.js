@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache');
 
 gulp.task('coffee', function() {
-    gulp.src('app/assets/coffeescript/**/*.coffee')
+    return gulp.src('app/assets/coffeescript/**/*.coffee')
         .pipe(coffeelint({'indentation': {
             'name': 'indentation',
             'value': 4,
@@ -27,13 +27,13 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('w3cjs', function () {
-    gulp.src('app/*.html')
+    return gulp.src('app/*.html')
         .pipe(w3cjs())
         .pipe(livereload(server));
 });
 
 gulp.task('compass', function() {
-    gulp.src('app/assets/sass/**/*.scss')
+    return gulp.src('app/assets/sass/**/*.scss')
         .pipe(compass({
             css: 'app/assets/css',
             sass: 'app/assets/sass',
@@ -43,7 +43,7 @@ gulp.task('compass', function() {
 });
 
 gulp.task('lint', function() {
-    gulp.src('gulpfile.js')
+    return gulp.src('gulpfile.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'));
 });
@@ -54,6 +54,20 @@ gulp.task('lr-server', function() {
             return console.log(err);
         }
     });
+});
+
+// Clean
+gulp.task('clean', function() {
+    return gulp.src(['output', '.sass-cache'], {read: false})
+        .pipe(clean());
+});
+
+// Images
+gulp.task('images', function() {
+    return gulp.src('app/assets/images/**/*')
+        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+        .pipe(livereload(server))
+        .pipe(gulp.dest('app/assets/images'));
 });
 
 gulp.task('watch', function() {
@@ -82,20 +96,6 @@ gulp.task('watch', function() {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
         gulp.run('images');
     });
-});
-
-// Clean
-gulp.task('clean', function() {
-    return gulp.src(['output', '.sass-cache'], {read: false})
-        .pipe(clean());
-});
-
-// Images
-gulp.task('images', function() {
-    return gulp.src('app/assets/images/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(livereload(server))
-        .pipe(gulp.dest('app/assets/images'));
 });
 
 // The default task (called when you run `gulp`)
