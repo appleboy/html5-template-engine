@@ -11,10 +11,12 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     clean = require('gulp-clean'),
     imagemin = require('gulp-imagemin'),
-    cache = require('gulp-cache');
+    cache = require('gulp-cache'),
+    changed = require('gulp-changed');
 
 gulp.task('coffee', function() {
     return gulp.src('app/assets/coffeescript/**/*.coffee')
+        .pipe(changed('app/assets/js/', { extension: '.js' }))
         .pipe(coffeelint({'indentation': {
             'name': 'indentation',
             'value': 4,
