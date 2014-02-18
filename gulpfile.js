@@ -4,15 +4,13 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     coffeelint = require('gulp-coffeelint'),
     compass = require('gulp-compass'),
-    lr = require('tiny-lr'),
-    livereload = require('gulp-livereload'),
-    server = lr(),
     w3cjs = require('gulp-w3cjs'),
     jshint = require('gulp-jshint'),
     clean = require('gulp-clean'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
-    changed = require('gulp-changed');
+    changed = require('gulp-changed'),
+    connect = require('gulp-connect');
 
 gulp.task('coffee', function() {
     return gulp.src('app/assets/coffeescript/**/*.coffee')
@@ -25,13 +23,13 @@ gulp.task('coffee', function() {
         .pipe(coffeelint.reporter())
         .pipe(coffee({bare: true}))
         .pipe(gulp.dest('app/assets/js/'))
-        .pipe(livereload(server));
+        .pipe(connect.reload());
 });
 
 gulp.task('w3cjs', function () {
     return gulp.src('app/*.html')
         .pipe(w3cjs())
-        .pipe(livereload(server));
+        .pipe(connect.reload());
 });
 
 gulp.task('compass', function() {
@@ -41,21 +39,13 @@ gulp.task('compass', function() {
             sass: 'app/assets/sass',
             image: 'app/assets/images'
         }))
-        .pipe(livereload(server));
+        .pipe(connect.reload());
 });
 
 gulp.task('lint', function() {
     return gulp.src('gulpfile.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'));
-});
-
-gulp.task('lr-server', function() {
-    server.listen(35729, function(err) {
-        if(err) {
-            return console.log(err);
-        }
-    });
 });
 
 // Clean
@@ -68,11 +58,22 @@ gulp.task('clean', function() {
 gulp.task('images', function() {
     return gulp.src('app/assets/images/**/*')
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(livereload(server))
+        .pipe(connect.reload())
         .pipe(gulp.dest('app/assets/images'));
 });
 
-gulp.task('watch', function() {
+// Connect
+gulp.task('connect', connect.server({
+    root: ['app'],
+    port: 1337,
+    livereload: true,
+    open: {
+        browser: 'chrome'
+    }
+}));
+
+gulp.task('watch', ['connect'], function() {
+
     // Watch files and run tasks if they change
     gulp.watch('gulpfile.js', ['lint']);
     gulp.watch('app/assets/coffeescript/**/*.coffee', ['coffee']);
@@ -82,4 +83,4 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'lint', 'lr-server', 'watch']);
+gulp.task('default', ['clean', 'lint', 'watch']);
