@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
     changed = require('gulp-changed'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    size = require('gulp-size');
 
 gulp.task('coffee', function() {
     return gulp.src('app/assets/coffeescript/**/*.coffee')
@@ -23,12 +24,16 @@ gulp.task('coffee', function() {
         .pipe(coffeelint.reporter())
         .pipe(coffee({bare: true}))
         .pipe(gulp.dest('app/assets/js/'))
+        .pipe(size())
         .pipe(connect.reload());
 });
 
 gulp.task('w3cjs', function () {
     return gulp.src('app/*.html')
+        .pipe(changed('dist'))
         .pipe(w3cjs())
+        .pipe(size())
+        .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });
 
@@ -39,13 +44,15 @@ gulp.task('compass', function() {
             sass: 'app/assets/sass',
             image: 'app/assets/images'
         }))
+        .pipe(size())
         .pipe(connect.reload());
 });
 
 gulp.task('lint', function() {
     return gulp.src('gulpfile.js')
         .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('default'))
+        .pipe(size());
 });
 
 // Clean
