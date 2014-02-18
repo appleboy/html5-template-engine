@@ -57,7 +57,7 @@ gulp.task('lint', function() {
 
 // Clean
 gulp.task('clean', function() {
-    return gulp.src(['output', '.sass-cache'], {read: false})
+    return gulp.src(['dist', 'output', '.sass-cache'], {read: false})
         .pipe(clean());
 });
 
