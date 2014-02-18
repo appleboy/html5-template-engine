@@ -10,3 +10,4 @@ app/assets/css
 app/assets/js
 validation-report.json
 validation-status.json
+dist
