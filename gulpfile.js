@@ -24,6 +24,7 @@ gulp.task('coffee', function() {
         .pipe(coffeelint.reporter())
         .pipe(coffee({bare: true}))
         .pipe(gulp.dest('app/assets/js/'))
+        .pipe(gulp.dest('dist/assets/js/'))
         .pipe(size())
         .pipe(connect.reload());
 });
@@ -44,6 +45,7 @@ gulp.task('compass', function() {
             sass: 'app/assets/sass',
             image: 'app/assets/images'
         }))
+        .pipe(gulp.dest('dist/assets/css/'))
         .pipe(size())
         .pipe(connect.reload());
 });
@@ -57,7 +59,7 @@ gulp.task('lint', function() {
 
 // Clean
 gulp.task('clean', function() {
-    return gulp.src(['dist', 'output', '.sass-cache'], {read: false})
+    return gulp.src(['dist', 'output', '.sass-cache', 'app/assets/js', 'app/assets/css'], {read: false})
         .pipe(clean());
 });
 
@@ -96,3 +98,5 @@ gulp.task('watch', ['connect'], function() {
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'lint', 'watch']);
+// Build
+gulp.task('build', ['coffee', 'images', 'compass', 'w3cjs']);
