@@ -64,9 +64,14 @@ gulp.task('clean', function() {
 // Images
 gulp.task('images', function() {
     return gulp.src('app/assets/images/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+        .pipe(changed('dist/assets/images'))
+        .pipe(cache(imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true
+        })))
         .pipe(connect.reload())
-        .pipe(gulp.dest('app/assets/images'));
+        .pipe(gulp.dest('dist/assets/images'));
 });
 
 // Connect
