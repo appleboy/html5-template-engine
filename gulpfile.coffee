@@ -69,10 +69,11 @@ gulp.task 'clean', ->
 # Images
 gulp.task 'images', ->
     gulp.src('app/assets/images/**/*')
-        .pipe(changed('dist/assets/images')).pipe(cache(imagemin(
-        optimizationLevel: 3
-        progressive: true
-        interlaced: true
+        .pipe(changed('dist/assets/images'))
+        .pipe(cache(imagemin(
+            optimizationLevel: 3
+            progressive: true
+            interlaced: true
         )))
         .pipe(connect.reload())
         .pipe gulp.dest('dist/assets/images')
@@ -94,7 +95,7 @@ gulp.task 'watch', ['connect'], ->
     gulp.watch 'app/*.html', ['w3cjs']
     gulp.watch 'app/assets/sass/**/*.scss', ['compass']
     gulp.watch 'app/assets/images/**/*', ['images']
-    return
+    true
 
 # The default task (called when you run `gulp`)
 gulp.task 'default', [
