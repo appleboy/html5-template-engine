@@ -139,10 +139,20 @@ Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
 Output the following message.
 
 ```
-[gulp] Using file /home/appleboy/html5-template-engine/gulpfile.js
-[gulp] Working directory changed to /home/appleboy/html5-template-engine
-[gulp] Running 'default'...
-[gulp] Finished 'default' in 2.91 ms
+[gulp] Using gulpfile /home/appleboy/html5-template-engine/gulpfile.js
+[gulp] Starting 'clean'...
+[gulp] Starting 'lint'...
+[gulp] Starting 'connect'...
+[gulp] Connect LiveReload on 35729 port
+[gulp] Finished 'connect' after 11 ms
+[gulp] Starting 'watch'...
+[gulp] Finished 'watch' after 11 ms
+[gulp] Server started on 1337 port
+[gulp] Finished 'clean' after 43 ms
+[gulp] gulp-size: total 2.92 kB
+[gulp] Finished 'lint' after 87 ms
+[gulp] Starting 'default'...
+[gulp] Finished 'default' after 8.06 μs
 ```
 
 ## Deploy Your App
