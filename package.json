@@ -52,7 +52,7 @@
     "phantomjs": "~1.9.2-1",
     "grunt-remove-logging": "~0.2.0",
     "grunt-html-validation": "~0.1.13",
-    "gulp": "~3.5.2",
+    "gulp": "~3.5.5",
     "gulp-coffee": "~1.4.1",
     "gulp-coffeelint": "~0.2.0",
     "gulp-mocha": "~0.4.1",
@@ -74,7 +74,7 @@
   },
   "optionalDependencies": {},
   "scripts": {
-    "grunt": "node_modules/.bin/grunt",
+    "start": "gulp",
     "test": "grunt test"
   },
   "engines": {
