@@ -128,9 +128,13 @@ Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
 
     $ ./node_modules/.bin/gulp
 
-CoffeeScript version
+[CoffeeScript](http://coffeescript.org/) version
 
     $ ./node_modules/.bin/gulp --require coffee-script/register
+
+[LiveScript](http://livescript.net/) version
+
+    $ ./node_modules/.bin/gulp --require LiveScript
 
 Output the following message.
 
