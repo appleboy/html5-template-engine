@@ -1,6 +1,10 @@
+var uuid;
+
+uuid = require('uuid');
+
 module.exports = function(grunt) {
-  var filetime, project_config;
-  filetime = Date.now();
+  var newFilename, project_config;
+  newFilename = uuid.v4();
   project_config = {
     app: 'app',
     test: 'test',
@@ -278,7 +282,7 @@ module.exports = function(grunt) {
             dest: '<%= pkg.output %>/assets/js/require.js'
           }, {
             src: '<%= pkg.app %>/assets/js/main-built.js',
-            dest: '<%= pkg.output %>/assets/js/' + filetime + '.js'
+            dest: '<%= pkg.output %>/assets/js/' + newFilename + '.js'
           }
         ]
       }
@@ -290,7 +294,7 @@ module.exports = function(grunt) {
         replacements: [
           {
             from: 'js/main',
-            to: 'js/' + filetime
+            to: 'js/' + newFilename
           }, {
             from: 'vendor/requirejs/',
             to: 'js/'

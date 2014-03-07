@@ -1,6 +1,8 @@
+uuid = require('uuid');
+
 module.exports = (grunt) ->
     # build time
-    filetime = Date.now()
+    newFilename = uuid.v4()
     # Project configuration
     project_config =
         app: 'app'
@@ -218,7 +220,7 @@ module.exports = (grunt) ->
                 files: [
                     {src: '<%= pkg.app %>/.htaccess', dest: '<%= pkg.output %>/.htaccess'}
                     {src: '<%= pkg.output %>/assets/vendor/requirejs/require.js', dest: '<%= pkg.output %>/assets/js/require.js'}
-                    {src: '<%= pkg.app %>/assets/js/main-built.js', dest: '<%= pkg.output %>/assets/js/' + filetime + '.js'}
+                    {src: '<%= pkg.app %>/assets/js/main-built.js', dest: '<%= pkg.output %>/assets/js/' + newFilename + '.js'}
                 ]
         replace:
             release:
@@ -227,7 +229,7 @@ module.exports = (grunt) ->
                 replacements: [
                     {
                         from: 'js/main'
-                        to: 'js/' + filetime
+                        to: 'js/' + newFilename
                     },
                     {
                         from: 'vendor/requirejs/'
