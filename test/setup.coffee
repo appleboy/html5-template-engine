@@ -1,6 +1,6 @@
 require.config
     paths:
-        jquery: '../app/assets/vendor/jquery/jquery'
+        jquery: '../app/assets/vendor/jquery/dist/jquery'
         modernizr: '../app/assets/vendor/modernizr/modernizr'
         consolejs: '../app/assets/js/libs/console'
         chai: '../node_modules/chai/chai'
