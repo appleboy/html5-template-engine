@@ -2,10 +2,10 @@
   "name": "html5-template-engine",
   "version": "1.0.0",
   "dependencies": {
-    "jquery": "~2.0.3",
-    "normalize-scss": "~2.1.3",
+    "jquery": "~2.1.0",
+    "normalize-scss": "~3.0.0",
     "modernizr": "~2.7.1",
-    "requirejs": "~2.1.9"
+    "requirejs": "~2.1.11"
   },
   "ignore": [
     "**/.*",
