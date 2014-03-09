@@ -56,8 +56,6 @@ module.exports = (grunt) ->
                     out: '<%= pkg.app %>/assets/js/main-built.js'
                     mainConfigFile: '<%= pkg.app %>/assets/js/main.js'
                     preserveLicenseComments: false
-                    paths:
-                        jquery: '../vendor/jquery/jquery'
             release:
                 options:
                     ###
@@ -72,8 +70,6 @@ module.exports = (grunt) ->
                     mainConfigFile: '<%= pkg.app %>/assets/js/main.js'
                     preserveLicenseComments: false
                     fileExclusionRegExp: /^(\.|node_modules)/
-                    paths:
-                        jquery: '../vendor/jquery/jquery'
         express:
             dev:
                 options:
