@@ -72,16 +72,14 @@ gulp.task \images ->
             optimizationLevel: 3
             progressive: true
             interlaced: true)
-        .pipe connect.reload()
         .pipe gulp.dest 'dist/assets/images'
+        .pipe connect.reload()
 
 # Connect
 gulp.task \connect connect.server(
     root: ['app']
     port: 1337
     livereload: true
-    open:
-        browser: 'chrome'
 )
 
 gulp.task \watch <[connect]> ->

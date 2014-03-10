@@ -52,7 +52,7 @@ gulp.task('compass', function() {
 
 gulp.task('lint', function() {
     return gulp.src('gulpfile.js')
-        .pipe(jshint('.jshintrc'))
+        .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(size());
 });
@@ -72,18 +72,15 @@ gulp.task('images', function() {
             progressive: true,
             interlaced: true
         })))
-        .pipe(connect.reload())
-        .pipe(gulp.dest('dist/assets/images'));
+        .pipe(gulp.dest('dist/assets/images'))
+        .pipe(connect.reload());
 });
 
 // Connect
 gulp.task('connect', connect.server({
     root: ['app'],
     port: 1337,
-    livereload: true,
-    open: {
-        browser: 'chrome'
-    }
+    livereload: true
 }));
 
 gulp.task('watch', ['connect'], function() {

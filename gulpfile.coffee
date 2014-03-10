@@ -45,7 +45,8 @@ gulp.task 'compass', ->
             image: 'app/assets/images'
         ))
         .pipe(gulp.dest('dist/assets/css/'))
-        .pipe(size()).pipe connect.reload()
+        .pipe(size())
+        .pipe connect.reload()
 
 gulp.task 'lint', ->
     gulp.src('gulpfile.js')
@@ -75,17 +76,14 @@ gulp.task 'images', ->
             progressive: true
             interlaced: true
         )))
-        .pipe(connect.reload())
         .pipe gulp.dest('dist/assets/images')
-
+        .pipe(connect.reload())
 
 # Connect
 gulp.task 'connect', connect.server(
     root: ['app']
     port: 1337
     livereload: true
-    open:
-        browser: 'chrome'
 )
 
 gulp.task 'watch', ['connect'], ->
