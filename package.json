@@ -18,11 +18,6 @@
     "url": "git://github.com/appleboy/html5-template-engine.git"
   },
   "main": "build/server.js",
-  "dependencies": {
-    "requirejs": "~2.1.10",
-    "bower": "~0.9.2",
-    "express": "~3.2.6"
-  },
   "devDependencies": {
     "mocha": "~1.17.1",
     "grunt-cli": "~0.1.12",
@@ -45,7 +40,7 @@
     "requirejs": "~2.1.10",
     "express": "~3.2.6",
     "grunt": "~0.4.2",
-    "bower": "~0.9.2",
+    "bower": "~1.2.8",
     "grunt-coffeelint": "0.0.8",
     "grunt-docco2": "~0.1.1",
     "grunt-contrib-watch": "~0.5.3",
@@ -75,8 +70,11 @@
   },
   "optionalDependencies": {},
   "scripts": {
-    "start": "gulp",
-    "test": "grunt test"
+    "test": "grunt test",
+    "grunt": "grunt",
+    "gulp": "bower install && gulp",
+    "gulp-lsc": "bower install && gulp --require LiveScript",
+    "gulp-coffee": "bower install && gulp --require coffee-script/register"
   },
   "engines": {
     "node": ">= 0.8.0"

@@ -97,16 +97,15 @@ http://your_host_name:4000/
 
 ## Develop a project automatically
 
-Before using [GruntJS](http://gruntjs.com/) tool, please make sure excute the following command.
+Before using [GruntJS](http://gruntjs.com/) or [Gulp](http://gulpjs.com/) tool, please make sure excute the following command.
 
     $ npm install
-    $ bower install
 
 ### Using GruntJS
 
 Using [GruntJS](http://gruntjs.com/) tool to setup develop environment.
 
-    $ ./node_modules/.bin/grunt
+    $ npm run grunt
 
 Output the following message.
 
@@ -126,15 +125,15 @@ Please install [livereload](http://livereload.com/) plugin depend on your browse
 
 Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
 
-    $ ./node_modules/.bin/gulp
+    $ npm run gulp
 
 [CoffeeScript](http://coffeescript.org/) version
 
-    $ ./node_modules/.bin/gulp --require coffee-script/register
+    $ npm run gulp-coffee
 
 [LiveScript](http://livescript.net/) version
 
-    $ ./node_modules/.bin/gulp --require LiveScript
+    $ npm run gulp-lsc
 
 Output the following message.
 
