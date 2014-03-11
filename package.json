@@ -52,7 +52,7 @@
     "gulp-coffeelint": "~0.3.1",
     "gulp-mocha": "~0.4.1",
     "docco": "~0.6.2",
-    "gulp-compass": "~1.1.4",
+    "gulp-compass": "~1.1.5",
     "gulp-util": "~2.2.14",
     "gulp-w3cjs": "~0.1.2",
     "gulp-jshint": "~1.5.0",
