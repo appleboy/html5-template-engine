@@ -33,8 +33,8 @@ gulp.task('w3cjs', function () {
     return gulp.src('app/*.html')
         .pipe(changed('dist'))
         .pipe(w3cjs())
-        .pipe(size())
         .pipe(gulp.dest('dist'))
+        .pipe(size())
         .pipe(connect.reload());
 });
 
@@ -73,6 +73,7 @@ gulp.task('images', function() {
             interlaced: true
         })))
         .pipe(gulp.dest('dist/assets/images'))
+        .pipe(size())
         .pipe(connect.reload());
 });
 
@@ -84,7 +85,6 @@ gulp.task('connect', connect.server({
 }));
 
 gulp.task('watch', ['connect'], function() {
-
     // Watch files and run tasks if they change
     gulp.watch('gulpfile.js', ['lint']);
     gulp.watch('app/assets/coffeescript/**/*.coffee', ['coffee']);
@@ -94,6 +94,6 @@ gulp.task('watch', ['connect'], function() {
 });
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'lint', 'watch']);
+gulp.task('default', ['clean', 'watch']);
 // Build
 gulp.task('build', ['coffee', 'images', 'compass', 'w3cjs']);

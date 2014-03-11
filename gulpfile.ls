@@ -31,8 +31,8 @@ gulp.task \w3cjs ->
     gulp.src 'app/*.html'
         .pipe changed \dist
         .pipe w3cjs()
-        .pipe size()
         .pipe gulp.dest \dist
+        .pipe size()
         .pipe connect.reload()
 
 gulp.task \compass ->
@@ -92,7 +92,7 @@ gulp.task \watch <[connect]> ->
     true
 
 # The default task (called when you run `gulp`)
-gulp.task 'default' <[ clean lint watch ]>
+gulp.task 'default' <[ clean watch ]>
 
 # Build
 gulp.task 'build' <[ coffee images compass w3cjs ]>

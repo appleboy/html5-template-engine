@@ -33,8 +33,9 @@ gulp.task 'coffee', ->
 gulp.task 'w3cjs', ->
     gulp.src('app/*.html')
         .pipe(changed('dist'))
-        .pipe(w3cjs()).pipe(size())
+        .pipe(w3cjs())
         .pipe(gulp.dest('dist'))
+        .pipe(size())
         .pipe connect.reload()
 
 gulp.task 'compass', ->
@@ -98,7 +99,6 @@ gulp.task 'watch', ['connect'], ->
 # The default task (called when you run `gulp`)
 gulp.task 'default', [
     'clean'
-    'lint'
     'watch'
 ]
 
