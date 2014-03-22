@@ -4,6 +4,14 @@ body {
     background-color: #ddd;
 }
 
+#logo {
+    margin: 0 auto;
+    max-width: 250px;
+    img {
+        max-width: 250px;
+    }
+}
+
 #header {
     margin: 10px auto;
     text-align: center;
