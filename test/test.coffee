@@ -12,7 +12,8 @@ describe 'html5 template generator test', () ->
             'output/assets/js/require.js',
             'output/assets/css/print.css',
             'output/assets/css/screen.css',
-            'output/assets/css/ie.css'
+            'output/assets/css/ie.css',
+            'output/assets/images/chrome.png'
         ]
         for item in expected
             assert.equal(true, fs.existsSync(item))
