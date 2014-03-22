@@ -40,6 +40,7 @@ gulp.task('w3cjs', function () {
 
 gulp.task('compass', function() {
     return gulp.src('app/assets/sass/**/*.scss')
+        .pipe(changed('app/assets/css/', { extension: '.css' }))
         .pipe(compass({
             css: 'app/assets/css',
             sass: 'app/assets/sass',

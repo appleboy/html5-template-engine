@@ -37,6 +37,7 @@ gulp.task \w3cjs ->
 
 gulp.task \compass ->
     gulp.src 'app/assets/sass/**/*.scss'
+        .pipe changed \app/assets/css/ extension: '.css'
         .pipe compass(
             css: 'app/assets/css'
             sass: 'app/assets/sass'

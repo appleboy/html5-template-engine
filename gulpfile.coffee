@@ -40,11 +40,12 @@ gulp.task 'w3cjs', ->
 
 gulp.task 'compass', ->
     gulp.src('app/assets/sass/**/*.scss')
-        .pipe(compass(
+        .pipe changed 'app/assets/css/',
+            extension: '.css'
+        .pipe compass
             css: 'app/assets/css'
             sass: 'app/assets/sass'
             image: 'app/assets/images'
-        ))
         .pipe(gulp.dest('dist/assets/css/'))
         .pipe(size())
         .pipe connect.reload()
