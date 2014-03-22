@@ -27,6 +27,18 @@ gulp.task \coffee ->
         .pipe size()
         .pipe connect.reload()
 
+gulp.task \test_coffee ->
+    gulp.src 'test/**/*.coffee'
+        .pipe changed \test/ extension: '.js'
+        .pipe coffeelint indentation:
+            name: 'indentation'
+            value: 4
+            level: 'error'
+        .pipe coffeelint.reporter()
+        .pipe coffee bare: true
+        .pipe gulp.dest \test/
+        .pipe size()
+
 gulp.task \w3cjs ->
     gulp.src 'app/*.html'
         .pipe changed \dist
@@ -87,6 +99,7 @@ gulp.task \watch <[connect]> ->
     # Watch files and run tasks if they change
     gulp.watch 'gulpfile.js', <[lint]>
     gulp.watch 'app/assets/coffeescript/**/*.coffee', <[coffee]>
+    gulp.watch 'test/**/*.coffee', <[test_coffee]>
     gulp.watch 'app/*.html', <[w3cjs]>
     gulp.watch 'app/assets/sass/**/*.scss', <[compass]>
     gulp.watch 'app/assets/images/**/*', <[images]>
