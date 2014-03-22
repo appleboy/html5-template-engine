@@ -60,6 +60,7 @@ gulp.task('compass', function() {
             sass: 'app/assets/sass',
             image: 'app/assets/images'
         }))
+        .on('error', function() {})
         .pipe(gulp.dest('dist/assets/css/'))
         .pipe(size())
         .pipe(connect.reload());
@@ -113,9 +114,4 @@ gulp.task('watch', ['connect'], function() {
 gulp.task('default', ['clean', 'watch']);
 
 // Build
-gulp.task('build', [
-    'clean',
-    'coffee',
-    'images',
-    'compass',
-    'w3cjs']);
+gulp.task('build', ['clean', 'coffee', 'images', 'compass', 'w3cjs']);

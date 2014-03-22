@@ -54,6 +54,7 @@ gulp.task \compass ->
             css: 'app/assets/css'
             sass: 'app/assets/sass'
             image: 'app/assets/images'
+        .on('error', ->)
         .pipe gulp.dest 'dist/assets/css/'
         .pipe size()
         .pipe connect.reload()
