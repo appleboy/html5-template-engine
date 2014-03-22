@@ -14,46 +14,45 @@ connect = require('gulp-connect')
 size = require('gulp-size')
 
 gulp.task 'coffee', ->
-    gulp.src('app/assets/coffeescript/**/*.coffee')
-        .pipe(changed('app/assets/js/',
+    gulp.src 'app/assets/coffeescript/**/*.coffee'
+        .pipe changed 'app/assets/js/',
             extension: '.js'
-        ))
-        .pipe(coffeelint(indentation:
-            name: 'indentation'
-            value: 4
-            level: 'error'
-        ))
-        .pipe(coffeelint.reporter())
-        .pipe(coffee(bare: true))
-        .pipe(gulp.dest('app/assets/js/'))
-        .pipe(gulp.dest('dist/assets/js/'))
-        .pipe(size())
+        .pipe coffeelint
+            indentation:
+                name: 'indentation'
+                value: 4
+                level: 'error'
+        .pipe coffeelint.reporter()
+        .pipe coffee bare: true
+        .pipe gulp.dest 'app/assets/js/'
+        .pipe gulp.dest 'dist/assets/js/'
+        .pipe size()
         .pipe connect.reload()
 
 gulp.task 'w3cjs', ->
-    gulp.src('app/*.html')
-        .pipe(changed('dist'))
-        .pipe(w3cjs())
-        .pipe(gulp.dest('dist'))
-        .pipe(size())
+    gulp.src 'app/*.html'
+        .pipe changed 'dist'
+        .pipe w3cjs()
+        .pipe gulp.dest 'dist'
+        .pipe size()
         .pipe connect.reload()
 
 gulp.task 'compass', ->
-    gulp.src('app/assets/sass/**/*.scss')
+    gulp.src 'app/assets/sass/**/*.scss'
         .pipe changed 'app/assets/css/',
             extension: '.css'
         .pipe compass
             css: 'app/assets/css'
             sass: 'app/assets/sass'
             image: 'app/assets/images'
-        .pipe(gulp.dest('dist/assets/css/'))
-        .pipe(size())
+        .pipe gulp.dest 'dist/assets/css/'
+        .pipe size()
         .pipe connect.reload()
 
 gulp.task 'lint', ->
-    gulp.src('gulpfile.js')
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('default'))
+    gulp.src 'gulpfile.js'
+        .pipe jshint()
+        .pipe jshint.reporter 'default'
         .pipe size()
 
 # Clean
@@ -71,15 +70,14 @@ gulp.task 'clean', ->
 
 # Images
 gulp.task 'images', ->
-    gulp.src('app/assets/images/**/*')
-        .pipe(changed('dist/assets/images'))
-        .pipe(cache(imagemin(
+    gulp.src 'app/assets/images/**/*'
+        .pipe changed 'dist/assets/images'
+        .pipe cache imagemin
             optimizationLevel: 3
             progressive: true
             interlaced: true
-        )))
-        .pipe gulp.dest('dist/assets/images')
-        .pipe(connect.reload())
+        .pipe gulp.dest 'dist/assets/images'
+        .pipe connect.reload()
 
 # Connect
 gulp.task 'connect', connect.server(
@@ -105,6 +103,7 @@ gulp.task 'default', [
 
 # Build
 gulp.task 'build', [
+    'clean'
     'coffee'
     'images'
     'compass'
