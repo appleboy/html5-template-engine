@@ -96,5 +96,11 @@ gulp.task('watch', ['connect'], function() {
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'watch']);
+
 // Build
-gulp.task('build', ['coffee', 'images', 'compass', 'w3cjs']);
+gulp.task('build', [
+    'clean',
+    'coffee',
+    'images',
+    'compass',
+    'w3cjs']);

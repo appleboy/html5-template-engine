@@ -38,10 +38,10 @@ gulp.task \w3cjs ->
 gulp.task \compass ->
     gulp.src 'app/assets/sass/**/*.scss'
         .pipe changed \app/assets/css/ extension: '.css'
-        .pipe compass(
+        .pipe compass
             css: 'app/assets/css'
             sass: 'app/assets/sass'
-            image: 'app/assets/images')
+            image: 'app/assets/images'
         .pipe gulp.dest 'dist/assets/css/'
         .pipe size()
         .pipe connect.reload()
@@ -96,4 +96,4 @@ gulp.task \watch <[connect]> ->
 gulp.task 'default' <[ clean watch ]>
 
 # Build
-gulp.task 'build' <[ coffee images compass w3cjs ]>
+gulp.task 'build' <[ clean coffee images compass w3cjs ]>
