@@ -70,6 +70,7 @@
   },
   "optionalDependencies": {},
   "scripts": {
+    "postinstall": "bower install",
     "test": "grunt test",
     "grunt": "grunt",
     "gulp": "bower install && gulp",
