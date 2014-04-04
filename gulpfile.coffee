@@ -95,11 +95,11 @@ gulp.task 'images', ->
         .pipe connect.reload()
 
 # Connect
-gulp.task 'connect', connect.server(
-    root: ['app']
-    port: 1337
-    livereload: true
-)
+gulp.task 'connect', ->
+    connect.server
+        root: ['app']
+        port: 1337
+        livereload: true
 
 gulp.task 'watch', ['connect'], ->
     # Watch files and run tasks if they change

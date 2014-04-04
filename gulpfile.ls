@@ -50,11 +50,11 @@ gulp.task \w3cjs ->
 gulp.task \compass ->
     gulp.src 'app/assets/sass/**/*.scss'
         .pipe changed \app/assets/css/ extension: '.css'
-        .pipe compass
+        .pipe compass(
             css: 'app/assets/css'
             sass: 'app/assets/sass'
-            image: 'app/assets/images'
-        .on('error', ->)
+            image: 'app/assets/images')
+        .on 'error', ->
         .pipe gulp.dest 'dist/assets/css/'
         .pipe size()
         .pipe connect.reload()
@@ -90,11 +90,11 @@ gulp.task \images ->
         .pipe connect.reload()
 
 # Connect
-gulp.task \connect connect.server(
-    root: ['app']
-    port: 1337
-    livereload: true
-)
+gulp.task \connect ->
+    connect.server(
+        root: ['app']
+        port: 1337
+        livereload: true)
 
 gulp.task \watch <[connect]> ->
     # Watch files and run tasks if they change
