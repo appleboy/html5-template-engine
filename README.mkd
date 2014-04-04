@@ -15,17 +15,6 @@
 * Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 * Support Minify PNG and JPEG images with [image-min](https://github.com/sindresorhus/gulp-imagemin).
 
-## Support Terminal in Chrome Devtools
-
-If you’re on a Mac, just download this [Chrome extension](https://chrome.google.com/webstore/detail/leakmhneaibbdapdoienlkifomjceknl). Install it, and you good to go. No need to read any further.
-
-If you’re not on a Mac, you can connect to your system’s terminal via Node.js proxy. It can be localhost or some other remote server.
-
-    $ npm install -g devtools-terminal
-    $ devtools-terminal --config terminal.js
-
-Please refer more [detail information](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
-
 ## Install develop tool
 
     $ ./build/build.sh
@@ -138,20 +127,17 @@ Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
 Output the following message.
 
 ```
-[gulp] Using gulpfile /home/appleboy/html5-template-engine/gulpfile.js
+[gulp] Using gulpfile /home/git/html5-template-engine/gulpfile.js
 [gulp] Starting 'clean'...
-[gulp] Starting 'lint'...
 [gulp] Starting 'connect'...
-[gulp] Connect LiveReload on 35729 port
-[gulp] Finished 'connect' after 11 ms
+[gulp] Server started http://localhost:1337
+[gulp] LiveReload started on port 35729
+[gulp] Finished 'connect' after 16 ms
 [gulp] Starting 'watch'...
-[gulp] Finished 'watch' after 11 ms
-[gulp] Server started on 1337 port
-[gulp] Finished 'clean' after 43 ms
-[gulp] gulp-size: total 2.92 kB
-[gulp] Finished 'lint' after 87 ms
+[gulp] Finished 'watch' after 19 ms
+[gulp] Finished 'clean' after 49 ms
 [gulp] Starting 'default'...
-[gulp] Finished 'default' after 8.06 μs
+[gulp] Finished 'default' after 39 μs
 ```
 
 ## Deploy Your App
@@ -197,6 +183,17 @@ http://your_host_name/html5/
 ### Using GruntJS
 
     $ ./node_modules/.bin/grunt clean
+
+## Support Terminal in Chrome Devtools
+
+If you’re on a Mac, just download this [Chrome extension](https://chrome.google.com/webstore/detail/leakmhneaibbdapdoienlkifomjceknl). Install it, and you good to go. No need to read any further.
+
+If you’re not on a Mac, you can connect to your system’s terminal via Node.js proxy. It can be localhost or some other remote server.
+
+    $ npm install -g devtools-terminal
+    $ devtools-terminal --config terminal.js
+
+Please refer more [detail information](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 
 ## Author
 
