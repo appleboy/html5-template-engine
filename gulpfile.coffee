@@ -1,17 +1,29 @@
 'use strict'
 
-gulp = require('gulp')
-coffee = require('gulp-coffee')
-coffeelint = require('gulp-coffeelint')
-compass = require('gulp-compass')
-w3cjs = require('gulp-w3cjs')
-jshint = require('gulp-jshint')
-clean = require('gulp-clean')
-imagemin = require('gulp-imagemin')
-cache = require('gulp-cache')
-changed = require('gulp-changed')
-connect = require('gulp-connect')
-size = require('gulp-size')
+gulp = require 'gulp'
+coffee = require 'gulp-coffee'
+coffeelint = require 'gulp-coffeelint'
+compass = require 'gulp-compass'
+w3cjs = require 'gulp-w3cjs'
+jshint = require 'gulp-jshint'
+clean = require 'gulp-clean'
+imagemin = require 'gulp-imagemin'
+cache = require 'gulp-cache'
+changed = require 'gulp-changed'
+connect = require 'gulp-connect'
+size = require 'gulp-size'
+mocha = require 'gulp-mocha'
+
+paths =
+    src: 'app'
+    script: 'app/assets/js'
+    coffee: 'app/assets/coffee'
+    sass: 'app/assets/sass'
+    css: 'app/assets/css'
+    images: 'app/assets/images'
+    test: 'test'
+    dist: 'dist'
+    vendor: 'app/assets/vendor'
 
 gulp.task 'coffee', ->
     gulp.src 'app/assets/coffeescript/**/*.coffee'
@@ -93,6 +105,12 @@ gulp.task 'images', ->
             interlaced: true
         .pipe gulp.dest 'dist/assets/images'
         .pipe connect.reload()
+
+# testing via mocha tool
+gulp.task 'test', ->
+    gulp.src paths.test + '/test.js'
+        .pipe mocha
+            reporter: 'spec'
 
 # Connect
 gulp.task 'connect', ->
