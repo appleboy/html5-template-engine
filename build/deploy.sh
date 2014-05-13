@@ -3,7 +3,7 @@ set -e -x
 git --version
 upstream=$1
 : ${upstream:=origin}
-: ${REPO:=git@github.com:appleboy/backbone-template-engine}
+: ${REPO:=git@github.com:appleboy/html5-template-engine}
 git fetch $upstream
 if [ `git rev-list HEAD...$upstream/master --count` -ne 0 ]; then
 echo "not deploying"

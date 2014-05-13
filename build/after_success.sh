@@ -2,7 +2,7 @@
 [  "$TRAVIS_PULL_REQUEST" != "false" ] || [  "$TRAVIS_BRANCH" != "master" ] && echo -e "\n" && exit 0
 
 git remote set-url origin $REPO.git
-git config --global user.email "appleboy.tw@gmail.com"
+git config --global user.email "appleboy@wu-boy.com"
 git config --global user.name "Bo-Yi Wu"
 mkdir -p ~/.ssh
 cat >> ~/.ssh/config <<EOF
