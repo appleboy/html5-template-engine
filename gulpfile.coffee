@@ -39,7 +39,7 @@ paths =
 
 gulp.task 'coffee', ->
   gulp.src 'app/assets/coffeescript/**/*.coffee'
-    .pipe changed 'app/assets/js/',
+    .pipe gulpif !production, changed paths.script,
       extension: '.js'
     .pipe coffeelint
       indentation:
@@ -48,8 +48,7 @@ gulp.task 'coffee', ->
         level: 'error'
     .pipe coffeelint.reporter()
     .pipe coffee bare: true
-    .pipe gulp.dest 'app/assets/js/'
-    .pipe gulp.dest 'dist/assets/js/'
+    .pipe gulp.dest paths.script
     .pipe size()
     .pipe connect.reload()
 
