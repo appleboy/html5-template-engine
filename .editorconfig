@@ -4,18 +4,10 @@ root = true
 
 # Change these settings to your own preference
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [Makefile]
 indent_style = tab
-
-[app/assets/**.js]
-indent_style = space
-indent_size = 2
-
-[app/assets/**.css]
-indent_style = space
-indent_size = 2
 
 # We recommend you to keep these unchanged
 end_of_line = lf
