@@ -1,6 +1,8 @@
 'use strict'
 
+uuid = require 'uuid'
 gulp = require 'gulp'
+gutil = require 'gulp-util'
 coffee = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
 compass = require 'gulp-compass'
@@ -13,6 +15,16 @@ changed = require 'gulp-changed'
 connect = require 'gulp-connect'
 size = require 'gulp-size'
 mocha = require 'gulp-mocha'
+rjs = require 'requirejs'
+runs = require 'run-sequence'
+rename = require 'gulp-rename'
+uglify = require 'gulp-uglify'
+minifyCSS = require 'gulp-minify-css'
+htmlmin = require 'gulp-htmlmin'
+replace = require 'gulp-replace'
+gulpif = require 'gulp-if'
+production = true if gutil.env.env is 'production'
+filename = uuid.v4()
 
 paths =
     src: 'app'
@@ -59,20 +71,27 @@ gulp.task 'w3cjs', ->
     gulp.src 'app/*.html'
         .pipe changed 'dist'
         .pipe w3cjs()
+        .pipe gulpif production, htmlmin(
+          removeComments: true
+          collapseWhitespace: true
+        )
+        .pipe gulpif production, replace 'js/main', 'js/' + filename
+        .pipe gulpif production, replace 'vendor/requirejs/require.js', 'js/require.js'
         .pipe gulp.dest 'dist'
         .pipe size()
         .pipe connect.reload()
 
 gulp.task 'compass', ->
     gulp.src 'app/assets/sass/**/*.scss'
-        .pipe changed 'app/assets/css/',
+        .pipe gulpif !production, changed 'app/assets/css/',
             extension: '.css'
         .pipe compass
             css: 'app/assets/css'
             sass: 'app/assets/sass'
             image: 'app/assets/images'
         .on('error', ->)
-        .pipe gulp.dest 'dist/assets/css/'
+        .pipe gulpif production, minifyCSS()
+        .pipe gulp.dest paths.dist + '/assets/css/'
         .pipe size()
         .pipe connect.reload()
 
@@ -129,6 +148,31 @@ gulp.task 'watch', ['connect'], ->
     gulp.watch 'app/assets/images/**/*', ['images']
     true
 
+gulp.task 'copy', ->
+    gulp.src [
+        paths.src + '/.htaccess'
+        paths.src + '/favicon.ico'
+        paths.src + '/robots.txt']
+        .pipe gulp.dest 'dist/'
+
+gulp.task 'rjs', ['build'], (cb) ->
+    rjs.optimize
+        baseUrl: paths.script
+        name: 'main'
+        out: paths.script + '/main-built.js'
+        mainConfigFile: paths.script + '/main.js'
+        preserveLicenseComments: false
+        , (buildResponse) ->
+          cb()
+
+gulp.task 'rename', ['rjs'], ->
+    gulp.src paths.script + '/main-built.js'
+        .pipe rename 'assets/js/' + filename + '.js'
+        .pipe gulp.dest 'dist'
+    gulp.src paths.vendor + '/requirejs/require.js'
+        .pipe uglify()
+        .pipe gulp.dest paths.dist + '/assets/js/'
+
 # The default task (called when you run `gulp`)
 gulp.task 'default', [
     'clean'
@@ -137,9 +181,12 @@ gulp.task 'default', [
 
 # Build
 gulp.task 'build', [
-    'clean'
     'coffee'
     'images'
     'compass'
     'w3cjs'
+    'copy'
 ]
+
+gulp.task 'release', (cb) ->
+    runs(['build', 'rjs', 'rename'], cb)
