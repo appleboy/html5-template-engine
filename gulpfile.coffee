@@ -41,11 +41,7 @@ gulp.task 'coffee', ->
   gulp.src paths.coffee + '/**/*.coffee'
     .pipe gulpif !production, changed paths.script,
       extension: '.js'
-    .pipe coffeelint
-      indentation:
-        name: 'indentation'
-        value: 4
-        level: 'error'
+    .pipe coffeelint()
     .pipe coffeelint.reporter()
     .pipe coffee bare: true
     .pipe gulp.dest paths.script
@@ -56,11 +52,7 @@ gulp.task 'test_coffee', ->
   gulp.src paths.test + '/**/*.coffee'
     .pipe gulpif !production, changed paths.test,
       extension: '.js'
-    .pipe coffeelint
-      indentation:
-        name: 'indentation'
-        value: 4
-        level: 'error'
+    .pipe coffeelint()
     .pipe coffeelint.reporter()
     .pipe coffee bare: true
     .pipe gulp.dest 'test/'
