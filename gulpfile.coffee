@@ -55,7 +55,7 @@ gulp.task 'test_coffee', ->
     .pipe coffeelint()
     .pipe coffeelint.reporter()
     .pipe coffee bare: true
-    .pipe gulp.dest 'test/'
+    .pipe gulp.dest paths.test
     .pipe size()
 
 gulp.task 'w3cjs', ->
@@ -147,7 +147,7 @@ gulp.task 'copy', ->
     paths.src + '/.htaccess'
     paths.src + '/favicon.ico'
     paths.src + '/robots.txt']
-    .pipe gulp.dest 'dist/'
+    .pipe gulp.dest paths.dist
 
 gulp.task 'rjs', ['build'], (cb) ->
   rjs.optimize
