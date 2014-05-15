@@ -86,6 +86,6 @@
     "gulp-coffee": "bower install && gulp --require coffee-script/register"
   },
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   }
 }
