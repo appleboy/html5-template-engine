@@ -29,7 +29,7 @@ filename = uuid.v4()
 paths =
   src: 'app'
   script: 'app/assets/js'
-  coffee: 'app/assets/coffee'
+  coffee: 'app/assets/coffeescript'
   sass: 'app/assets/sass'
   css: 'app/assets/css'
   images: 'app/assets/images'
@@ -38,7 +38,7 @@ paths =
   vendor: 'app/assets/vendor'
 
 gulp.task 'coffee', ->
-  gulp.src 'app/assets/coffeescript/**/*.coffee'
+  gulp.src paths.coffee + '/**/*.coffee'
     .pipe gulpif !production, changed paths.script,
       extension: '.js'
     .pipe coffeelint
@@ -53,8 +53,8 @@ gulp.task 'coffee', ->
     .pipe connect.reload()
 
 gulp.task 'test_coffee', ->
-  gulp.src 'test/**/*.coffee'
-    .pipe changed 'test/',
+  gulp.src paths.test + '/**/*.coffee'
+    .pipe gulpif !production, changed paths.test,
       extension: '.js'
     .pipe coffeelint
       indentation:
@@ -67,8 +67,8 @@ gulp.task 'test_coffee', ->
     .pipe size()
 
 gulp.task 'w3cjs', ->
-  gulp.src 'app/*.html'
-    .pipe changed 'dist'
+  gulp.src paths.src + '/*.html'
+    .pipe gulpif !production, changed paths.dist
     .pipe w3cjs()
     .pipe gulpif production, htmlmin(
       removeComments: true
@@ -76,18 +76,18 @@ gulp.task 'w3cjs', ->
     )
     .pipe gulpif production, replace 'js/main', 'js/' + filename
     .pipe gulpif production, replace 'vendor/requirejs/require.js', 'js/require.js'
-    .pipe gulp.dest 'dist'
+    .pipe gulp.dest paths.dist
     .pipe size()
     .pipe connect.reload()
 
 gulp.task 'compass', ->
-  gulp.src 'app/assets/sass/**/*.scss'
-    .pipe gulpif !production, changed 'app/assets/css/',
+  gulp.src paths.sass + '/**/*.scss'
+    .pipe gulpif !production, changed paths.css,
       extension: '.css'
     .pipe compass
-      css: 'app/assets/css'
-      sass: 'app/assets/sass'
-      image: 'app/assets/images'
+      css: paths.css
+      sass: paths.sass
+      image: paths.image
     .on('error', ->)
     .pipe gulpif production, minifyCSS()
     .pipe gulp.dest paths.dist + '/assets/css/'
@@ -103,11 +103,10 @@ gulp.task 'lint', ->
 # Clean
 gulp.task 'clean', ->
   gulp.src([
-    'dist'
-    'output'
+    paths.dist
     '.sass-cache'
-    'app/assets/js'
-    'app/assets/css'
+    paths.script
+    paths.css
   ],
     read: false
   ).pipe clean()
@@ -115,13 +114,12 @@ gulp.task 'clean', ->
 
 # Images
 gulp.task 'images', ->
-  gulp.src 'app/assets/images/**/*'
-    .pipe changed 'dist/assets/images'
+  gulp.src paths.images + '/**/*.{jpg,jpeg,png,gif}'
+    .pipe changed paths.dist + '/assets/images'
     .pipe cache imagemin
-      optimizationLevel: 3
       progressive: true
       interlaced: true
-    .pipe gulp.dest 'dist/assets/images'
+    .pipe gulp.dest paths.dist + '/assets/images'
     .pipe connect.reload()
 
 # testing via mocha tool
@@ -131,20 +129,25 @@ gulp.task 'test', ->
       reporter: 'spec'
 
 # Connect
-gulp.task 'connect', ->
+gulp.task 'connect:app', ->
   connect.server
-    root: ['app']
+    root: [paths.src]
     port: 1337
     livereload: true
 
-gulp.task 'watch', ['connect'], ->
+gulp.task 'connect:dist', ->
+  connect.server
+    root: [paths.dist]
+    port: 1338
+    livereload: true
+
+gulp.task 'watch', ['connect:app'], ->
   # Watch files and run tasks if they change
-  gulp.watch 'gulpfile.js', ['lint']
-  gulp.watch 'app/assets/coffeescript/**/*.coffee', ['coffee']
-  gulp.watch 'test/**/*.coffee', ['test_coffee']
-  gulp.watch 'app/*.html', ['w3cjs']
-  gulp.watch 'app/assets/sass/**/*.scss', ['compass']
-  gulp.watch 'app/assets/images/**/*', ['images']
+  gulp.watch paths.coffee + '/**/*.coffee', ['coffee']
+  gulp.watch paths.test + '/**/*.coffee', ['test_coffee']
+  gulp.watch paths.src + '/*.html', ['w3cjs']
+  gulp.watch paths.sass + '/**/*.scss', ['compass']
+  gulp.watch paths.images + '/**/*.{jpg,jpeg,png,gif}', ['images']
   true
 
 gulp.task 'copy', ->
@@ -173,10 +176,11 @@ gulp.task 'rename', ['rjs'], ->
     .pipe gulp.dest paths.dist + '/assets/js/'
 
 # The default task (called when you run `gulp`)
-gulp.task 'default', [
-  'clean'
-  'watch'
-]
+gulp.task 'default', (cb) ->
+  runs(
+    ['coffee', 'compass']
+    'watch'
+    cb)
 
 # Build
 gulp.task 'build', [
@@ -188,4 +192,6 @@ gulp.task 'build', [
 ]
 
 gulp.task 'release', (cb) ->
-  runs(['build', 'rjs', 'rename'], cb)
+  runs(
+    ['build', 'rjs', 'rename']
+    cb)
