@@ -187,3 +187,5 @@ gulp.task 'release', (cb) ->
   runs(
     ['build', 'rjs', 'rename']
     cb)
+
+module.exports = gulp
