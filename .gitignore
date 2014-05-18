@@ -3,7 +3,6 @@ app/assets/vendor
 app/assets/js/main-built.js
 app/assets/js/main-built.js.map
 app/assets/js/main-built.js.src
-output/
 node_modules/
 app/docs/
 app/assets/css
@@ -12,3 +11,4 @@ validation-report.json
 validation-status.json
 dist
 npm-debug.log
+.sublime-gulp.cache
