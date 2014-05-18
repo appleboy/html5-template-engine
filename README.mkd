@@ -195,6 +195,17 @@ If you’re not on a Mac, you can connect to your system’s terminal via Node.j
 
 Please refer more [detail information](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 
+## Support Gulp in Chrome Devtools
+
+Please install [chrome Gulp Devtools extension](https://chrome.google.com/webstore/detail/gulp-devtools/ojpmgjhofceebfifeajnjojpokebkkji). An extension to run gulp task from chrome devtools.
+
+Is gulp-devtools running?
+
+- If not already installed, run `npm install -g gulp-devtools`
+- Export gulp from your gulpfile.js by adding `module.exports = gulp;`
+- Run gulp-devtools in a directory with a gulpfile!
+- Re-open Chrome Dev tools, find the Gulp tab. Your gulp tasks should now be accessible from Chrome
+
 ## Author
 
 Bo-Yi Wu, Twitter: [@appleboy](http://twitter.com/appleboy "Twitter"), Blog: http://blog.wu-boy.com
