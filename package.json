@@ -82,8 +82,7 @@
     "test": "bower install && gulp release --env production && gulp test",
     "grunt": "grunt",
     "gulp": "bower install && gulp",
-    "gulp-lsc": "bower install && gulp --require LiveScript",
-    "gulp-coffee": "bower install && gulp --require coffee-script/register"
+    "gulp-lsc": "bower install && gulp --require LiveScript"
   },
   "engines": {
     "node": ">= 0.10.0"
