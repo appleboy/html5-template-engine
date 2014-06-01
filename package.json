@@ -47,7 +47,7 @@
     "phantomjs": "^1.9.7-3",
     "grunt-remove-logging": "~0.2.0",
     "grunt-html-validation": "^0.1.15",
-    "gulp": "^3.6.2",
+    "gulp": "^3.7.0",
     "gulp-coffee": "~1.4.1",
     "gulp-coffeelint": "^0.3.2",
     "gulp-mocha": "^0.4.1",
