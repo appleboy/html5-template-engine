@@ -14,7 +14,7 @@ require! {
 }
 
 gulp.task \coffee ->
-    gulp.src 'app/assets/coffeescript/**/*.coffee'
+    gulp.src 'app/assets/coffee/**/*.coffee'
         .pipe changed \app/assets/js/ extension: '.js'
         .pipe coffeelint indentation:
             name: 'indentation'
@@ -99,7 +99,7 @@ gulp.task \connect ->
 gulp.task \watch <[connect]> ->
     # Watch files and run tasks if they change
     gulp.watch 'gulpfile.js', <[lint]>
-    gulp.watch 'app/assets/coffeescript/**/*.coffee', <[coffee]>
+    gulp.watch 'app/assets/coffee/**/*.coffee', <[coffee]>
     gulp.watch 'test/**/*.coffee', <[test_coffee]>
     gulp.watch 'app/*.html', <[w3cjs]>
     gulp.watch 'app/assets/sass/**/*.scss', <[compass]>

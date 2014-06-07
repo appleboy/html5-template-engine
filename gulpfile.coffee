@@ -29,7 +29,7 @@ filename = uuid.v4()
 paths =
   src: 'app'
   script: 'app/assets/js'
-  coffee: 'app/assets/coffeescript'
+  coffee: 'app/assets/coffee'
   sass: 'app/assets/sass'
   css: 'app/assets/css'
   images: 'app/assets/images'
