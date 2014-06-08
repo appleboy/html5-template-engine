@@ -63,7 +63,7 @@
     "gulp-changed": "~0.3.0",
     "gulp-connect": "~2.0.1",
     "gulp-size": "~0.2.0",
-    "gulp-load-plugins": "^0.5.0",
+    "gulp-load-plugins": "^0.5.1",
     "coffee-script": "~1.7.1",
     "LiveScript": "~1.2.0",
     "uuid": "~1.4.1",
