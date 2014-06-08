@@ -7,6 +7,7 @@ $ = require('gulp-load-plugins')()
 minifyCSS = require 'gulp-minify-css'
 production = true if $.util.env.env is 'production'
 filename = require('uuid').v4()
+lazypipe = require 'lazypipe'
 
 paths =
   src: 'app'
@@ -19,13 +20,16 @@ paths =
   dist: 'dist'
   vendor: 'app/assets/vendor'
 
+coffeelintTasks = lazypipe()
+  .pipe $.coffeelint
+  .pipe $.coffeelint.reporter
+  .pipe $.coffee, bare: true
+
 gulp.task 'coffee', ->
   gulp.src paths.coffee + '/**/*.coffee'
     .pipe $.if !production, $.changed paths.script,
       extension: '.js'
-    .pipe $.coffeelint()
-    .pipe $.coffeelint.reporter()
-    .pipe $.coffee bare: true
+    .pipe coffeelintTasks()
     .pipe gulp.dest paths.script
     .pipe $.connect.reload()
 
@@ -33,9 +37,7 @@ gulp.task 'test_coffee', ->
   gulp.src paths.test + '/**/*.coffee'
     .pipe $.if !production, $.changed paths.test,
       extension: '.js'
-    .pipe $.coffeelint()
-    .pipe $.coffeelint.reporter()
-    .pipe $.coffee bare: true
+    .pipe coffeelintTasks()
     .pipe gulp.dest paths.test
 
 gulp.task 'w3cjs', ->
