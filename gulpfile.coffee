@@ -27,7 +27,6 @@ gulp.task 'coffee', ->
     .pipe $.coffeelint.reporter()
     .pipe $.coffee bare: true
     .pipe gulp.dest paths.script
-    .pipe $.size()
     .pipe $.connect.reload()
 
 gulp.task 'test_coffee', ->
@@ -38,7 +37,6 @@ gulp.task 'test_coffee', ->
     .pipe $.coffeelint.reporter()
     .pipe $.coffee bare: true
     .pipe gulp.dest paths.test
-    .pipe $.size()
 
 gulp.task 'w3cjs', ->
   gulp.src paths.src + '/*.html'
@@ -51,7 +49,6 @@ gulp.task 'w3cjs', ->
     .pipe $.if production, $.replace 'js/main', 'js/' + filename
     .pipe $.if production, $.replace 'vendor/requirejs/require.js', 'js/require.js'
     .pipe gulp.dest paths.dist
-    .pipe $.size()
     .pipe $.connect.reload()
 
 gulp.task 'compass', ->
@@ -65,14 +62,12 @@ gulp.task 'compass', ->
     .on('error', ->)
     .pipe $.if production, minifyCSS()
     .pipe gulp.dest paths.dist + '/assets/css/'
-    .pipe $.size()
     .pipe $.connect.reload()
 
 gulp.task 'lint', ->
   gulp.src 'gulpfile.js'
     .pipe $.jshint()
     .pipe $.jshint.reporter 'default'
-    .pipe $.size()
 
 # Clean
 gulp.task 'clean', ->
@@ -156,7 +151,11 @@ gulp.task 'build', [
   'compass'
   'w3cjs'
   'copy'
-]
+], ->
+  gulp.src paths.dist + '/**/*'
+    .pipe $.size
+      showFiles: true,
+      gzip: true
 
 gulp.task 'release', (cb) ->
   runs(
