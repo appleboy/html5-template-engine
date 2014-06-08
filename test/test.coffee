@@ -21,7 +21,7 @@ describe 'html5 template generator test', ->
   it 'delete expected files', ->
     not_expected = [
       'dist/assets/vendor/',
-      'dist/assets/coffeescript/',
+      'dist/assets/coffee/',
       'dist/assets/sass/'
     ]
     for item in not_expected
