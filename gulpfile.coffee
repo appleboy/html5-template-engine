@@ -1,13 +1,12 @@
 'use strict'
 
-uuid = require 'uuid'
 gulp = require 'gulp'
 rjs = require 'requirejs'
 runs = require 'run-sequence'
-$ = require('gulp-load-plugins')();
+$ = require('gulp-load-plugins')()
 minifyCSS = require 'gulp-minify-css'
 production = true if $.util.env.env is 'production'
-filename = uuid.v4()
+filename = require('uuid').v4()
 
 paths =
   src: 'app'
