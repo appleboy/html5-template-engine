@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-    - '0.10'
+  - '0.10'
 before_install:
-    - gem update --system
-    - gem install sass
-    - gem install compass
-    - npm install -g grunt-cli
+  - gem update --system
+  - gem install sass
+  - gem install compass
+  - npm install -g grunt-cli
 env:
-    global:
-        - secure: "bsDw5Lzf+XL075JPOt4xvaxGpbuUZ9KTIsHStVVG56lTLcnJKo5e8mqIAn6wK+ID6lDVZHpTvV8MZ3WoeqqD9BCoFMXWhmrMOOn+eRjDkkN9adGktU1yctr+6Hmz5mX114F23LqsrhwGgIGlVI8iQmkEgq/inHEDAmmqkn55UiU="
-        - REPO="git@github.com:appleboy/html5-template-engine"
+  global:
+    - secure: "bsDw5Lzf+XL075JPOt4xvaxGpbuUZ9KTIsHStVVG56lTLcnJKo5e8mqIAn6wK+ID6lDVZHpTvV8MZ3WoeqqD9BCoFMXWhmrMOOn+eRjDkkN9adGktU1yctr+6Hmz5mX114F23LqsrhwGgIGlVI8iQmkEgq/inHEDAmmqkn55UiU="
+    - REPO="git@github.com:appleboy/html5-template-engine"
 after_success: build/after_success.sh

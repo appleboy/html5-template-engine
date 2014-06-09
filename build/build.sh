@@ -9,10 +9,10 @@ YELLOW="\033[33m"
 RESET="\033[0m"
 
 display () {
-    COLOR=$2
-    [ -z $2 ] && COLOR=${YELLOW}
-    echo
-    echo -e "${COLOR}=> $1 ${RESET}"
+  COLOR=$2
+  [ -z $2 ] && COLOR=${YELLOW}
+  echo
+  echo -e "${COLOR}=> $1 ${RESET}"
 }
 
 ##
@@ -21,23 +21,23 @@ display () {
 
 which gem 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    display "Please install gem tool via aptitude command."
-    display "$ sudo aptitude -y install ruby rake rubygems"
-    exit
+  display "Please install gem tool via aptitude command."
+  display "$ sudo aptitude -y install ruby rake rubygems"
+  exit
 fi
 
 which compass 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    display "update rubygems tool."
-    sudo gem update --system
-    display "install compass and sass tool."
-    sudo gem install sass compass
+  display "update rubygems tool."
+  sudo gem update --system
+  display "install compass and sass tool."
+  sudo gem install sass compass
 fi
 
 which guard 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    display "Install guard livereload tool."
-    sudo gem install rb-inotify guard-livereload yajl-ruby
+  display "Install guard livereload tool."
+  sudo gem install rb-inotify guard-livereload yajl-ruby
 fi
 
 ##
@@ -46,13 +46,13 @@ fi
 
 which npm 1> /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    display "install nvm tool."
-    curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
-    . ~/.nvm/nvm.sh # This loads NVM
-    display "install node.js stable version."
-    nvm install stable
-    display "use node.js stable version."
-    nvm use stable
+  display "install nvm tool."
+  curl https://raw.github.com/appleboy/nvm/develop/install.sh | sh
+  . ~/.nvm/nvm.sh # This loads NVM
+  display "install node.js stable version."
+  nvm install stable
+  display "use node.js stable version."
+  nvm use stable
 fi
 
 display "install coffee-script tool"

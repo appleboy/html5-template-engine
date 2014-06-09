@@ -10,8 +10,8 @@ app.use express.errorHandler()
 
 # simple logger
 app.use (req, res, next) ->
-    console.log '%s %s', req.method, req.url
-    next()
+  console.log '%s %s', req.method, req.url
+  next()
 
 app.use(app.router)
 app.listen(port)
