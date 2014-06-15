@@ -67,7 +67,6 @@
     "gulp-size": "~0.2.0",
     "gulp-uglify": "^0.3.0",
     "gulp-util": "^2.2.14",
-    "gulp-w3cjs": "~0.1.2",
     "lazypipe": "^0.2.1",
     "mocha": "^1.18.2",
     "mocha-phantomjs": "~3.3.2",
