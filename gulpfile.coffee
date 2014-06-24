@@ -71,16 +71,12 @@ gulp.task 'lint', ->
     .pipe $.jshint.reporter 'default'
 
 # Clean
-gulp.task 'clean', ->
-  gulp.src([
+gulp.task 'clean', require('del').bind null, [
     paths.dist
     '.sass-cache'
     paths.script
     paths.css
-  ],
-    read: false
-  ).pipe $.clean()
-
+  ]
 
 # Images
 gulp.task 'images', ->
