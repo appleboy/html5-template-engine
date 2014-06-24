@@ -10,7 +10,7 @@
   console = (window.console = window.console || {})
   noop = ->
 
-  while (length--)
+  while (length -= 1)
     method = methods[length]
 
     if (!console[method])
