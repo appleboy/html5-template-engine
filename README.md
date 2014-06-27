@@ -1,4 +1,5 @@
 # Html5 Template Engine
+
 [![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine)
 
 ## Features
@@ -18,22 +19,22 @@
 
 ## Install develop tool
 
-    $ ./build/build.sh
+  $ ./build/build.sh
 
 or
 
-    $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | bash
+  $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | bash
 
 ## Setup Environment
 
 Download source code.
 
-    $ git clone https://github.com/appleboy/html5-template-engine.git
+  $ git clone https://github.com/appleboy/html5-template-engine.git
 
 Install vendor library and npm library.
 
-    $ npm install
-    $ bower install
+  $ npm install
+  $ bower install
 
 ## Develop a project manually
 
@@ -41,23 +42,23 @@ Install vendor library and npm library.
 
 Compass is an open-source CSS Authoring Framework. http://compass-style.org/
 
-    $ compass watch .
+  $ compass watch .
 
 ### Use CoffeeScript
 
 CoffeeScript is a little language that compiles into JavaScript. http://coffeescript.org/
 
-    $ coffee -b -w -c -o assets/js assets/coffeescript
+  $ coffee -b -w -c -o assets/js assets/coffeescript
 
 ### Minify Javascript using RequireJS
 
 Using Makefile.
 
-    $ make
+  $ make
 
 or command line.
 
-    $ r.js -o build/self.build.js
+  $ r.js -o build/self.build.js
 
 Testing minified javascript file. Please modify index.html and find the following text.
 
@@ -73,11 +74,11 @@ Replace with:
 
 Run local server (use root permission)
 
-    $ node build/server.js
+  $ node build/server.js
 
 Using Makefile.
 
-    $ make server
+  $ make server
 
 open the following URL on browser.
 
@@ -89,13 +90,13 @@ http://your_host_name:4000/
 
 Before using [GruntJS](http://gruntjs.com/) or [Gulp](http://gulpjs.com/) tool, please make sure excute the following command.
 
-    $ npm install
+  $ npm install
 
 ### Using GruntJS
 
 Using [GruntJS](http://gruntjs.com/) tool to setup develop environment.
 
-    $ npm run grunt
+  $ npm run grunt
 
 Output the following message.
 
@@ -115,49 +116,49 @@ Please install [livereload](http://livereload.com/) plugin depend on your browse
 
 Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
 
-    $ npm run gulp
-
-[CoffeeScript](http://coffeescript.org/) version
-
-    $ npm run gulp-coffee
-
-[LiveScript](http://livescript.net/) version
-
-    $ npm run gulp-lsc
+  $ npm start
 
 Output the following message.
 
 ```
-[gulp] Using gulpfile /home/git/html5-template-engine/gulpfile.js
-[gulp] Starting 'clean'...
-[gulp] Starting 'connect'...
-[gulp] Server started http://localhost:1337
-[gulp] LiveReload started on port 35729
-[gulp] Finished 'connect' after 16 ms
-[gulp] Starting 'watch'...
-[gulp] Finished 'watch' after 19 ms
-[gulp] Finished 'clean' after 49 ms
-[gulp] Starting 'default'...
-[gulp] Finished 'default' after 39 μs
+> html5-template-engine@1.0.0 start /home/xxx/html5-template-engine
+> gulp
+
+[10:50:37] Requiring external module coffee-script/register
+[10:50:37] Using gulpfile /home/xxx/html5-template-engine/gulpfile.coffee
+[10:50:37] Starting 'default'...
+[10:50:37] Starting 'coffee'...
+[10:50:37] Starting 'compass'...
+[10:50:37] Finished 'coffee' after 132 ms
+directory app/assets/css/
+   create app/assets/css/main.css
+
+[10:50:38] Finished 'compass' after 449 ms
+[10:50:38] Starting 'connect:app'...
+[10:50:38] Finished 'connect:app' after 17 ms
+[10:50:38] Finished 'default' after 509 ms
+[BS] Local: >>> http://localhost:3001
+[BS] External: >>> http://xxx.xxx.xxx.xxx:3001
+[BS] Serving files from: app
 ```
 
 ## Deploy Your App
 
 ### Using Makefile
 
-    $ make release
+  $ make release
 
 or defined your build output path. (default: output)
 
-    $ make -m output_path=output2 release
+  $ make -m output_path=output2 release
 
 ### Using GruntJS
 
-    $ ./node_modules/.bin/grunt release
+  $ ./node_modules/.bin/grunt release
 
 Copy ``output`` folder to your root document path.
 
-    $ cp -r output /var/www/html5
+  $ cp -r output /var/www/html5
 
 open the following URL on browser.
 
@@ -169,21 +170,21 @@ http://your_host_name/html5/
 
 ### Using Makefile
 
-    $ make test
+  $ make test
 
 ### Using GruntJS
 
-    $ ./node_modules/.bin/grunt test
+  $ ./node_modules/.bin/grunt test
 
 ## Clean Your Project
 
 ### Using Makefile
 
-    $ make clean
+  $ make clean
 
 ### Using GruntJS
 
-    $ ./node_modules/.bin/grunt clean
+  $ ./node_modules/.bin/grunt clean
 
 ## Support Terminal in Chrome Devtools
 
@@ -191,8 +192,8 @@ If you’re on a Mac, just download this [Chrome extension](https://chrome.googl
 
 If you’re not on a Mac, you can connect to your system’s terminal via Node.js proxy. It can be localhost or some other remote server.
 
-    $ npm install -g devtools-terminal
-    $ devtools-terminal --config terminal.js
+  $ npm install -g devtools-terminal
+  $ devtools-terminal --config terminal.js
 
 Please refer more [detail information](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 
