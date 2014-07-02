@@ -108,6 +108,13 @@ gulp.task 'connect:app', ->
   gulp.watch paths.script + '/**/*.js', reload
   gulp.watch paths.css + '/**/*.css', reload
 
+# Build and serve the output from the dist build
+gulp.task 'connect:dist', ->
+  browserSync
+    notify: false
+    server:
+      baseDir: 'dist'
+
 gulp.task 'copy', ->
   gulp.src [
     paths.src + '/.htaccess'
