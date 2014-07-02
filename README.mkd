@@ -12,6 +12,7 @@
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/).
 * Support documentation generator [Docco](http://jashkenas.github.io/docco/).
 * Support streaming build system [Gulp](http://gulpjs.com/).
+* Support [browser-sync](http://browsersync.io) Keep multiple browsers & devices in sync when building websites.
 * Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 * Support Minify PNG and JPEG images with [image-min](https://github.com/sindresorhus/gulp-imagemin).
 
