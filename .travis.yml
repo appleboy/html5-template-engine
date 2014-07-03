@@ -5,7 +5,6 @@ before_install:
   - gem update --system
   - gem install sass
   - gem install compass
-  - npm install -g grunt-cli
 env:
   global:
     - secure: "bsDw5Lzf+XL075JPOt4xvaxGpbuUZ9KTIsHStVVG56lTLcnJKo5e8mqIAn6wK+ID6lDVZHpTvV8MZ3WoeqqD9BCoFMXWhmrMOOn+eRjDkkN9adGktU1yctr+6Hmz5mX114F23LqsrhwGgIGlVI8iQmkEgq/inHEDAmmqkn55UiU="
