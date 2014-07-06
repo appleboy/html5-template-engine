@@ -8,183 +8,69 @@
 * Includes [Normalize.scss](https://github.com/appleboy/normalize.scss) v2.1.x and v1.1.x.
 * The latest [jQuery](http://jquery.com/) and [Modernizr](http://modernizr.com/) via [Bower](http://bower.io/) package manager.
 * Support [CoffeeScript](http://coffeescript.org/), [RequireJS](http://requirejs.org/), [Compass](http://compass-style.org/), html minification (via [htmlcompressor](http://code.google.com/p/htmlcompressor/)).
-* A lightweight web server listen to 4000 port (Using [Node Express Framework](http://expressjs.com/)).
 * Support JavaScript Task Runner [GruntJS](http://gruntjs.com/).
 * Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/).
-* Support documentation generator [Docco](http://jashkenas.github.io/docco/).
 * Support streaming build system [Gulp](http://gulpjs.com/).
 * Support [browser-sync](http://browsersync.io) Keep multiple browsers & devices in sync when building websites.
 * Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
 * Support Minify PNG and JPEG images with [image-min](https://github.com/sindresorhus/gulp-imagemin).
 
-## Install develop tool
+## Installation
 
-  $ ./build/build.sh
+Please install node.js first (>0.10) and [bower](http://bower.io/) package manager
 
-or
-
-  $ curl https://raw.github.com/appleboy/html5-template-engine/master/build/build.sh | bash
-
-## Setup Environment
-
-Download source code.
-
-  $ git clone https://github.com/appleboy/html5-template-engine.git
-
-Install vendor library and npm library.
-
-  $ npm install
-  $ bower install
-
-## Develop a project manually
-
-### Use Compass CSS Framework
-
-Compass is an open-source CSS Authoring Framework. http://compass-style.org/
-
-  $ compass watch .
-
-### Use CoffeeScript
-
-CoffeeScript is a little language that compiles into JavaScript. http://coffeescript.org/
-
-  $ coffee -b -w -c -o assets/js assets/coffeescript
-
-### Minify Javascript using RequireJS
-
-Using Makefile.
-
-  $ make
-
-or command line.
-
-  $ r.js -o build/self.build.js
-
-Testing minified javascript file. Please modify index.html and find the following text.
-
-```
-<script data-main="assets/js/main" src="assets/js/vendor/requirejs/require.js"></script>
+```bash
+$ npm install -g bower
+$ npm install && bower install
 ```
 
-Replace with:
+Start App
 
-```
-<script data-main="assets/js/main-built" src="assets/js/vendor/requirejs/require.js"></script>
-```
-
-Run local server (use root permission)
-
-  $ node build/server.js
-
-Using Makefile.
-
-  $ make server
-
-open the following URL on browser.
-
-```
-http://your_host_name:4000/
+```bash
+$ npm start
 ```
 
-## Develop a project automatically
-
-Before using [GruntJS](http://gruntjs.com/) or [Gulp](http://gulpjs.com/) tool, please make sure excute the following command.
-
-  $ npm install
-
-### Using GruntJS
-
-Using [GruntJS](http://gruntjs.com/) tool to setup develop environment.
-
-  $ npm run grunt
-
-Output the following message.
+Excuting above command will output the following message.
 
 ```
-Running "init" task
-Initial project
-
-Running "connect:livereload" (connect) task
-Started connect web server on localhost:4000.
-
-Running "watch" task
-Waiting...
-```
-Please install [livereload](http://livereload.com/) plugin depend on your browser. ex: [Safari extension](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz), [Firefox addon](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi), or [Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
-
-### Using Gulp
-
-Using [Gulp](http://gulpjs.com/) tool to setup develop environment.
-
-  $ npm start
-
-Output the following message.
-
-```
-> html5-template-engine@1.0.0 start /home/xxx/html5-template-engine
+> html5-template-engine@1.0.0 start /home/xxxxx/html5-template-engine
 > gulp
 
-[10:50:37] Requiring external module coffee-script/register
-[10:50:37] Using gulpfile /home/xxx/html5-template-engine/gulpfile.coffee
-[10:50:37] Starting 'default'...
-[10:50:37] Starting 'coffee'...
-[10:50:37] Starting 'compass'...
-[10:50:37] Finished 'coffee' after 132 ms
+[13:25:09] Requiring external module coffee-script/register
+[13:25:11] Using gulpfile /home/xxxxx/html5-template-engine/gulpfile.coffee
+[13:25:11] Starting 'default'...
+[13:25:11] Starting 'coffee'...
+[13:25:11] Starting 'compass'...
+[13:25:11] Finished 'coffee' after 253 ms
 directory app/assets/css/
    create app/assets/css/main.css
 
-[10:50:38] Finished 'compass' after 449 ms
-[10:50:38] Starting 'connect:app'...
-[10:50:38] Finished 'connect:app' after 17 ms
-[10:50:38] Finished 'default' after 509 ms
+[13:25:12] Finished 'compass' after 1.08 s
+[13:25:12] Starting 'connect:app'...
+[13:25:12] Finished 'connect:app' after 34 ms
+[13:25:12] Finished 'default' after 1.2 s
 [BS] Local: >>> http://localhost:3001
-[BS] External: >>> http://xxx.xxx.xxx.xxx:3001
+[BS] External: >>> http://172.168.0.122:3001
 [BS] Serving files from: app
 ```
 
-## Deploy Your App
+Open browser like chrome or firefox and enter http://localhost:1337 URL.
 
-### Using Makefile
+## Release
 
-  $ make release
+Execute the following command will generate `dist` folder.
 
-or defined your build output path. (default: output)
-
-  $ make -m output_path=output2 release
-
-### Using GruntJS
-
-  $ ./node_modules/.bin/grunt release
-
-Copy ``output`` folder to your root document path.
-
-  $ cp -r output /var/www/html5
-
-open the following URL on browser.
-
-```
-http://your_host_name/html5/
+```bash
+$ npm release
 ```
 
-## Test Your Project
+## Test
 
-### Using Makefile
+To test release process by following command.
 
-  $ make test
-
-### Using GruntJS
-
-  $ ./node_modules/.bin/grunt test
-
-## Clean Your Project
-
-### Using Makefile
-
-  $ make clean
-
-### Using GruntJS
-
-  $ ./node_modules/.bin/grunt clean
+```bash
+$ npm test
+```
 
 ## Support Terminal in Chrome Devtools
 
