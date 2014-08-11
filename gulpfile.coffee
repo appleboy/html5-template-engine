@@ -166,4 +166,10 @@ gulp.task 'release', (cb) ->
     ['build', 'rjs', 'rename']
     cb)
 
+# Load custom tasks from the `tasks` directory
+try
+  require('require-dir')('tasks')
+catch error
+  print error
+
 module.exports = gulp
