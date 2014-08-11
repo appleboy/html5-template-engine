@@ -44,10 +44,9 @@ gulp.task 'test_coffee', ->
 gulp.task 'html', ->
   gulp.src paths.src + '/*.html'
     .pipe $.if !production, $.changed paths.dist
-    .pipe $.if production, $.htmlmin(
+    .pipe $.if production, $.htmlmin
       removeComments: true
       collapseWhitespace: true
-    )
     .pipe $.if production, $.replace 'js/main', 'js/' + filename
     .pipe $.if production, $.replace 'vendor/requirejs/require.js', 'js/require.js'
     .pipe gulp.dest paths.dist
@@ -170,6 +169,5 @@ gulp.task 'release', (cb) ->
 try
   require('require-dir')('tasks')
 catch error
-  print error
 
 module.exports = gulp
