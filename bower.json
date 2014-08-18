@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "jquery": "~2.1.1",
-    "normalize-scss": "~3.0.0",
-    "modernizr": "~2.8.2",
+    "normalize-scss": "~3.0.1",
+    "modernizr": "~2.8.3",
     "requirejs": "~2.1.14"
   },
   "ignore": [
