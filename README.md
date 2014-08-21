@@ -62,7 +62,7 @@ Open browser like chrome or firefox and enter http://localhost:1337 URL.
 Execute the following command will generate `dist` folder.
 
 ```bash
-$ npm release
+$ npm run release
 ```
 
 ## Test
