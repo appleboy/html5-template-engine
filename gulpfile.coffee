@@ -4,7 +4,6 @@ gulp = require 'gulp'
 rjs = require 'requirejs'
 runs = require 'run-sequence'
 $ = require('gulp-load-plugins')()
-minifyCSS = require 'gulp-minify-css'
 production = true if $.util.env.env is 'production'
 filename = require('uuid').v4()
 lazypipe = require 'lazypipe'
@@ -44,9 +43,7 @@ gulp.task 'test_coffee', ->
 gulp.task 'html', ->
   gulp.src paths.src + '/*.html'
     .pipe $.if !production, $.changed paths.dist
-    .pipe $.if production, $.htmlmin
-      removeComments: true
-      collapseWhitespace: true
+    .pipe $.if production, $.minifyHtml()
     .pipe $.if production, $.replace 'js/main', 'js/' + filename
     .pipe $.if production, $.replace 'vendor/requirejs/require.js', 'js/require.js'
     .pipe gulp.dest paths.dist
@@ -60,7 +57,7 @@ gulp.task 'compass', ->
       sass: paths.sass
       image: paths.image
     .on('error', ->)
-    .pipe $.if production, minifyCSS()
+    .pipe $.if production, $.csso()
     .pipe gulp.dest paths.dist + '/assets/css/'
 
 gulp.task 'lint', ->
