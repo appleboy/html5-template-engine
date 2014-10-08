@@ -52,11 +52,14 @@ gulp.task 'compass', ->
   gulp.src paths.sass + '/**/*.scss'
     .pipe $.if !production, $.changed paths.css,
       extension: '.css'
+    .pipe $.if !production, $.plumber
+      errorHandler: (error) ->
+        $.util.log $.util.colors.red error.message
+        this.emit('end')
     .pipe $.compass
       css: paths.css
       sass: paths.sass
       image: paths.image
-    .on('error', ->)
     .pipe $.if production, $.csso()
     .pipe gulp.dest paths.dist + '/assets/css/'
 
