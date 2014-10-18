@@ -8,6 +8,7 @@ production = true if $.util.env.env is 'production'
 filename = require('uuid').v4()
 lazypipe = require 'lazypipe'
 browserSync = require 'browser-sync'
+pngcrush = require 'imagemin-pngcrush'
 reload = browserSync.reload
 
 paths =
@@ -82,7 +83,8 @@ gulp.task 'images', ->
     .pipe $.changed paths.dist + '/assets/images'
     .pipe $.cache $.imagemin
       progressive: true
-      interlaced: true
+      svgoPlugins: [{removeViewBox: false}]
+      use: [pngcrush()]
     .pipe gulp.dest paths.dist + '/assets/images'
 
 # testing via mocha tool
