@@ -1,6 +1,6 @@
 # Html5 Template Engine
 
-[![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![Build Status](http://jenkins.wu-boy.com/buildStatus/icon?job=html5-template-engine)](http://jenkins.wu-boy.com/job/html5-template-engine/)
+[![Build Status](https://travis-ci.org/appleboy/html5-template-engine.png)](http://travis-ci.org/appleboy/html5-template-engine) [![devDependency Status](https://david-dm.org/appleboy/html5-template-engine/dev-status.svg)](https://david-dm.org/appleboy/html5-template-engine#info=devDependencies) [![Build Status](http://jenkins.wu-boy.com/buildStatus/icon?job=html5-template-engine)](http://jenkins.wu-boy.com/job/html5-template-engine/)
 
 ##### Hint: [New Slush generator Html5 web apps](https://github.com/appleboy/slush-html5-template) available
 
