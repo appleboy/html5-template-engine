@@ -116,7 +116,6 @@ gulp.task 'connect:dist', ->
 
 gulp.task 'copy', ->
   gulp.src [
-    paths.src + '/.htaccess'
     paths.src + '/favicon.ico'
     paths.src + '/robots.txt'
     'node_modules/apache-server-configs/dist/.htaccess']
