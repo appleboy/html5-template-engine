@@ -11,6 +11,8 @@ browserSync = require 'browser-sync'
 pngcrush = require 'imagemin-pngcrush'
 reload = browserSync.reload
 
+$.help gulp
+
 paths =
   src: 'app'
   script: 'app/assets/js'
