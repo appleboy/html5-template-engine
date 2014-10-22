@@ -18,12 +18,12 @@
     "url": "git://github.com/appleboy/html5-template-engine.git"
   },
   "devDependencies": {
-    "apache-server-configs": "^2.8.0",
+    "apache-server-configs": "^2.10.0",
     "bower": "^1.3.12",
     "browser-sync": "^1.5.8",
     "coffee-script": "^1.8.0",
     "del": "^0.1.3",
-    "gulp": "^3.8.8",
+    "gulp": "^3.8.9",
     "gulp-cache": "^0.2.4",
     "gulp-changed": "^1.0.0",
     "gulp-coffee": "^2.2.0",
@@ -44,7 +44,7 @@
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.0",
     "lazypipe": "^0.2.2",
-    "mocha": "^1.21.5",
+    "mocha": "^2.0.0",
     "require-dir": "^0.1.0",
     "requirejs": "^2.1.15",
     "run-sequence": "^1.0.1",
