@@ -16,7 +16,6 @@
   "unused": true,
   "strict": true,
   "globals": {
-    /* MOCHA */
     "describe": false,
     "it": false,
     "before": false,
