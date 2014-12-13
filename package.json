@@ -34,7 +34,7 @@
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.0.0",
     "gulp-jshint": "^1.9.0",
-    "gulp-load-plugins": "^0.7.1",
+    "gulp-load-plugins": "^0.8.0",
     "gulp-minify-html": "^0.1.7",
     "gulp-mocha": "^2.0.0",
     "gulp-plumber": "^0.6.6",
