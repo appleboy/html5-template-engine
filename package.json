@@ -53,8 +53,8 @@
   "scripts": {
     "start": "gulp",
     "postinstall": "bower install",
-    "release": "bower install && gulp release --env production",
-    "test": "bower install && gulp release --env production && gulp test"
+    "release": "gulp release --env production",
+    "test": "gulp release --env production && gulp test"
   },
   "engines": {
     "node": ">= 0.10.0"
