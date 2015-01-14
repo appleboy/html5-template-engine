@@ -22,7 +22,7 @@ Please install node.js first (>0.10) and [bower](http://bower.io/) package manag
 
 ```bash
 $ npm install -g bower
-$ npm install && bower install
+$ npm install
 ```
 
 Start App
