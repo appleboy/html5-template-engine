@@ -62,7 +62,7 @@ gulp.task 'compass', ->
       css: paths.css
       sass: paths.sass
       image: paths.image
-    .pipe $.if production, $.csso()
+    .pipe $.if production, $.minifyCss()
     .pipe gulp.dest paths.dist + '/assets/css/'
 
 gulp.task 'lint', ->
