@@ -10,7 +10,7 @@
 * Includes [Normalize.scss](https://github.com/appleboy/normalize.scss) v2.1.x and v1.1.x.
 * The latest [jQuery](http://jquery.com/) and [Modernizr](http://modernizr.com/) via [Bower](http://bower.io/) package manager.
 * Support [CoffeeScript](http://coffeescript.org/), [RequireJS](http://requirejs.org/), [Compass](http://compass-style.org/), html minification (via [htmlcompressor](http://code.google.com/p/htmlcompressor/)).
-* Support JavaScript test framework [Mocha](http://visionmedia.github.io/mocha/).
+* Support JavaScript test framework [Mocha](http://mochajs.org/).
 * Support streaming build system [Gulp](http://gulpjs.com/).
 * Support [browser-sync](http://browsersync.io) Keep multiple browsers & devices in sync when building websites.
 * Support [Terminal in Chrome Devtools](http://www.html5rocks.com/en/tutorials/developertools/devtools-terminal/).
