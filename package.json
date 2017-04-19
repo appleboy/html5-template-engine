@@ -47,7 +47,7 @@
     "lazypipe": "^0.2.2",
     "mocha": "^3.0.0",
     "require-dir": "^0.3.0",
-    "requirejs": "^2.1.15",
+    "requirejs": "^2.3.0",
     "run-sequence": "^1.0.2",
     "uuid": "^2.0.1"
   },
